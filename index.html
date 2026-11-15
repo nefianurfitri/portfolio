@@ -1215,15 +1215,15 @@ const FOLDERS=[
   ["work","Work and internships","BINTARI Foundation, COSPLAY Teaching Industry and BAPPEDA Jawa Tengah · 2022 – present"],
   ["study","University coursework","Spatial Planning and Land Management, Universitas Diponegoro · 2020 – 2024"],
   ["research","Research beyond coursework","Journal papers, a conference paper and a national student research programme · 2022 – 2026"],
-  ["org","Organisations","Cakap Kota and student bodies at Universitas Diponegoro · 2020 – present"],
+  ["org","Organisations","Cakap Kota, and department and faculty student bodies at Universitas Diponegoro · 2020 – present"],
   ["award","Achievements","Awards and selections · 2021 – 2023"]];
 const CAT={klhs:"work",ghg:"work",comms:"work",parakan:"work",ipei:"work",thesis:"study",bob:"study",singempon:"study",profiles:"study",coast:"research",tod:"research",housing:"research",pkm:"research"};
 const FEAT=new Set(["klhs","thesis","singempon","coast","pkm"]);
 PROJECTS.forEach(p=>{p.cat=CAT[p.id];p.feature=FEAT.has(p.id);});
 const NOTES=[
   {cat:"org",title:"Cakap Kota",org:"Youth community for sustainable urban planning",period:"2025 – present",lines:["Researcher"]},
-  {cat:"org",title:"HIMAPARTA",org:"Spatial Planning and Land Management student association, Universitas Diponegoro",period:"2020 – 2024",lines:["Unit Head, Organisational Quality Assurance · 2022 – 2023","Staff, Internal Control Unit · 2021 – 2022","Guest speaker, URBAN 2025 research pillars: debate and PILMAPRES · 2024","Guest speaker, Bincang Pencerdasan LKMMD · 2022","Public Relations Officer, Musyawarah Mahasiswa Perintis · 2020"]},
-  {cat:"org",title:"Student bodies and community service",org:"Sekolah Vokasi, Universitas Diponegoro",period:"2021 – 2023",lines:["Expert Staff, Commission II, Student Senate · 2021 – 2022","Deputy Head of Event, LKMMD basic management training, BEM · 2022","Funding and Partnership Staff, Spatial Planning and Land Management Expo · 2022","Moderator and Group Facilitator, Orientasi Diponegoro Muda, BEM · 2021","Public Relations Officer, KKN Sumurboto community service, Semarang City · 2023"]},
+  {cat:"org",title:"HIMAPARTA",org:"Department-level student body, Spatial Planning and Land Management, Universitas Diponegoro",period:"2020 – 2024",lines:["Unit Head, Organisational Quality Assurance · 2022 – 2023","Staff, Internal Control Unit · 2021 – 2022","Guest speaker, URBAN 2025 research pillars: debate and PILMAPRES · 2024","Guest speaker, Bincang Pencerdasan LKMMD · 2022","Public Relations Officer, Musyawarah Mahasiswa Perintis · 2020"]},
+  {cat:"org",title:"Faculty student bodies and community service",org:"Faculty level: Student Senate and BEM, Sekolah Vokasi, Universitas Diponegoro",period:"2021 – 2023",lines:["Expert Staff, Commission II, Student Senate · 2021 – 2022","Deputy Head of Event, LKMMD basic management training, BEM · 2022","Moderator and Group Facilitator, Orientasi Diponegoro Muda, BEM · 2021","Funding and Partnership Staff, Spatial Planning and Land Management Expo · 2022","Public Relations Officer, KKN Sumurboto community service, Semarang City · 2023"]},
   {cat:"award",th:["urban"],title:"Phase 1, National Student Creativity Program (PKM)",org:"Scientific Article category",period:"Feb – Mar 2023",lines:["Economic sector development of Surakarta City using the Klassen Typology"],open:"pkm"},
   {cat:"award",title:"Outstanding Student Delegate, Mapping Scheme",org:"Universitas Diponegoro",period:"Apr 2022",lines:["Represented the study programme at faculty level"]},
   {cat:"award",title:"Best Female Speaker, LKMMD Debate League",org:"Sekolah Vokasi, Universitas Diponegoro",period:"Nov 2021",lines:["First speaker, reached the final stage"]}
