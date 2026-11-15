@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nefia Nur Fitri Portfolio</title>
+<meta name="description" content="Nefia Nur Fitri (Opi): urban and environmental planner working across urban planning, climate and sustainability in Central Java, Indonesia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+<style>
+/* Direction: colour plates. A cool paper page, a giant condensed name, and one saturated plate per theme
+   (coral Urban, blue Climate, green Sustainability) that carries white text. Theme colour always means a theme.
+   Type: Archivo, condensed through its width axis, for display; Plus Jakarta Sans for reading. */
+:root{
+  --bg:#F2F4F6;--surface:#FFFFFF;--ink:#14202B;--muted:#56636F;--rule:#E1E6EA;--line:#C9D1D8;
+  --urban:#E2552F;--urban-ink:#B33A16;--urban-soft:#FCE6DD;--urban-plate:#CF4520;
+  --climate:#2364C9;--climate-ink:#1A4E9F;--climate-soft:#E1EAF9;--climate-plate:#2364C9;
+  --sustain:#17865A;--sustain-ink:#0F6744;--sustain-soft:#DDF1E6;--sustain-plate:#14805A;
+  --land:#E6EBEE;--land-hover:#D3DBE1;--paper:var(--surface);
+  --map-bg:#FFFFFF;--map-land:#E4E9ED;--map-side:#B9C4CD;--map-edge:#A9B6C0;--map-label:#A4AFB9;--map-grid:rgba(20,32,43,.06);
+  --shadow:0 1px 2px rgba(20,32,43,.05),0 10px 30px rgba(20,32,43,.07);
+  --shadow-lg:0 2px 4px rgba(20,32,43,.06),0 24px 60px rgba(20,32,43,.14);
+  --photo:0 2px 4px rgba(0,0,0,.08),0 18px 40px rgba(0,0,0,.22);
+  --r:24px;
+  --font:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --display:"Archivo","Arial Narrow","Roboto Condensed",system-ui,sans-serif;
+  --mono:var(--font);
+  --gutter:clamp(16px,3.4vw,48px);
+  --max:1344px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1419;--surface:#172029;--ink:#EEF2F5;--muted:#9AA7B3;--rule:#24303B;--line:#33414E;
+    --urban:#EE6440;--urban-ink:#FF9273;--urban-soft:rgba(238,100,64,.16);
+    --climate:#4A8BE6;--climate-ink:#8EB9F5;--climate-soft:rgba(74,139,230,.18);
+    --sustain:#25A672;--sustain-ink:#63D3A1;--sustain-soft:rgba(37,166,114,.18);
+    --land:#1F2A34;--land-hover:#2B3742;
+    --map-bg:#172029;--map-land:#22303B;--map-side:#0A1015;--map-edge:#3A4856;--map-label:#51606C;--map-grid:rgba(238,242,245,.05);
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.25);
+    --shadow-lg:0 2px 4px rgba(0,0,0,.3),0 24px 60px rgba(0,0,0,.45);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1419;--surface:#172029;--ink:#EEF2F5;--muted:#9AA7B3;--rule:#24303B;--line:#33414E;
+  --urban:#EE6440;--urban-ink:#FF9273;--urban-soft:rgba(238,100,64,.16);
+  --climate:#4A8BE6;--climate-ink:#8EB9F5;--climate-soft:rgba(74,139,230,.18);
+  --sustain:#25A672;--sustain-ink:#63D3A1;--sustain-soft:rgba(37,166,114,.18);
+  --land:#1F2A34;--land-hover:#2B3742;
+  --map-bg:#172029;--map-land:#22303B;--map-side:#0A1015;--map-edge:#3A4856;--map-label:#51606C;--map-grid:rgba(238,242,245,.05);
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.25);
+  --shadow-lg:0 2px 4px rgba(0,0,0,.3),0 24px 60px rgba(0,0,0,.45);
+  color-scheme:dark;
+}
+
+/* ---------- base ---------- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--bg)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;overflow-x:clip;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration-thickness:1.5px;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--climate);outline-offset:3px;border-radius:6px}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4,h5{margin:0;text-wrap:balance;font-weight:800;letter-spacing:-.015em}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.mono{font-size:13.5px;font-weight:600;line-height:1.45}
+.muted{color:var(--muted)}
+.tnum{font-variant-numeric:tabular-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.t-urban{--c:var(--urban);--ci:var(--urban-ink);--cs:var(--urban-soft);--cp:var(--urban-plate)}
+.t-climate{--c:var(--climate);--ci:var(--climate-ink);--cs:var(--climate-soft);--cp:var(--climate-plate)}
+.t-sustain{--c:var(--sustain);--ci:var(--sustain-ink);--cs:var(--sustain-soft);--cp:var(--sustain-plate)}
+.tp{display:inline-flex;align-items:center;gap:6px;padding:3px 10px 3px 8px;border-radius:999px;background:var(--cs);color:var(--ci);font-size:12.5px;font-weight:700;white-space:nowrap;line-height:1.5}
+.tp::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c)}
+.tps{display:inline-flex;flex-wrap:wrap;gap:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{appearance:none;border:1.5px solid var(--line);background:transparent;padding:8px 15px;font-size:14px;font-weight:700;cursor:pointer;border-radius:999px;display:inline-flex;align-items:center;gap:8px;color:var(--ink);transition:background .2s,color .2s,border-color .2s}
+.chip:hover{border-color:var(--ink)}
+.chip[data-t]::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip[data-t][aria-pressed="true"]{background:var(--cp);color:#fff;border-color:var(--cp)}
+.chip[data-t][aria-pressed="true"]::before{background:#fff}
+.chip .n{opacity:.65;font-weight:600}
+.tag{display:inline-block;font-size:13px;font-weight:600;padding:5px 11px;border-radius:999px;background:var(--bg);color:var(--ink);white-space:nowrap;border:1px solid var(--rule)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:999px;cursor:pointer;transition:transform .15s,background .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.proof,.linkbtn{display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:0;cursor:pointer;font-size:14px;font-weight:700;color:var(--ci,var(--climate-ink));text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.proof:hover,.linkbtn:hover{color:var(--ink)}
+.proof svg{width:11px;height:11px}
+.stt{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;white-space:nowrap;background:var(--bg);color:var(--muted)}
+.stt.prog,.stt.start{background:#FFF1CC;color:#7A5000}
+
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transition:box-shadow .2s}
+.top.scrolled{box-shadow:0 1px 0 var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:66px}
+.mark{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:16px;text-decoration:none;white-space:nowrap}
+.mark i{display:inline-flex;gap:3px}
+.mark i b{width:9px;height:20px;border-radius:5px;background:var(--urban)}
+.mark i b:nth-child(2){background:var(--climate);height:14px;align-self:end}
+.mark i b:nth-child(3){background:var(--sustain);height:17px;align-self:end}
+.mark i{align-items:end;height:20px}
+.nav{display:flex;gap:4px;margin:0 auto}
+.nav a{padding:8px 13px;border-radius:999px;font-size:14.5px;font-weight:600;color:var(--muted);text-decoration:none;transition:background .2s,color .2s}
+.nav a:hover{color:var(--ink)}
+.nav a.on{background:var(--ink);color:var(--bg)}
+.top .btn{padding:9px 18px;font-size:14px}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;pointer-events:none}
+.progress i{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+@media (max-width:900px){.nav a.hide-s{display:none}}
+@media (max-width:640px){.nav{display:none}.top .btn{margin-left:auto}}
+
+/* ---------- section frame ---------- */
+.sec{padding:clamp(72px,9vw,128px) 0 0;scroll-margin-top:66px}
+.sec-head{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:28px 48px;align-items:end;margin-bottom:clamp(28px,4vw,48px)}
+.sec-head h2{font-family:var(--display);font-weight:900;font-stretch:70%;font-size:clamp(52px,7.6vw,116px);line-height:.86;letter-spacing:-.01em}
+.sec-head .lede{color:var(--muted);font-size:18px;line-height:1.55;max-width:44ch;padding-bottom:6px}
+@media (max-width:820px){.sec-head{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(18px,2.4vw,30px);scroll-margin-top:66px}
+.hero-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,360px);gap:28px 48px;align-items:end}
+#name{font-family:var(--display);font-weight:900;font-stretch:68%;font-size:clamp(72px,12.8vw,186px);line-height:.8;letter-spacing:-.012em;cursor:default;user-select:none;-webkit-user-select:none}
+#name .ln{display:block;white-space:nowrap}
+#name .ch{display:inline-block}
+.hero-side{padding-bottom:10px}
+.who{display:flex;gap:14px;align-items:center}
+.who img{width:68px;height:68px;border-radius:50%;object-fit:cover;object-position:50% 18%;background:#F6D9CF;flex:none}
+.who p{font-size:14.5px;line-height:1.4;color:var(--muted)}
+.who b{display:block;color:var(--ink);font-size:17px}
+.lead{margin-top:18px;font-size:19px;line-height:1.5}
+.facts{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:6px;font-size:14.5px;color:var(--muted)}
+.facts b{color:var(--ink);font-weight:800}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+@media (max-width:900px){.hero-top{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- hero plates ---------- */
+.plates{display:flex;gap:10px;height:clamp(420px,calc(100svh - 445px),520px);margin-top:clamp(20px,2.4vw,30px)}
+.plate{position:relative;flex:1 1 0;min-width:0;border-radius:32px;overflow:hidden;color:#fff;background:var(--cp);transition:flex-grow .8s cubic-bezier(.65,0,.25,1)}
+.plate.is-open{flex-grow:7}
+.plate:not(.is-open):hover{flex-grow:1.35}
+.plate::before{content:"";position:absolute;inset:0;opacity:.16;background:repeating-radial-gradient(circle at 92% 112%,transparent 0 26px,#fff 26px 27.5px);pointer-events:none}
+.plate-tab{position:absolute;inset:0;z-index:2;border:0;background:transparent;color:#fff;cursor:pointer;display:flex;flex-direction:column-reverse;align-items:center;justify-content:space-between;padding:28px 0 26px;transition:opacity .3s}
+.plate.is-open .plate-tab{opacity:0;pointer-events:none}
+.plate-tab:focus-visible{outline:3px solid #fff;outline-offset:-8px;border-radius:28px}
+.pv{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--display);font-weight:900;font-stretch:72%;font-size:clamp(34px,3.4vw,50px);line-height:1;white-space:nowrap}
+.pc{font-size:13.5px;font-weight:700;opacity:.9;white-space:nowrap}
+.plate-in{position:absolute;left:0;top:0;bottom:0;width:var(--pw,100%);padding:clamp(26px,2.8vw,38px) clamp(28px,3vw,42px) clamp(32px,3vw,42px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:30px;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
+.plate.is-open .plate-in{opacity:1;visibility:visible;transition:opacity .55s .3s,visibility 0s}
+.pt{display:flex;flex-direction:column;min-width:0}
+.pl{font-family:var(--display);font-weight:900;font-stretch:72%;font-size:clamp(54px,6vw,92px);line-height:.84;letter-spacing:-.01em}
+.pst{font-size:16.5px;line-height:1.5;margin-top:16px;max-width:46ch}
+.pfigs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:auto 0 0;padding-top:20px}
+.pfigs dt{font-family:var(--display);font-weight:800;font-stretch:74%;font-size:clamp(30px,2.9vw,44px);line-height:1;white-space:nowrap}
+.pfigs dd{margin:8px 0 0;font-size:13.5px;line-height:1.4;opacity:.92}
+.pbtn{align-self:flex-start;margin-top:20px;background:#fff;color:var(--cp);border:0;border-radius:999px;padding:13px 20px;font-weight:800;font-size:15px;cursor:pointer;transition:transform .15s}
+.pbtn:hover{transform:translateY(-2px)}
+.pbtn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.pph{position:relative;min-height:0}
+.pph > *{position:absolute;border-radius:16px;border:6px solid #fff;box-shadow:var(--photo);background:#fff;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.plate.is-open .pph > *:hover{transform:rotate(0) scale(1.03)!important;z-index:3}
+.pcard{display:grid;place-items:center;padding:8px;color:#14202B}
+.t-sustain .pl{font-size:clamp(46px,4.9vw,78px)}
+.pcard svg{width:100%;height:100%;display:block}
+.psect{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:8px!important;color:#14202B}
+.psect div{border-radius:10px;background:#EEF2F6;padding:10px 12px;display:flex;flex-direction:column;justify-content:flex-end}
+.psect div:first-child{background:var(--climate-plate);color:#fff}
+.psect b{font-family:var(--display);font-stretch:80%;font-size:22px;font-weight:800;line-height:1}
+.psect span{font-size:11.5px;font-weight:600;opacity:.75}
+.ptimer{position:absolute;left:clamp(28px,3vw,42px);right:clamp(28px,3vw,42px);bottom:14px;height:3px;border-radius:2px;background:rgba(255,255,255,.22);opacity:0;transition:opacity .3s;z-index:2}
+.plate.is-open .ptimer{opacity:1}
+.ptimer i{display:block;height:100%;border-radius:2px;background:#fff;transform-origin:left;transform:scaleX(0)}
+@media (max-width:1100px){.pfigs{grid-template-columns:repeat(2,minmax(0,1fr))}.pfigs div:nth-child(3){display:none}}
+@media (max-width:820px){
+  .plates{flex-direction:column;height:auto;gap:8px}
+  .plate{flex:none;border-radius:26px;transition:none}
+  .plate:not(.is-open):hover{flex-grow:0}
+  .plate-tab{position:relative;inset:auto;width:100%;flex-direction:row;justify-content:space-between;align-items:center;padding:18px 22px}
+  .pv{writing-mode:horizontal-tb;transform:none;font-size:34px}
+  .plate.is-open .plate-tab{display:none}
+  .plate-in{position:relative;width:auto;display:none;grid-template-columns:minmax(0,1fr);padding:24px 22px 28px;gap:22px;opacity:1;visibility:visible}
+  .plate.is-open .plate-in{display:grid}
+  .pph{height:250px;order:-1}
+  .pfigs{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.pfigs div:nth-child(3){display:block}
+  .pfigs dt{font-size:32px}
+  .pfigs dd{font-size:12.5px}
+  .ptimer{display:none}
+}
+
+/* ---------- experience ---------- */
+.xp{border-top:2px solid var(--ink)}
+.xh{font-size:inherit;font-weight:inherit;letter-spacing:0;margin:0}
+.xrow{border-bottom:1px solid var(--line)}
+.xhead{appearance:none;width:100%;border:0;background:none;text-align:left;cursor:pointer;position:relative;isolation:isolate;display:grid;grid-template-columns:200px minmax(0,1fr) auto 44px;gap:24px;align-items:center;padding:22px 18px;margin:6px 0;border-radius:18px;transition:color .3s}
+.xhead::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:18px;background:var(--cp);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.65,0,.25,1)}
+.xhead:hover,.xrow.is-open .xhead{color:#fff}
+.xhead:hover::before,.xrow.is-open .xhead::before{transform:scaleX(1)}
+.xhead:hover .tp,.xrow.is-open .xhead .tp{background:rgba(255,255,255,.2);color:#fff}
+.xhead:hover .tp::before,.xrow.is-open .xhead .tp::before{background:#fff}
+.xwhen{font-family:var(--display);font-weight:800;font-stretch:76%;font-size:clamp(24px,2.3vw,32px);line-height:1}
+.xwhen small{display:block;font-family:var(--font);font-stretch:100%;font-size:13.5px;font-weight:600;opacity:.75;margin-top:6px}
+.xrole b{display:block;font-size:clamp(18px,1.7vw,22px);font-weight:800;letter-spacing:-.01em;line-height:1.25}
+.xrole span{display:block;font-size:15px;font-weight:500;opacity:.8;margin-top:3px}
+.xplus{width:42px;height:42px;border-radius:50%;border:1.5px solid currentColor;position:relative;opacity:.8}
+.xplus::before,.xplus::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;background:currentColor;transform:translate(-50%,-50%);transition:transform .35s}
+.xplus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.xrow.is-open .xplus::after{transform:translate(-50%,-50%) rotate(0)}
+.xbody{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.65,0,.25,1)}
+.xrow.is-open .xbody{grid-template-rows:1fr}
+.xin{overflow:hidden;min-height:0;display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,300px);gap:24px;padding:0 18px}
+.xin > :first-child{grid-column:2}
+.xin ul{margin:8px 0 0;padding-left:20px;font-size:16px;line-height:1.6}
+.xin li{margin-top:7px}
+.xin li::marker{color:var(--c)}
+.xin .rp{display:flex;flex-wrap:wrap;gap:8px 20px;margin:16px 0 26px}
+.rphoto{grid-column:3;grid-row:1;align-self:start;margin:10px 0 26px;border:0;padding:0;border-radius:16px;overflow:hidden;cursor:zoom-in;rotate:2deg;box-shadow:var(--photo);border:6px solid var(--surface);background:var(--surface)}
+.rphoto img{width:100%;height:220px;object-fit:cover}
+@media (max-width:820px){
+  .xhead{grid-template-columns:minmax(0,1fr) 42px;gap:10px 16px;padding:18px 14px}
+  .xhead .tps{display:none}
+  .xwhen{grid-column:1}.xrole{grid-column:1}.xplus{grid-column:2;grid-row:1/3}
+  .xin{grid-template-columns:minmax(0,1fr);padding:0 6px}
+  .xin > :first-child{grid-column:1}
+  .rphoto{grid-column:1;grid-row:auto;rotate:0deg;margin-top:0}
+}
+
+/* ---------- map ---------- */
+.mapbox{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,380px);gap:14px;align-items:start}
+.stage3d{position:relative;border-radius:32px;overflow:hidden;background:var(--map-bg);box-shadow:var(--shadow);isolation:isolate}
+.stage3d::before{content:"";display:block;padding-top:68%}
+.stage3d canvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:pan-y}
+.stage3d canvas.drag{cursor:grabbing}
+.mhud{position:absolute;left:28px;top:24px;pointer-events:none;max-width:56%}
+.myr{font-family:var(--display);font-weight:900;font-stretch:72%;font-size:clamp(44px,5vw,76px);line-height:.9;font-variant-numeric:tabular-nums}
+.mcnt{margin-top:8px;font-size:15.5px;color:var(--muted)}
+.mcnt b{color:var(--ink);font-weight:800}
+.mcap{margin-top:4px;font-size:14px;line-height:1.45;color:var(--muted);max-width:36ch;min-height:2.9em}
+.mtime{position:absolute;left:24px;bottom:20px;display:flex;align-items:center;gap:6px;padding:6px;border-radius:999px;background:var(--bg);box-shadow:var(--shadow)}
+.mplay{flex:none;width:36px;height:36px;border-radius:50%;border:0;background:var(--ink);color:var(--bg);cursor:pointer;display:grid;place-items:center}
+#mStops{display:flex;gap:2px}
+#mStops button{appearance:none;border:0;background:none;color:var(--muted);font:700 13px var(--font);font-variant-numeric:tabular-nums;padding:8px 11px;border-radius:999px;cursor:pointer}
+#mStops button:hover{color:var(--ink)}
+#mStops button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.mtip{position:absolute;z-index:4;transform:translate(-50%,-100%);background:var(--ink);color:var(--bg);border-radius:12px;padding:7px 12px 8px;font-size:13px;line-height:1.3;white-space:nowrap;pointer-events:none;box-shadow:var(--shadow-lg)}
+.mtip b{display:block;font-weight:800}
+.mtip span{opacity:.75}
+.mside{background:var(--surface);border-radius:32px;padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;min-height:0;max-height:var(--mh,none);overflow:auto}
+.mpick{display:grid;gap:6px;font-size:13.5px;font-weight:700;color:var(--muted)}
+.mpick select{font:600 15px var(--font);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:14px;padding:10px 12px}
+.mpanel h3{font-family:var(--display);font-stretch:78%;font-weight:800;font-size:30px;line-height:1;margin-top:4px}
+.mp-k{font-size:13px;font-weight:700;color:var(--muted)}
+.mp-n{margin-top:6px;color:var(--muted);font-size:14.5px}
+.mp-back{appearance:none;border:0;background:var(--bg);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;cursor:pointer;margin-bottom:12px}
+.mp-sum{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px}
+.mp-sum li{display:flex;align-items:baseline;gap:12px;padding:12px 14px;border-radius:16px;background:var(--cp);color:#fff}
+.mp-sum b{font-family:var(--display);font-stretch:78%;font-weight:800;font-size:30px;line-height:1}
+.mp-sum span{font-size:14.5px;font-weight:600}
+.mp-prov{margin-top:14px;padding:14px;border-radius:16px;background:var(--bg)}
+.mp-items{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
+.mp-items li{padding:14px;border-radius:16px;background:var(--bg)}
+.mi-top{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mi-t{margin-top:8px;font-weight:700;font-size:15px;line-height:1.4}
+.mi-o{margin-top:2px;font-size:13.5px;color:var(--muted)}
+.mp-items .linkbtn,.mp-prov .linkbtn{margin-top:8px}
+@media (max-width:980px){.mapbox{grid-template-columns:minmax(0,1fr)}.mside{max-height:none}}
+@media (max-width:640px){.card .vis,.card.feature .vis{height:170px}.stage3d::before{padding-top:118%}.mhud{left:18px;top:16px;max-width:80%}.mcap{display:none}.mtime{left:10px;right:10px;bottom:10px;justify-content:space-between}#mStops button{padding:7px 8px;font-size:12px}}
+
+/* ---------- work ---------- */
+.folders{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.folders button{appearance:none;border:0;background:var(--surface);color:var(--muted);font-family:var(--display);font-stretch:82%;font-weight:700;font-size:19px;padding:12px 18px;border-radius:18px;cursor:pointer;display:inline-flex;gap:10px;align-items:center;transition:background .2s,color .2s}
+.folders button:hover{color:var(--ink)}
+.folders button .n{font-family:var(--font);font-stretch:100%;font-size:12.5px;font-weight:700;opacity:.7}
+.folders button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.projbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.fold{grid-column:1/-1;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-top:34px;padding:0 4px 4px;border-bottom:2px solid var(--ink)}
+.fold[hidden]{display:none}
+.grid > .fold:first-child{margin-top:0}
+.fold svg{display:none}
+.fold h3{font-family:var(--display);font-stretch:74%;font-weight:900;font-size:clamp(30px,3vw,42px);line-height:1}
+.fold p{color:var(--muted);font-size:14.5px}
+.grid .empty{grid-column:1/-1;color:var(--muted);padding:26px 4px}
+@media (max-width:700px){.folders{flex-wrap:nowrap;overflow-x:auto;margin-right:calc(var(--gutter)*-1);padding-right:var(--gutter);scrollbar-width:none}.folders::-webkit-scrollbar{display:none}.folders button{flex:none;white-space:nowrap}}
+
+/* ---------- shared components, carried over ---------- */
+/* ---------- project folders ---------- */
+.card .vis.pad{padding:14px 16px;background:var(--surface);border:1px solid var(--rule)}
+.card.note{padding:20px 22px}
+.card.note .meta{margin:0;align-items:flex-start}
+.card.note .where{font-size:13px;font-weight:700;color:var(--muted);line-height:1.35}
+.card.note h3{margin:12px 0 0;font-size:19px;line-height:1.25}
+.card.note ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:7px;font-size:14.5px;line-height:1.45;color:var(--muted)}
+.card.note li{position:relative;padding-left:15px}
+.card.note li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--line)}
+.card.note .foot{margin:auto 0 0}
+/* ---------- research: study tabs ---------- */
+.rtabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:22px}
+.rtabs button{appearance:none;text-align:left;font-family:var(--font);padding:14px 18px;border-radius:18px;background:var(--surface);border:1.5px solid var(--rule);color:var(--ink);cursor:pointer;transition:border-color .2s,background .2s}
+.rtabs button b{display:block;font-size:17px;font-weight:800;letter-spacing:-.01em}
+.rtabs button span{display:block;margin-top:2px;font-size:13.5px;color:var(--muted)}
+.rtabs button:hover{border-color:var(--c)}
+.rtabs button[aria-selected="true"]{border-color:var(--c);background:var(--cs)}
+.rtabs button[aria-selected="true"] b{color:var(--ci)}
+.research[hidden]{display:none}
+.research .rq{font-size:clamp(24px,2.5vw,31px);line-height:1.15;letter-spacing:-.025em;margin-bottom:16px}
+.research.t-sustain .findings b{color:var(--sustain-ink)}
+.research .rq + .q{font-size:18px;font-weight:600;line-height:1.45;letter-spacing:0;color:var(--ink)}
+.figcard{background:var(--surface);border-radius:20px;box-shadow:var(--shadow-lg);padding:24px}
+.figcard svg{display:block;width:100%;height:auto}
+.hsbar{margin-top:16px;height:40px;border-radius:999px;background:var(--bg);overflow:hidden}
+#hsFill{height:100%;min-width:40px;border-radius:999px;background:var(--urban);transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.hsread{margin-top:12px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font-size:15px;color:var(--muted)}
+.hsread b{font-size:30px;font-weight:800;letter-spacing:-.02em;color:var(--ink);line-height:1}
+.todlist{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
+.todlist li{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:14px;background:var(--bg);font-size:15.5px;font-weight:600}
+.todlist li i{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;line-height:1;color:var(--surface);background:var(--sustain)}
+.todlist.c li i{background:var(--muted)}
+@media (max-width:700px){.rtabs{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- projects ---------- */
+.projbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card{position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:12px 12px 18px;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.card.feature{grid-column:span 2}
+.card .vis{position:relative;height:210px;background:var(--cs);border-radius:14px;overflow:hidden;display:flex;align-items:stretch}
+.card.feature .vis{height:250px}
+.card .vis img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.card:hover .vis img{transform:scale(1.03)}
+.card .vis.fan{gap:10px;padding:16px;justify-content:center}
+.card .vis.fan img{width:auto;height:100%;object-fit:contain;border-radius:6px;box-shadow:0 8px 20px rgba(0,0,0,.16)}
+.card .vis.contain img{object-fit:contain;background:#fff}
+.card .vis svg{width:100%;height:100%;display:block}
+.card .meta{margin:14px 6px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.card .meta .d{color:var(--muted);font-size:13px;font-weight:600;white-space:nowrap}
+.card h3{margin:10px 6px 0;font-size:20px;line-height:1.25;letter-spacing:-.015em}
+.card.feature h3{font-size:24px}
+.card p{margin:8px 6px 0;color:var(--muted);font-size:15.5px;line-height:1.55}
+.card .foot{margin:auto 6px 0;padding-top:14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.card .foot .mono{color:var(--muted);font-weight:600}
+.card .open{white-space:nowrap;background:var(--cs);border:0;padding:7px 14px;border-radius:999px;cursor:pointer;font-size:14px;font-weight:700;color:var(--ci)}
+.card .open::after{content:"";position:absolute;inset:0;border-radius:var(--r)}
+.card .open:focus-visible{outline:none}
+.card:has(.open:focus-visible){outline:3px solid var(--c);outline-offset:4px}
+.card[hidden]{display:none}
+.sectors{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:14px;width:100%}
+.sectors div{display:flex;flex-direction:column;justify-content:space-between;padding:12px 14px;border-radius:12px;background:var(--surface)}
+.sectors b{font-size:19px;font-weight:800}
+.sectors span{font-size:12.5px;font-weight:600;color:var(--muted)}
+.sectors div:first-child{background:var(--climate);color:#fff}
+.sectors div:first-child span{color:#fff;opacity:.85}
+.badge{position:absolute;top:10px;left:10px;background:var(--surface);color:var(--ci,var(--ink));font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:999px;box-shadow:var(--shadow)}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.grid{grid-template-columns:1fr}.card.feature{grid-column:auto}}
+
+/* ---------- case dialog ---------- */
+dialog{border:0;padding:0;max-width:min(1160px,calc(100vw - 24px));width:100%;max-height:calc(100dvh - 24px);background:transparent;color:var(--ink);overflow:visible}
+dialog[open]::backdrop{animation:bdin .35s ease}
+@keyframes bdin{from{opacity:0}}
+.ghost{display:flex;align-items:stretch;justify-content:center;overflow:hidden;border-radius:14px;background:var(--cs,var(--surface));box-shadow:var(--shadow-lg);object-fit:cover}
+.ghost img{width:100%;height:100%;object-fit:cover}
+.ghost.fan{gap:10px;padding:16px}.ghost.fan img{width:auto;object-fit:contain;border-radius:6px}
+.ghost.contain img{object-fit:contain;background:#fff}
+.ghost svg{width:100%;height:100%}
+dialog::backdrop{background:rgba(16,22,30,.55);backdrop-filter:blur(3px)}
+.dlg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);grid-template-rows:minmax(0,1fr);height:min(880px,calc(100dvh - 24px));border-top:6px solid var(--c);background:var(--surface);border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.dlg:not([class*="t-"]){--c:var(--ink);--ci:var(--ink);--cs:var(--bg)}
+.dlg > .txt,.dlg > .gal{min-height:0}
+.dlg .txt{padding:30px 34px 36px;overflow:auto}
+.dlg .gal{padding:22px;overflow:auto;background:var(--bg);display:flex;flex-direction:column;gap:14px}
+.dlg h3{font-size:clamp(24px,2.5vw,32px);line-height:1.15;margin-top:12px}
+.dlg .who{margin-top:10px;color:var(--muted);font-size:15.5px}
+.dlg .who .mono{color:var(--ink)}
+.dlg h4{margin-top:24px;font-size:14px;font-weight:800;letter-spacing:0;color:var(--ci)}
+.dlg p,.dlg li{font-size:16px;line-height:1.65}
+.dlg p.mono{font-size:13.5px;color:var(--muted)}
+.dlg .txt p{margin-top:8px}
+.dlg ul{margin:8px 0 0;padding-left:20px}
+.dlg li{margin-top:6px}
+.dlg li::marker{color:var(--c)}
+.dlg .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.dlg .proofs{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px}
+.dlg .close{position:sticky;top:0;float:right;margin:-12px -14px 0 12px;width:40px;height:40px;border:0;border-radius:50%;background:var(--bg);cursor:pointer;font-size:22px;line-height:1;z-index:2}
+.dlg .close:hover{background:var(--rule)}
+.viewer{flex:1;min-height:280px;display:grid;place-items:center;background:var(--surface);border-radius:16px;padding:12px}
+.viewer img{max-height:min(60dvh,640px);width:auto;max-width:100%;object-fit:contain;border-radius:6px}
+.viewer svg{width:100%;max-height:min(60dvh,540px)}
+.viewer .none{max-width:40ch;text-align:center;color:var(--muted);font-size:15.5px;padding:20px}
+.cap{color:var(--muted);font-size:14.5px;line-height:1.45;min-height:1.45em}
+.thumbs{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px}
+.thumbs button{flex:none;width:68px;height:68px;padding:0;border:2px solid transparent;border-radius:12px;background:var(--surface);cursor:pointer;overflow:hidden}
+.thumbs button img{width:100%;height:100%;object-fit:cover}
+.thumbs button svg{width:100%;height:100%}
+.thumbs button[aria-current="true"]{border-color:var(--c)}
+.sitetab{width:100%;border-collapse:collapse;margin-top:8px;font-size:14.5px}
+.sitetab td{padding:7px 10px 7px 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.35}
+.sitetab td:nth-child(2){color:var(--muted)}
+.sitetab td:last-child{text-align:right;padding-right:0;white-space:nowrap}
+@media (max-width:820px){.dlg{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;height:auto;max-height:calc(100dvh - 24px);overflow:auto}.dlg .txt,.dlg .gal{overflow:visible}.dlg .txt{padding:24px 22px}}
+
+/* ---------- featured research ---------- */
+#research .eyebrow{background:var(--surface)}
+.research{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+.research > div:first-child{background:var(--surface);border-radius:24px;padding:28px;box-shadow:var(--shadow)}
+.research .q{font-weight:800;font-size:clamp(20px,2vw,25px);line-height:1.3;letter-spacing:-.015em}
+.research .q + p{margin-top:14px;color:var(--muted);font-size:16px}
+.toggle{display:inline-flex;margin-top:24px;background:var(--bg);border-radius:999px;padding:4px}
+.toggle button{border:0;background:transparent;padding:8px 16px;font-size:14px;font-weight:700;cursor:pointer;border-radius:999px;color:var(--muted)}
+.toggle button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.stack{margin-top:16px;display:flex;height:40px;border-radius:999px;overflow:hidden;gap:3px}
+.stack div{transition:flex-basis .6s cubic-bezier(.2,.7,.2,1);min-width:4px}
+.stack .uc{background:var(--urban)}
+.stack .ucl{background:color-mix(in srgb,var(--urban) 45%,var(--surface))}
+.stack .rc{background:var(--land-hover)}
+.dukey{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.dukey .mono{color:var(--muted)}
+.dukey .sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:0}
+.dukey b{display:block;font-size:28px;font-weight:800;line-height:1.15;margin-top:4px;letter-spacing:-.02em}
+.dukey small{display:block;color:var(--muted);font-size:13.5px;line-height:1.4}
+.findings{margin-top:24px;display:grid;gap:8px}
+.findings div{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:14px 16px;border-radius:14px;background:var(--bg);align-items:center}
+.findings b{font-size:26px;font-weight:800;line-height:1;color:var(--urban-ink);min-width:96px;letter-spacing:-.02em}
+.findings span{font-size:15px;line-height:1.5}
+.compare{position:relative;border-radius:20px;overflow:hidden;background:#fff;box-shadow:var(--shadow-lg);user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.compare img{width:100%;height:auto}
+.compare .top{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.compare .handle{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;background:#fff;transform:translateX(-1.5px);pointer-events:none;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.compare .handle::after{content:"↔";position:absolute;top:50%;left:50%;width:40px;height:40px;transform:translate(-50%,-50%);border-radius:50%;background:var(--urban);color:#fff;display:grid;place-items:center;font-size:18px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.compare .lab{position:absolute;top:12px;background:rgba(29,39,51,.85);color:#fff;padding:5px 11px;border-radius:999px;font-size:12.5px;font-weight:700}
+.compare .lab.l{left:12px}.compare .lab.r{right:12px;background:var(--urban)}
+.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.compare-note{margin-top:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted)}
+@media (max-width:900px){.research{grid-template-columns:minmax(0,1fr)}}
+
+
+/* ---------- moments marquee ---------- */
+#moments{overflow:hidden}
+#moments .eyebrow{background:var(--bg)}
+.marquee{display:grid;gap:14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.mtrack{display:flex;gap:14px;width:max-content;animation:mscroll var(--dur,70s) linear infinite;padding:6px 0}
+.mrow.rev .mtrack{animation-direction:reverse}
+.marquee:hover .mtrack,.marquee:focus-within .mtrack{animation-play-state:paused}
+@keyframes mscroll{to{transform:translateX(-50%)}}
+.shot{position:relative;flex:none;height:220px;border:0;padding:0;border-radius:18px;overflow:hidden;cursor:zoom-in;background:var(--cs,var(--bg));box-shadow:var(--shadow)}
+.mrow.rev .shot{height:200px}
+.shot img{height:100%;width:auto;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.shot:hover img{transform:scale(1.07)}
+.shot span{position:absolute;left:10px;right:10px;bottom:10px;padding:7px 11px;border-radius:12px;background:rgba(20,28,38,.74);color:#fff;font-size:12.5px;font-weight:600;line-height:1.35;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s;text-align:left}
+.shot:hover span,.shot:focus-visible span{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.mtrack{animation:none}.marquee{overflow-x:auto}}
+
+
+/* ---------- main tools (inside Skills & standards) ---------- */
+.tsub{margin-top:8px;font-size:13.5px;font-weight:700;color:var(--muted);letter-spacing:0}
+.tsub span{font-weight:500}
+.tools{list-style:none;padding:0;margin:10px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.tool{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 6px 10px;border-radius:16px;border:1.5px solid transparent;background:var(--bg);cursor:default;text-align:center;transition:transform .2s,box-shadow .2s,border-color .2s,background .2s}
+.tool:hover{transform:translateY(-3px);background:var(--surface);box-shadow:var(--shadow)}
+.tool[aria-pressed="true"]{border-color:var(--c);background:var(--surface);box-shadow:0 0 0 3px var(--cs)}
+.tool .ic{display:grid;place-items:center;width:46px;height:46px;border-radius:13px;background:linear-gradient(140deg,var(--c),color-mix(in srgb,var(--c) 55%,var(--ink)));color:#fff;box-shadow:0 6px 14px color-mix(in srgb,var(--c) 35%,transparent);transition:transform .35s cubic-bezier(.2,.8,.2,1.4)}
+.tool:hover .ic{transform:rotate(-6deg) scale(1.07)}
+.tool .ic svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tool b{font-size:12.5px;font-weight:700;line-height:1.25}
+.tool small{display:none}
+.tool .cnt{position:absolute;top:6px;right:6px;min-width:18px;height:18px;display:grid;place-items:center;font-size:10.5px;font-weight:800;color:var(--ci);background:var(--cs);border-radius:999px;padding:0 5px}
+.toolinfo{margin-top:10px}
+.toolinfo:empty{display:none}
+.toolinfo .box{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:12px 14px;border-radius:14px;background:var(--cs)}
+.toolinfo .box > span{font-size:13.5px;font-weight:700;color:var(--ci);margin-right:2px;flex-basis:100%}
+.toolinfo .box > em{font-style:normal;font-size:13.5px;color:var(--muted);flex-basis:100%;margin-top:-4px}
+.toolinfo .box button{border:0;background:var(--surface);border-radius:999px;padding:5px 11px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:var(--shadow);text-align:left}
+.toolinfo .box button:hover{color:var(--ci)}
+.skills{margin-top:18px}
+
+
+/* ---------- overrides on the shared components ---------- */
+.card{border:0;border-radius:28px;padding:10px 10px 18px;background:var(--surface);box-shadow:none}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.card .vis{border-radius:20px}
+.card .meta{margin:14px 8px 0}
+.card h3{margin:10px 8px 0;font-family:var(--display);font-stretch:80%;font-weight:800;font-size:25px;line-height:1.04;letter-spacing:-.005em}
+.card p{margin:8px 8px 0}
+.card .foot{margin:auto 8px 0}
+.card .open{background:var(--cp);color:#fff}
+.card.feature{background:var(--cp);color:#fff}
+.card.feature h3{font-size:clamp(28px,2.6vw,36px)}
+.card.feature p,.card.feature .meta .d,.card.feature .foot .mono{color:rgba(255,255,255,.9)}
+.card.feature .tp{background:rgba(255,255,255,.18);color:#fff}
+.card.feature .tp::before{background:#fff}
+.card.feature .open{background:#fff;color:var(--cp)}
+.card.feature .vis{background:rgba(255,255,255,.14)}
+.card.note{padding:22px 24px;background:var(--surface)}
+.card.note h3{font-size:24px}
+.card.note .where{color:var(--muted)}
+.card.note li::before{background:var(--line)}
+.dlg{border-top:0;border-radius:30px;overflow:hidden}
+.dlg h3{font-family:var(--display);font-stretch:76%;font-weight:900;font-size:clamp(32px,3.2vw,46px);line-height:.95;letter-spacing:-.005em}
+.dlg .gal{background:var(--cs)}
+.dlg h4{color:var(--ci)}
+#research .eyebrow{display:none}
+.rtabs{gap:8px}
+.rtabs button{border:0;background:var(--surface);border-radius:20px;padding:16px 20px}
+.rtabs button b{font-family:var(--display);font-stretch:80%;font-size:24px;font-weight:800;line-height:1.05}
+.rtabs button[aria-selected="true"]{background:var(--cp)}
+.rtabs button[aria-selected="true"] b,.rtabs button[aria-selected="true"] span{color:#fff}
+.research{gap:clamp(20px,3vw,40px);align-items:stretch}
+.research > div:first-child{background:none;box-shadow:none;padding:6px 0 0}
+.research .rq{font-family:var(--display);font-stretch:76%;font-weight:900;font-size:clamp(34px,3.4vw,50px);line-height:.95;letter-spacing:-.005em;margin-bottom:16px}
+.research .rq + .q{font-size:18px;font-weight:600;line-height:1.45;letter-spacing:0;color:var(--ink)}
+.research > div:last-child{position:relative;background:var(--cp);border-radius:32px;padding:clamp(22px,3vw,38px);overflow:hidden;isolation:isolate;align-self:start}
+.research > div:last-child::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.15;background:repeating-radial-gradient(circle at 8% 108%,transparent 0 26px,#fff 26px 27.5px)}
+.research .compare,.research .figcard{rotate:-1.2deg;box-shadow:var(--photo)}
+.research .compare{max-width:430px;margin:0 auto}
+.research .compare-note{color:rgba(255,255,255,.92);margin-top:18px}
+.research .compare-note .linkbtn{color:#fff}
+.findings div{background:var(--surface)}
+.findings b{font-family:var(--display);font-stretch:80%;color:var(--ci)}
+.toggle{background:var(--surface)}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--bg);box-shadow:none}
+.todlist li{background:var(--surface)}
+.hsbar{background:var(--surface)}
+#hsFill{background:var(--urban-plate)}
+.hsread b{font-family:var(--display);font-stretch:80%;font-size:40px}
+.shot{border-radius:16px;border:6px solid var(--surface);box-shadow:var(--photo);background:var(--surface)}
+.mrow .shot:nth-child(3n+1){rotate:-1.6deg}.mrow .shot:nth-child(3n+2){rotate:1.2deg}
+.mtrack{padding:18px 0}
+
+/* ---------- proof ---------- */
+.pf{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
+.pf > *{background:var(--surface);border-radius:28px;padding:clamp(20px,2.4vw,30px)}
+.pf h3{font-family:var(--display);font-stretch:78%;font-weight:900;font-size:30px;line-height:1;margin-bottom:12px}
+.pf-edu{grid-column:span 4;background:var(--ink);color:var(--bg);display:flex;flex-direction:column}
+.pf-edu .gpa{font-family:var(--display);font-stretch:72%;font-weight:900;font-size:clamp(84px,8vw,124px);line-height:.85}
+.pf-edu .gpa small{display:block;font-family:var(--font);font-stretch:100%;font-size:15px;font-weight:700;opacity:.75;margin-top:10px}
+.pf-edu p{margin-top:10px;font-size:15px;line-height:1.5;opacity:.85}
+.pf-edu p b{display:block;opacity:1;font-size:17px;color:var(--bg)}
+.pf-edu .linkbtn{color:var(--bg);margin-top:auto;padding-top:18px}
+.pf-lang{grid-column:span 8;background:none!important;padding:0!important;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.test{background:var(--surface);border-radius:28px;padding:clamp(20px,2.4vw,30px)}
+.tn{font-weight:800;font-size:16px;display:flex;justify-content:space-between;gap:10px}
+.tn span{color:var(--muted);font-weight:600;font-size:14px}
+.tbig{display:flex;align-items:baseline;gap:12px;margin-top:6px;flex-wrap:wrap}
+.tbig b{font-family:var(--display);font-stretch:72%;font-weight:900;font-size:clamp(72px,7vw,104px);line-height:.85;color:var(--climate-plate)}
+.tbig span{color:var(--muted);font-size:14px;line-height:1.35;max-width:16ch}
+.bars{margin-top:16px;display:grid;gap:8px}
+.bars div{display:grid;grid-template-columns:92px 1fr 40px;align-items:center;gap:10px;font-size:14px}
+.bars i{display:block;height:10px;border-radius:999px;background:var(--bg)}
+.bars em{display:block;height:100%;width:var(--w);border-radius:999px;background:var(--climate-plate)}
+.bars b{font-weight:800;font-size:14px;text-align:right;font-variant-numeric:tabular-nums}
+.tnote{margin-top:14px;color:var(--muted);font-size:13.5px;line-height:1.45}
+.test .proof{margin-top:14px}
+.pf-pubs{grid-column:span 6}
+.pf-certs{grid-column:span 6}
+.pf-skills{grid-column:span 12}
+#pubs,#certs{list-style:none;margin:0;padding:0}
+#pubs li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:14px;padding:16px 0;border-top:1px solid var(--rule)}
+.py{font-family:var(--display);font-stretch:78%;font-weight:800;font-size:26px;line-height:1;color:var(--ci)}
+.pt{font-weight:700;font-size:15.5px;line-height:1.4}
+.ps{margin-top:4px;color:var(--muted);font-size:13.5px;line-height:1.45}
+.pa{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.status{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px}
+.status.pub{background:var(--sustain-soft);color:var(--sustain-ink)}
+.status.acc{background:var(--climate-soft);color:var(--climate-ink)}
+.status.rev{background:var(--bg);color:var(--muted)}
+#certs li{display:grid;grid-template-columns:110px minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:13px 0;border-top:1px solid var(--rule)}
+.cd{font-size:13px;font-weight:700;color:var(--muted);line-height:1.3}
+.ct{font-weight:700;font-size:15px;line-height:1.35}
+.cb{font-size:13px;color:var(--muted);margin-top:2px;line-height:1.35}
+.cdots{display:flex;gap:4px}
+.cdots i{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.cview{appearance:none;border:1.5px solid var(--line);background:none;border-radius:999px;padding:6px 13px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap}
+.cview:hover{border-color:var(--ink)}
+.cview.none{border-color:transparent;color:var(--muted);cursor:default}
+.pf-skills .cols{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2.1fr);gap:28px;align-items:start}
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 22px}
+.skills h4{font-size:13.5px;font-weight:800;color:var(--muted);margin-bottom:8px;letter-spacing:0}
+.skills .chips{gap:6px}
+.tools{grid-template-columns:repeat(4,minmax(0,1fr))!important;margin:0!important}
+@media (max-width:1000px){.pf-edu,.pf-lang,.pf-pubs,.pf-certs{grid-column:span 12}.pf-skills .cols{grid-template-columns:minmax(0,1fr)}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.pf-lang{grid-template-columns:minmax(0,1fr)}.skills{grid-template-columns:minmax(0,1fr)}#certs li{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px}.cd{grid-column:1/-1}.cdots{display:none}.tools{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+
+/* ---------- contact ---------- */
+.contact{padding:clamp(72px,9vw,128px) 0 clamp(36px,4vw,56px);scroll-margin-top:66px}
+.cplate{position:relative;overflow:hidden;background:var(--ink);color:var(--bg);border-radius:40px;padding:clamp(30px,5vw,72px)}
+.cplate h2{font-family:var(--display);font-weight:900;font-stretch:68%;font-size:clamp(76px,13vw,196px);line-height:.8;letter-spacing:-.01em}
+.cplate > p{margin-top:22px;font-size:19px;line-height:1.5;max-width:52ch;opacity:.85}
+.cdots3{position:absolute;right:clamp(24px,5vw,72px);top:clamp(28px,5vw,72px);display:flex;gap:10px}
+.cdots3 i{width:clamp(34px,4vw,56px);height:clamp(34px,4vw,56px);border-radius:50%;background:var(--urban-plate)}
+.cdots3 i:nth-child(2){background:var(--climate-plate)}.cdots3 i:nth-child(3){background:var(--sustain-plate)}
+.cways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:clamp(28px,4vw,48px)}
+.cways > div{border:1.5px solid color-mix(in srgb,var(--bg) 22%,transparent);border-radius:24px;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.cways .k{font-size:13.5px;font-weight:700;opacity:.7}
+.cways .v{font-size:clamp(17px,1.6vw,21px);font-weight:800;overflow-wrap:anywhere}
+.cways .v a{text-decoration:none}
+.cways .act{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
+.cways .btn{background:var(--bg);color:var(--ink);border-color:var(--bg);padding:10px 16px;font-size:14px}
+.cways .btn.ghost{background:transparent;color:var(--bg);border-color:color-mix(in srgb,var(--bg) 40%,transparent)}
+@media (max-width:820px){.cways{grid-template-columns:minmax(0,1fr)}.cdots3{display:none}}
+footer{padding:22px 0 34px;color:var(--muted);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="progress" aria-hidden="true"><i id="progress"></i></div>
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Nefia Nur Fitri, back to top"><i aria-hidden="true"><b></b><b></b><b></b></i>Nefia Nur Fitri</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#map" class="hide-s">Map</a>
+      <a href="#work">Work</a>
+      <a href="#research" class="hide-s">Research</a>
+      <a href="#proof" class="hide-s">Proof</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="mailto:nefianurfitri@gmail.com">Email me</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-top">
+      <h1 id="name" aria-label="Nefia Nur Fitri"><span class="ln" aria-hidden="true">Nefia Nur</span><span class="ln" aria-hidden="true">Fitri</span></h1>
+      <div class="hero-side">
+        <div class="who"><img src="img/portrait.webp" alt="Portrait of Nefia Nur Fitri" width="358" height="400"><p><b>Hi, I'm Opi.</b>Environmental Technical Assistant at BINTARI Foundation, Semarang</p></div>
+        <p class="lead">Urban and environmental planner in Central Java, Indonesia. Pick a colour to see the work behind it.</p>
+        <ul class="facts">
+          <li><b>3.58</b> GPA · BASc Spatial Planning, Universitas Diponegoro</li>
+          <li><b>7.0</b> IELTS · <b>135</b> Duolingo · CEFR C1</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="plates" id="plates">
+      <section class="plate t-urban is-open" data-th="urban" aria-label="Urban">
+        <button type="button" class="plate-tab" aria-expanded="true" aria-controls="pl-urban"><span class="pc">10 projects</span><span class="pv">Urban</span></button>
+        <div class="plate-in" id="pl-urban">
+          <div class="pt">
+            <h2 class="pl">Urban</h2>
+            <p class="pst">Planning towns from the data up: detailed spatial plans (RDTR), urban boundaries drawn from satellite grids, housing need and regional demographics.</p>
+            <dl class="pfigs">
+              <div><dt class="tnum">93.75%</dt><dd>agreement of my urban delineation with BPS classification</dd></div>
+              <div><dt class="tnum">20 yr</dt><dd>horizon of the Parakan RDTR, 2024–2044</dd></div>
+              <div><dt class="tnum">2,237</dt><dd>homes Parakan needs by 2043</dd></div>
+            </dl>
+            <button type="button" class="pbtn" data-filter="urban">See urban projects</button>
+          </div>
+          <div class="pph" aria-hidden="true">
+            <img src="img/parakan-consultation.webp" alt="" style="width:54%;height:86%;right:4%;top:0;rotate:4deg">
+            <img src="img/thesis-delineation.webp" alt="" style="width:44%;height:70%;left:2%;bottom:2%;rotate:-5deg;object-position:50% 20%">
+          </div>
+        </div>
+        <div class="ptimer" aria-hidden="true"><i></i></div>
+      </section>
+      <section class="plate t-climate" data-th="climate" aria-label="Climate">
+        <button type="button" class="plate-tab" aria-expanded="false" aria-controls="pl-climate"><span class="pc">3 projects</span><span class="pv">Climate</span></button>
+        <div class="plate-in" id="pl-climate" inert>
+          <div class="pt">
+            <h2 class="pl">Climate</h2>
+            <p class="pst">Measuring emissions and planning for climate risk: regional GHG inventories, climate vulnerability inside KLHS, and coastal hazard and resilience.</p>
+            <dl class="pfigs">
+              <div><dt class="tnum">3</dt><dd>GHG inventories for 2025: Banjarnegara, Kudus and Salatiga</dd></div>
+              <div><dt class="tnum">4</dt><dd>IPCC sectors: Energy, IPPU, AFOLU and Waste</dd></div>
+              <div><dt class="tnum">3</dt><dd>coastal regencies in my tsunami-risk paper, ICIAP 2026</dd></div>
+            </dl>
+            <button type="button" class="pbtn" data-filter="climate">See climate projects</button>
+          </div>
+          <div class="pph" aria-hidden="true">
+            <div class="pcard" data-svg="coast" style="width:92%;height:56%;right:0;top:2%;rotate:3deg"></div>
+            <div class="psect" style="width:62%;height:44%;left:3%;bottom:2%;rotate:-4deg"><div><b>Energy</b><span>Fuel combustion</span></div><div><b>IPPU</b><span>Industry</span></div><div><b>AFOLU</b><span>Land and livestock</span></div><div><b>Waste</b><span>Solid and water</span></div></div>
+          </div>
+        </div>
+        <div class="ptimer" aria-hidden="true"><i></i></div>
+      </section>
+      <section class="plate t-sustain" data-th="sustain" aria-label="Sustainability">
+        <button type="button" class="plate-tab" aria-expanded="false" aria-controls="pl-sustain"><span class="pc">5 projects</span><span class="pv">Sustainability</span></button>
+        <div class="plate-in" id="pl-sustain" inert>
+          <div class="pt">
+            <h2 class="pl">Sustainability</h2>
+            <p class="pst">Writing sustainability into decisions: Strategic Environmental Assessments (KLHS), ESG-based development and public environmental campaigns.</p>
+            <dl class="pfigs">
+              <div><dt class="tnum">16</dt><dd>KLHS for 8 local governments, 11 completed and 5 in progress</dd></div>
+              <div><dt>EESG</dt><dd>framework proposed for transit-oriented development</dd></div>
+              <div><dt class="tnum">2</dt><dd>ESG credentials in 2026: IFRS S1 &amp; S2, ESG Reporting</dd></div>
+            </dl>
+            <button type="button" class="pbtn" data-filter="sustain">See sustainability projects</button>
+          </div>
+          <div class="pph" aria-hidden="true">
+            <img src="img/klhs-sumpiuh.webp" alt="" style="width:38%;height:72%;left:4%;top:0;rotate:-5deg">
+            <img src="img/social-3.webp" alt="" style="width:40%;height:78%;right:2%;top:4%;rotate:4deg">
+            <img src="img/klhs-brebes.webp" alt="" style="width:32%;height:58%;left:33%;bottom:0;rotate:1.5deg">
+          </div>
+        </div>
+        <div class="ptimer" aria-hidden="true"><i></i></div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Where I've worked</h2>
+      <p class="lede">Five roles since 2022, newest first. Open a row to see what I did there.</p>
+    </div>
+    <div class="xp">
+      <article class="xrow t-sustain is-open" id="role-bintari">
+        <h3 class="xh"><button type="button" class="xhead" aria-expanded="true" aria-controls="xb-bintari">
+          <span class="xwhen">Jul 2024 – now<small>Semarang</small></span>
+          <span class="xrole"><b>Environmental Technical Assistant</b><span>Bina Karta Lestari Foundation (BINTARI)</span></span>
+          <span class="tps"><span class="tp t-sustain">Sustainability</span><span class="tp t-climate">Climate</span></span>
+          <span class="xplus" aria-hidden="true"></span>
+        </button></h3>
+        <div class="xbody" id="xb-bintari"><div class="xin"><div><ul>
+            <li>Prepared 16 Strategic Environmental Assessments (KLHS/SEA) for 8 local governments (11 completed and 5 in progress as of November 2026), compiling and analysing technical data and applying GIS (QGIS/ArcGIS) to support policy recommendations formally adopted into spatial planning regulations.</li>
+            <li>Delivered cross-sector GHG emissions inventories (Energy, IPPU, AFOLU, Waste) for Banjarnegara Regency, Kudus Regency and Salatiga City (inventory year 2025) in Indonesia's SIGN SMART system using IPCC 2006 methodology, and compiled the verified results into inventory documents that informed regional decarbonisation strategy and official government reporting.</li>
+            <li>Acted as day-to-day point of contact for the KLHS and GHG workstreams: schedule coordination, data requests and follow-up on document completeness with environmental and spatial planning agencies, industries, local government units, schools, universities and hospitals, keeping projects on track through formal review.</li>
+            <li>Contributed to organisation-wide communications as Communication Officer, handling social media graphic design and content writing to strengthen public visibility and stakeholder engagement.</li>
+          </ul><div class="rp"><button type="button" class="linkbtn" data-open="klhs">KLHS case</button><button type="button" class="linkbtn" data-open="ghg">GHG case</button><button type="button" class="linkbtn" data-open="comms">Campaign content</button></div></div><button type="button" class="rphoto" data-moment="6" aria-label="Open photo: KLHS meeting documentation"><img src="img/klhs-meeting.webp" alt="KLHS meeting documentation" loading="lazy"></button></div></div>
+      </article>
+      <article class="xrow t-urban" id="role-cosplay">
+        <h3 class="xh"><button type="button" class="xhead" aria-expanded="false" aria-controls="xb-cosplay">
+          <span class="xwhen">Jun – Nov 2023<small>Semarang</small></span>
+          <span class="xrole"><b>Urban Planner Intern</b><span>Centre of Spatial Planning and Land Survey (COSPLAY)</span></span>
+          <span class="tps"><span class="tp t-urban">Urban</span></span>
+          <span class="xplus" aria-hidden="true"></span>
+        </button></h3>
+        <div class="xbody" id="xb-cosplay" inert><div class="xin"><div><ul>
+            <li>Contributed to a six-member team delivering a 20-year Detailed Spatial Plan (RDTR) for Parakan Urban Area within six months, analysing infrastructure demand, economic potential and housing needs.</li>
+            <li>Analysed the market and economic potential of local commodity production and economic activity, translating findings into recommendations for trade, services and agricultural development.</li>
+            <li>Delivered a housing demand forecasting model from population projections and household assumptions, quantifying required units by type and identifying land constraints for residential planning.</li>
+          </ul><div class="rp"><button type="button" class="linkbtn" data-open="parakan|0">Public consultation photo &amp; maps</button></div></div><button type="button" class="rphoto" data-moment="0" aria-label="Open photo: Public consultation on the Parakan RDTR"><img src="img/parakan-consultation.webp" alt="Public consultation on the Parakan RDTR" loading="lazy"></button></div></div>
+      </article>
+      <article class="xrow t-urban" id="role-lecturer">
+        <h3 class="xh"><button type="button" class="xhead" aria-expanded="false" aria-controls="xb-lecturer">
+          <span class="xwhen">May – Jun 2023<small>Semarang</small></span>
+          <span class="xrole"><b>Teaching Assistant, Spatial Planning and Land Management Survey Studio</b><span>Universitas Diponegoro</span></span>
+          <span class="tps"><span class="tp t-urban">Urban</span></span>
+          <span class="xplus" aria-hidden="true"></span>
+        </button></h3>
+        <div class="xbody" id="xb-lecturer" inert><div class="xin"><div><ul>
+            <li>Guided 99 Spatial Planning and Land Management students in survey preparation, data collection techniques and database management in Microsoft Excel, including data inventory, cataloguing, code-labelling and cross-sheet data linking.</li>
+            <li>Evaluated and gave feedback on students&#8217; databases, report writing, map visualisation and other academic submissions required by the course coordinator.</li>
+          </ul></div></div></div>
+      </article>
+      <article class="xrow t-sustain" id="role-bappeda">
+        <h3 class="xh"><button type="button" class="xhead" aria-expanded="false" aria-controls="xb-bappeda">
+          <span class="xwhen">Jul – Aug 2022<small>Semarang</small></span>
+          <span class="xrole"><b>Research Assistant Intern</b><span>Regional Development Planning Agency of Central Java (BAPPEDA)</span></span>
+          <span class="tps"><span class="tp t-sustain">Sustainability</span><span class="tp t-urban">Urban</span></span>
+          <span class="xplus" aria-hidden="true"></span>
+        </button></h3>
+        <div class="xbody" id="xb-bappeda" inert><div class="xin"><div><ul>
+            <li>Conducted population analysis and aggregate population projections for urban and rural areas across 8,000 villages and sub-districts in Central Java Province, following the 2020 urban–rural classification regulation of the Central Bureau of Statistics (BPS).</li>
+            <li>Performed Inclusive Economic Development Index (IPEI) analysis at provincial and district/city level, calculating composite index values from the poverty and employment sub-pillars and identifying spatial disparities in inclusive growth to inform regional development and policy prioritisation.</li>
+          </ul><div class="rp"><button type="button" class="linkbtn" data-open="ipei|3">Team photo &amp; maps</button></div></div><button type="button" class="rphoto" data-moment="1" aria-label="Open photo: BAPPEDA Jawa Tengah team"><img src="img/bappeda-team.webp" alt="BAPPEDA Jawa Tengah team" loading="lazy"></button></div></div>
+      </article>
+      <article class="xrow t-urban" id="role-bps">
+        <h3 class="xh"><button type="button" class="xhead" aria-expanded="false" aria-controls="xb-bps">
+          <span class="xwhen">Mar 2022<small>Semarang</small></span>
+          <span class="xrole"><b>Surveyor, Mapping Officer</b><span>Statistics Indonesia (BPS), Semarang City</span></span>
+          <span class="tps"><span class="tp t-urban">Urban</span></span>
+          <span class="xplus" aria-hidden="true"></span>
+        </button></h3>
+        <div class="xbody" id="xb-bps" inert><div class="xin"><div><ul>
+            <li>Served as Mapping Officer for the Geospatial Framework and Wilkerstat Update for the 2023 Agricultural Census (ST2023) in Tembalang District, validating administrative boundaries and land cover data through interviews with 23 community leaders across 13 census blocks within one month.</li>
+          </ul><div class="rp"><button type="button" class="linkbtn" data-doc="bps">Assignment letter &amp; team photo</button></div></div><button type="button" class="rphoto" data-moment="3" aria-label="Open photo: BPS Semarang City team"><img src="img/bps-team.webp" alt="BPS Semarang City team" loading="lazy"></button></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="map">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>25 sites, one province</h2>
+      <p class="lede">Every place I have worked in Central Java. Drag to turn the map, play the years, or select a pin to see what I did there.</p>
+    </div>
+    <div class="mapbox">
+      <div class="stage3d" id="stage3d">
+        <canvas role="img" aria-label="3D model of Central Java. Regencies and cities where I have worked rise from the map, and each of the 25 project sites stands on them as a pin. Use the list beside the map to pick a site."></canvas>
+        <div class="mhud"><p class="myr" id="mYr">2024–26</p><p class="mcnt" id="mCnt"><b>25</b> sites in <b>15</b> regencies and cities</p><p class="mcap" id="mCap"></p></div>
+        <div class="mtime" role="group" aria-label="My sites over time">
+          <button type="button" class="mplay" id="mPlay" aria-label="Replay the timeline"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button>
+          <div id="mStops"></div>
+        </div>
+        <div class="mtip" id="mTip" hidden></div>
+      </div>
+      <aside class="mside" aria-label="Site details">
+        <div class="chips" id="mFilter" role="group" aria-label="Highlight a theme"></div>
+        <label class="mpick"><span>Jump to a place</span><select id="mPick"></select></label>
+        <div class="mpanel" id="mPanel" aria-live="polite"></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Work, filed by where I did it</h2>
+      <p class="lede">Paid work and internships, university coursework, research beyond coursework, organisations and achievements. Open a card for the context, my part and the proof.</p>
+    </div>
+    <div class="folders" id="projFolders" role="group" aria-label="Filter by where the work was done"></div>
+    <div class="projbar">
+      <div class="chips" id="projChips" role="group" aria-label="Filter projects by theme"></div>
+      <p class="mono muted" id="projCount"></p>
+    </div>
+    <div class="grid" id="cards"></div>
+  </div>
+</section>
+
+<section class="sec" id="research">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Three studies, explained</h2>
+      <p class="lede">Each starts from a question. Pick a study to see how it was answered and what it found.</p>
+    </div>
+    <div class="rtabs" role="tablist" aria-label="Featured studies" id="rtabs">
+      <button type="button" role="tab" class="t-urban" aria-selected="true" aria-controls="rp-thesis" data-rp="thesis"><b>Urban boundary</b><span>Undergraduate thesis, 2024</span></button>
+      <button type="button" role="tab" class="t-urban" aria-selected="false" aria-controls="rp-housing" data-rp="housing"><b>Housing need</b><span>Jurnal Planologi, 2025</span></button>
+      <button type="button" role="tab" class="t-sustain" aria-selected="false" aria-controls="rp-tod" data-rp="tod"><b>ESG-based TOD</b><span>Arthatama, 2025</span></button>
+    </div>
+    <div class="research t-sustain" id="rp-tod" role="tabpanel" hidden>
+      <div>
+        <h3 class="rq">Can transit-oriented development put ESG into practice?</h3>
+        <p class="q">A systematic literature review of TOD in the fast-growing cities of developing countries.</p>
+        <p>With Muhammad Fadhil Athallah, I reviewed published studies on how transit-oriented development relates to environmental, social and governance principles, and to inclusive, sustainable economic growth. We sorted what the literature reports into benefits and obstacles, then looked at what an ESG assessment leaves out.</p>
+        <div class="toggle" role="group" aria-label="Show findings on" id="todToggle">
+          <button type="button" aria-pressed="true" data-k="b">What it delivers</button>
+          <button type="button" aria-pressed="false" data-k="c">What holds it back</button>
+        </div>
+        <ul class="todlist" id="todList"></ul>
+        <div class="findings">
+          <div><b>EESG</b><span>Our proposal: add an explicit Economic dimension to ESG, because current ESG assessments under-represent it. TOD in emerging economies would then be planned and judged on all four.</span></div>
+          <div><b class="tnum">2025</b><span>Presented at the 3rd EICOMB International Conference and published in Arthatama Vol. 9 No. 1, pp. 173–186. I am second author and presenter. <a class="proof" href="https://doi.org/10.54518/art.9.1.2025.649" target="_blank" rel="noopener">Read the paper</a></span></div>
+        </div>
+      </div>
+      <div>
+        <div class="figcard" id="todFig"></div>
+        <div class="compare-note mono"><span>Illustration of the EESG idea around a transit node</span><button type="button" class="linkbtn" data-open="tod">Open TOD case</button></div>
+      </div>
+    </div>
+    <div class="research t-urban" id="rp-housing" role="tabpanel" hidden>
+      <div>
+        <h3 class="rq">Will Parakan have room to house its people by 2043?</h3>
+        <p class="q">A housing demand projection, set against a map of the land that can still be built on.</p>
+        <p>Temanggung's 2024–2044 spatial plan makes Parakan an urban area on the Magelang–Temanggung corridor, which draws people in. We projected population to 2043 with the geometric method, counted one home for every household of four, and compared that with the houses that already exist. The shortfall was split 1 : 2 : 3 into large, medium and small plots, with 30% added for infrastructure and 15% for facilities.</p>
+        <div class="toggle" role="group" aria-label="Projection year" id="hsToggle"></div>
+        <div class="hsbar" aria-hidden="true"><div id="hsFill"></div></div>
+        <p class="hsread"><b class="tnum" id="hsN">2,237</b><span id="hsT">homes short in 2043: 373 large, 746 medium and 1,118 small</span></p>
+        <div class="findings">
+          <div><b class="tnum">35.13 ha</b><span>of land needed by 2043: 24.23 ha for housing, 7.26 ha for infrastructure and 3.63 ha for facilities.</span></div>
+          <div><b class="tnum">243.97 ha</b><span>of developable land, found by overlaying built-up, conservation and green open space in ArcGIS. That is about seven times the need.</span></div>
+          <div><b>RDTR</b><span>The paper grew out of the housing analysis I prepared for the Parakan RDTR, and recommends carrying these figures into the plan. I am fourth of five authors. <a class="proof" href="https://doi.org/10.30659/jpsa.v22i2.40156" target="_blank" rel="noopener">Read the paper</a></span></div>
+        </div>
+      </div>
+      <div>
+        <div class="figcard" id="hsFig"></div>
+        <div class="compare-note mono"><span>Parakan Urban Area, 1,433.93 ha. One square is about 14 ha.</span><button type="button" class="linkbtn" data-open="housing">Open housing case</button></div>
+      </div>
+    </div>
+    <div class="research t-urban" id="rp-thesis" role="tabpanel">
+      <div>
+        <h3 class="rq">Where does Parakan's city actually end?</h3>
+        <p class="q">Global Human Settlement Layer grids, the Degree of Urbanisation method, BPS classification and field validation, combined into one procedure.</p>
+        <p>GHS-POP and GHS-BUILT rasters were processed with zonal statistics to classify each grid cell. The result was overlaid with the BPS urban–rural village classification, adjusted through field validation, and tested for service coverage with breaking-point theory and isochrones.</p>
+        <div class="toggle" role="group" aria-label="Show share by" id="duToggle">
+          <button type="button" aria-pressed="true" data-du="pop">Population</button>
+          <button type="button" aria-pressed="false" data-du="area">Area</button>
+        </div>
+        <div class="stack" id="duStack" aria-hidden="true"><div class="uc"></div><div class="ucl"></div><div class="rc"></div></div>
+        <div class="dukey" id="duKey"></div>
+        <div class="findings">
+          <div><b class="tnum">10/16</b><span>villages classified as urban after field validation; the remaining 6 are rural.</span></div>
+          <div><b class="tnum">93.75%</b><span>agreement between the delineation and Statistics Indonesia (BPS) classification.</span></div>
+          <div><b class="mono" style="font-size:14px;font-family:var(--mono);font-weight:500;color:var(--ink)">EC00202470546</b><span>Procedure registered as a copyright work with the Directorate General of Intellectual Property (DJKI). <a class="proof" href="https://pdki-indonesia.dgip.go.id/detail/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" target="_blank" rel="noopener">PDKI record<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></span></div>
+        </div>
+      </div>
+      <div>
+        <div class="compare" id="compare" style="--x:50%">
+          <img src="img/thesis-delineation.webp" alt="Final urban delineation map of Parakan Subdistrict" width="847" height="1172">
+          <div class="top"><img src="img/thesis-du-grid.webp" alt="Degree of Urbanisation grid map of Parakan Subdistrict" width="847" height="1172"></div>
+          <div class="handle" aria-hidden="true"></div>
+          <span class="lab l">DU grid (GHSL)</span><span class="lab r">Final delineation</span>
+          <label class="sr" for="cmp">Compare the grid map and the final delineation</label>
+          <input id="cmp" type="range" min="0" max="100" value="50">
+        </div>
+        <div class="compare-note mono"><span>Drag to compare · Peta IV.3 and IV.5, 2024</span><button type="button" class="linkbtn" data-open="thesis">Open thesis case</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="moments">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>In the field</h2>
+      <p class="lede">Consultations, surveys, studios and campaigns. Hover to pause the reel, and select a photo to open it.</p>
+    </div>
+  </div>
+  <div class="marquee" id="marquee"></div>
+</section>
+
+<section class="sec" id="proof">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Proof</h2>
+      <p class="lede">Degree, test scores, papers and certificates. Where a record is public, the link goes straight to it.</p>
+    </div>
+    <div class="pf">
+      <div class="pf-edu">
+        <p class="gpa tnum">3.58<small>GPA, out of 4.00</small></p>
+        <p><b>Bachelor of Applied Science, Spatial Planning and Land Management</b>Universitas Diponegoro, Semarang · 2020–2024</p>
+        <p>Thesis on the procedure for delineating Parakan's urban area, registered with DJKI as copyright work EC00202470546.</p>
+        <button type="button" class="linkbtn" data-open="thesis">Open thesis case</button>
+      </div>
+      <div class="pf-lang" id="langs"></div>
+      <div class="pf-pubs"><h3>Papers</h3><ol id="pubs"></ol></div>
+      <div class="pf-certs"><h3>Certificates and training</h3><ul id="certs"></ul></div>
+      <div class="pf-skills">
+        <h3>Tools and skills</h3>
+        <div class="cols">
+          <ul class="tools" id="tools" aria-label="Main tools"></ul>
+          <div class="skills">
+            <div><h4>Analysis</h4><div class="chips"><span class="tag">Spatial and environmental</span><span class="tag">Land use evaluation</span><span class="tag">Population projection</span><span class="tag">Economic projection</span><span class="tag">Policy review</span></div></div>
+            <div><h4>Frameworks</h4><div class="chips"><span class="tag">IPCC 2006</span><span class="tag">SIGN SMART</span><span class="tag">DPSIR</span><span class="tag">Degree of Urbanisation</span><span class="tag">SNI 03-1733-2004</span></div></div>
+            <div><h4>Sustainability reporting, working knowledge</h4><div class="chips"><span class="tag">GRI Standards</span><span class="tag">IFRS S1 &amp; S2 · PSPK 1 &amp; 2</span><span class="tag">Report benchmarking</span></div></div>
+            <div><h4>Data</h4><div class="chips"><span class="tag">Pivot tables</span><span class="tag">Power Query</span><span class="tag">Power Pivot</span><span class="tag">Spatial databases</span><span class="tag">WebGIS</span></div></div>
+            <div><h4>Research</h4><div class="chips"><span class="tag">FGD</span><span class="tag">Interviews</span><span class="tag">Questionnaires</span><span class="tag">Systematic review</span><span class="tag">Report writing</span></div></div>
+            <div><h4>Communication</h4><div class="chips"><span class="tag">Infographics</span><span class="tag">Video content</span><span class="tag">Report design</span><span class="tag">Public speaking</span><span class="tag">Stakeholder coordination</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap"><div class="cplate">
+    <div class="cdots3" aria-hidden="true"><i></i><i></i><i></i></div>
+    <h2>Let's talk.</h2>
+    <p>I am looking for work in urban planning, climate and sustainability, including environmental assessment and ESG advisory. Email is the fastest way to reach me.</p>
+    <div class="cways">
+      <div><span class="k">Email</span><span class="v"><a href="mailto:nefianurfitri@gmail.com" id="email">nefianurfitri@gmail.com</a></span><div class="act"><a class="btn" href="mailto:nefianurfitri@gmail.com">Write an email</a><button type="button" class="btn ghost" id="copyEmail">Copy email</button></div></div>
+      <div><span class="k">LinkedIn</span><span class="v">linkedin.com/in/nefianurfitri</span><div class="act"><a class="btn" href="https://www.linkedin.com/in/nefianurfitri" target="_blank" rel="noopener">Open profile</a></div></div>
+      <div><span class="k">Phone and WhatsApp</span><span class="v tnum">+62 859-5918-4099</span><div class="act"><a class="btn" href="https://wa.me/6285959184099" target="_blank" rel="noopener">Message on WhatsApp</a></div></div>
+    </div>
+  </div></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Nefia Nur Fitri · Urban, Climate, Sustainability</span>
+    <span>Map boundaries: GADM level 2, simplified. Site positions are approximate.</span>
+  </div>
+</footer>
+
+<dialog id="case" aria-labelledby="caseTitle"><div class="dlg" id="caseBody"></div></dialog>
+
+<script>
+"use strict";
+const GEO = {"w":1000.0,"h":576.3,"minx":108.55564900000013,"maxy":-6.40278,"s":318.7525300982204,"regions":[{"id":"batang","name":"Batang","d":"M474.1,164.2L469.6,168.2L475.2,174.9L475.6,182.3L473.6,186.6L462.7,196.1L452.0,200.8L454.5,209.0L453.6,214.2L441.5,235.1L436.9,249.4L432.7,253.5L413.9,247.4L407.2,250.3L404.7,247.6L406.3,244.4L404.5,231.3L398.3,220.5L392.9,218.5L394.5,211.8L386.0,199.1L380.2,201.3L374.8,198.4L371.8,178.6L369.0,175.4L374.1,174.1L374.7,168.3L372.9,164.3L377.7,151.3L421.2,163.6L431.4,164.0L437.2,162.2L454.4,166.0L467.6,162.7L474.1,164.2Z"},{"id":"blora","name":"Blora","d":"M869.8,147.3L882.0,148.3L889.3,153.6L897.9,155.7L909.1,156.4L924.1,152.1L930.6,154.0L933.2,152.6L937.7,156.5L945.7,155.6L945.7,158.1L952.1,158.5L952.5,160.8L961.8,162.6L962.9,165.6L959.6,174.0L977.3,184.6L973.9,193.2L978.1,212.3L973.8,216.0L975.4,224.5L971.8,231.0L971.8,235.1L969.0,236.3L968.6,239.9L964.0,245.1L964.6,248.2L958.6,249.6L958.7,255.7L956.2,253.3L950.8,259.5L951.8,263.0L947.2,263.2L939.2,269.5L934.0,268.6L935.0,271.7L933.5,272.6L931.7,269.9L927.4,273.2L922.0,270.7L919.1,275.0L918.9,280.7L913.1,288.4L913.2,290.0L921.9,290.9L923.6,292.9L920.1,296.5L919.0,301.5L920.6,303.5L924.6,303.2L923.2,307.2L925.6,309.3L924.2,310.4L916.9,306.9L912.4,300.5L897.1,298.7L894.1,295.4L889.2,296.5L887.7,293.0L870.7,284.0L855.4,280.2L849.7,274.1L848.8,271.2L854.4,267.0L857.7,246.6L854.5,234.4L847.0,218.7L847.3,201.4L839.0,194.6L837.8,190.4L832.4,185.7L813.8,181.5L810.2,168.4L812.2,163.6L817.1,162.2L823.4,164.8L825.2,158.9L831.3,161.7L841.0,157.9L843.4,156.1L843.3,152.0L849.4,148.3L851.6,142.8L856.9,146.8L862.4,144.1L869.8,147.3Z"},{"id":"boyolali","name":"Boyolali","d":"M728.0,273.4L724.2,276.6L721.5,274.6L717.5,275.2L714.2,281.1L716.9,293.0L713.3,305.8L716.0,308.1L707.7,315.5L706.6,324.0L709.8,328.4L707.3,330.0L709.4,356.2L700.3,355.7L694.2,360.9L688.1,378.4L670.7,377.7L653.1,372.3L651.7,377.0L644.2,376.0L635.5,381.7L636.6,384.5L631.1,388.8L627.2,386.8L622.4,378.4L606.4,364.7L592.4,355.7L581.8,353.0L594.4,347.6L602.1,333.4L603.0,327.8L608.9,320.6L613.5,319.8L620.0,322.7L625.0,328.9L632.4,328.5L636.0,332.5L638.8,332.6L640.1,329.8L644.1,328.2L647.4,332.1L646.8,337.8L644.8,338.6L652.7,346.0L670.8,348.5L669.7,340.7L661.7,337.5L666.1,334.5L664.2,333.2L659.4,336.0L664.1,319.8L661.2,312.4L662.5,304.9L661.1,299.3L663.2,295.2L656.0,296.5L652.5,293.1L652.8,283.2L658.4,282.1L659.2,277.1L663.0,273.9L659.0,261.9L666.2,260.4L680.9,266.7L685.0,257.6L681.6,254.8L681.0,251.0L692.5,243.7L698.9,235.8L715.2,238.9L716.2,240.5L715.9,244.9L706.5,263.0L706.7,268.3L713.2,267.1L726.3,255.1L729.2,255.9L725.9,269.4L728.0,273.4Z"},{"id":"brebes","name":"Brebes","d":"M173.8,138.9L172.5,147.1L168.7,145.6L162.2,156.9L162.3,166.3L166.2,172.4L165.9,187.3L164.3,188.0L163.7,182.6L151.0,187.2L151.9,190.8L148.3,197.7L150.7,202.3L148.7,204.6L132.4,209.1L134.6,216.3L132.9,223.1L136.4,223.6L134.9,228.0L126.8,229.9L128.0,234.7L132.1,236.3L143.9,232.5L156.8,239.4L158.7,238.4L158.8,229.4L166.2,231.3L169.7,236.1L168.6,239.2L163.6,240.9L164.0,243.4L161.0,246.2L162.0,251.3L179.2,258.1L190.6,267.1L199.1,265.2L203.4,270.2L194.4,276.3L190.9,274.7L189.5,276.1L185.8,273.5L179.9,275.8L177.9,281.1L169.2,287.1L163.4,296.5L155.0,300.5L155.1,296.1L148.1,293.3L144.0,296.0L128.6,297.3L125.6,289.4L119.9,292.1L115.0,286.6L114.2,282.9L104.4,277.1L99.5,276.8L99.2,268.3L86.3,264.9L82.4,255.0L76.3,256.6L64.4,252.4L59.4,253.2L53.9,251.4L48.5,243.2L46.0,243.4L44.9,238.6L53.9,230.2L54.5,227.6L66.5,226.9L70.8,223.8L70.7,214.4L73.7,208.4L71.9,202.9L76.9,198.3L77.4,191.9L65.5,185.0L66.2,171.5L63.5,162.8L70.7,153.2L76.5,150.7L85.7,136.0L87.6,109.0L89.8,112.7L87.8,118.1L93.3,118.0L95.9,123.0L94.7,125.1L99.6,128.5L125.4,135.7L131.1,133.2L131.6,128.3L137.4,128.8L140.4,125.5L141.6,126.8L152.7,119.4L158.3,120.3L163.7,113.2L161.8,122.8L163.2,127.3L173.8,138.9Z"},{"id":"cilacap","name":"Cilacap","d":"M99.7,410.3L103.6,412.8L105.6,412.9L108.2,416.5L117.9,417.1L121.8,420.2L129.6,419.2L136.4,426.5L150.2,434.3L155.6,432.6L157.7,437.2L156.6,440.1L139.0,437.6L131.0,433.6L98.6,426.6L95.4,427.6L82.2,424.6L77.3,427.1L76.6,424.7L73.0,425.0L78.0,418.8L73.7,414.2L78.7,409.8L77.9,406.9L88.3,408.5L98.8,405.7L99.7,410.3ZM97.5,403.8L97.2,405.4L87.1,407.8L90.5,403.8L94.6,402.5L97.5,403.8ZM44.7,240.6L53.9,251.4L70.1,253.6L76.3,256.6L82.4,255.0L86.3,264.9L99.2,268.3L99.5,276.8L104.4,277.1L114.2,282.9L115.0,286.6L119.9,292.1L125.6,289.4L128.6,297.3L133.7,296.4L126.6,305.7L127.9,306.9L125.8,311.3L122.4,314.0L120.8,323.9L110.7,333.5L107.1,333.0L109.9,340.2L115.9,337.7L127.0,339.6L130.3,345.4L128.3,346.2L133.4,354.6L142.8,357.9L143.5,363.1L155.3,367.8L159.8,367.1L163.3,372.5L170.9,372.0L176.7,375.4L186.2,374.8L193.8,372.9L195.0,366.7L200.4,365.7L209.8,369.8L226.7,378.9L225.7,387.3L247.1,392.2L256.7,396.2L257.6,399.6L262.6,399.4L267.2,411.9L264.4,417.3L265.7,421.0L235.4,413.9L176.4,408.4L160.4,412.3L155.0,415.8L149.1,423.3L148.0,430.1L144.7,426.9L141.3,427.3L138.8,424.1L140.9,421.3L139.0,413.2L145.2,406.9L142.3,407.0L139.7,409.8L138.5,413.2L139.5,419.3L137.4,422.9L131.4,417.9L121.9,419.7L117.5,415.5L109.0,416.5L105.0,411.8L100.1,410.3L99.9,404.3L93.8,399.6L78.3,404.8L78.0,403.2L75.2,403.9L69.5,400.6L61.4,392.4L61.7,390.0L56.7,386.8L59.7,379.7L61.6,379.4L63.0,369.4L56.6,351.6L51.4,344.4L52.3,341.5L49.7,336.2L52.2,328.1L45.6,323.0L45.1,319.0L41.5,317.3L38.0,304.8L31.1,299.8L8.3,301.6L5.5,297.3L0.7,295.8L2.0,292.3L0.0,281.1L8.1,270.0L9.2,263.4L8.0,256.2L2.6,252.2L4.0,243.0L22.2,234.0L27.7,234.2L33.5,239.4L44.9,238.6L44.7,240.6Z"},{"id":"demak","name":"Demak","d":"M701.9,126.7L712.4,134.8L713.0,139.0L717.6,141.1L720.2,147.6L710.4,161.3L703.2,179.6L704.4,183.0L701.6,184.5L704.3,196.7L692.4,201.4L681.5,195.8L681.3,199.2L673.3,203.5L675.2,196.1L678.4,196.3L678.6,194.3L672.0,184.7L657.9,184.8L657.2,186.8L660.3,192.3L654.5,205.2L648.6,212.3L641.6,214.7L640.1,218.0L647.3,226.0L642.7,236.0L633.9,231.0L627.8,231.7L621.3,228.6L620.0,222.3L613.7,218.7L619.0,210.6L616.8,207.6L611.4,208.5L610.4,203.8L607.5,202.6L608.6,200.6L611.7,202.4L612.1,197.5L615.8,194.5L615.6,188.6L622.1,183.5L619.7,179.2L620.5,174.4L609.9,174.7L607.3,170.3L611.6,174.0L614.5,172.6L612.4,170.9L613.8,163.5L622.0,153.3L626.3,142.6L628.9,141.4L626.2,137.7L635.0,132.8L640.3,120.1L643.8,117.1L640.3,114.2L633.8,115.5L631.5,111.0L633.0,109.6L634.6,111.7L639.1,110.9L634.2,102.7L636.3,100.5L637.8,102.8L645.4,105.1L654.5,98.8L669.2,103.0L671.9,105.8L670.8,108.6L672.8,113.3L675.9,117.6L680.2,119.3L684.0,126.1L701.9,126.7Z"},{"id":"grobogan","name":"Grobogan","d":"M848.8,271.2L841.8,269.0L842.1,271.3L833.9,274.0L827.9,272.4L825.9,274.6L811.7,269.3L804.8,271.5L800.7,275.2L789.3,274.3L788.7,272.0L765.2,280.5L758.3,278.4L750.3,279.7L745.9,277.5L732.5,276.4L728.0,273.4L725.9,269.4L729.2,255.9L726.3,255.1L716.1,265.5L706.7,268.3L706.5,263.0L715.9,244.9L715.2,238.9L698.9,235.8L695.0,238.8L692.5,243.7L681.0,251.0L681.6,254.8L685.0,257.6L680.9,266.7L666.2,260.4L659.0,261.9L656.8,260.3L656.0,253.7L653.3,252.1L645.4,252.9L633.3,247.9L635.7,243.7L638.1,244.3L642.6,241.0L642.7,236.0L647.3,226.0L640.1,218.0L641.6,214.7L648.6,212.3L654.5,205.2L660.3,192.3L657.2,186.8L657.9,184.8L672.0,184.7L678.6,194.3L678.4,196.3L675.2,196.1L673.0,200.7L673.3,203.5L675.6,203.7L681.3,199.2L681.5,195.8L692.4,201.4L704.3,196.7L701.6,184.5L704.4,183.0L703.2,179.6L705.3,173.2L714.2,180.6L717.9,190.5L722.5,191.3L724.1,190.8L723.6,188.2L732.1,190.5L735.4,183.1L740.7,181.4L741.7,185.2L747.7,185.6L751.1,179.6L761.2,182.2L770.6,180.0L772.9,181.4L804.0,180.2L806.3,178.7L805.1,173.2L810.2,168.4L814.6,182.4L832.4,185.7L837.8,190.4L839.0,194.6L847.3,201.4L847.0,218.7L854.5,234.4L857.7,246.6L854.4,267.0L848.8,271.2Z"},{"id":"jepara","name":"Jepara","d":"M770.5,4.2L769.7,17.9L751.9,33.5L749.3,48.4L749.2,67.6L747.8,70.4L741.1,68.4L737.4,72.3L736.4,82.3L732.4,86.7L731.5,95.1L725.5,98.6L727.4,100.7L727.1,105.1L731.6,107.6L728.0,113.4L725.0,111.7L719.8,113.6L716.8,112.3L707.4,118.1L704.4,122.4L705.5,129.2L701.9,126.7L684.0,126.1L680.2,119.3L675.9,117.6L672.8,113.3L671.2,104.0L653.2,99.1L662.2,87.7L666.5,77.6L663.4,72.2L663.7,68.7L666.7,68.2L669.3,61.5L665.5,58.7L670.5,56.4L670.9,53.3L665.6,48.7L676.5,41.4L678.3,36.6L672.6,33.9L671.9,31.7L680.8,30.1L680.2,27.9L686.8,22.7L687.9,17.4L691.0,14.3L701.8,12.4L710.6,7.2L718.8,7.6L727.7,1.4L753.2,0.5L770.5,4.2Z"},{"id":"karanganyar","name":"Karanganyar","d":"M709.4,356.2L708.3,363.3L701.9,365.6L693.9,362.6L700.3,355.7L709.4,356.2ZM825.3,358.1L829.1,373.9L840.4,383.5L838.0,400.1L840.7,404.8L836.5,415.7L837.7,417.0L831.9,419.1L825.6,416.5L818.2,421.0L819.8,422.6L814.6,428.7L813.2,426.5L809.5,429.2L798.2,431.2L794.5,433.9L793.1,439.7L788.0,433.0L768.9,433.7L765.9,435.4L764.2,426.8L761.1,426.6L764.7,407.9L762.0,393.8L763.9,389.9L762.1,387.5L751.0,385.9L750.3,376.5L739.8,371.9L742.3,364.5L735.5,358.8L721.5,354.5L715.7,356.7L709.4,355.0L708.3,332.4L726.1,335.6L742.9,346.1L760.9,348.4L784.2,359.3L786.5,357.6L793.7,359.9L791.0,354.8L799.1,348.5L803.8,349.4L803.9,356.6L808.8,359.2L813.1,359.5L819.7,353.9L825.3,358.1Z"},{"id":"kebumen","name":"Kebumen","d":"M401.4,380.9L401.3,390.4L396.5,395.9L399.0,403.6L398.4,408.0L395.8,410.5L398.5,416.2L406.1,417.6L407.1,421.3L409.0,438.4L405.3,454.4L432.1,460.5L431.8,462.3L339.7,439.4L290.6,432.3L287.6,434.6L280.9,435.1L280.2,437.7L265.1,431.5L267.3,419.7L264.4,417.3L267.2,411.9L263.5,398.8L265.6,395.8L272.4,397.3L280.9,392.1L283.4,387.6L273.6,371.7L277.8,367.3L281.0,358.8L293.6,355.9L300.4,351.5L315.9,356.0L321.2,352.7L330.9,353.7L344.8,343.2L347.2,343.2L349.1,348.2L355.8,350.0L365.7,347.4L370.9,342.5L375.3,342.4L381.1,332.7L383.6,342.9L382.2,347.4L387.5,353.8L377.3,359.0L374.8,367.5L386.2,382.1L396.2,384.8L401.4,380.9Z"},{"id":"kendal","name":"Kendal","d":"M561.5,171.2L553.9,173.5L551.9,177.4L553.2,179.1L546.7,183.3L552.5,194.7L551.7,196.5L548.4,195.5L547.5,201.9L555.6,211.0L558.4,224.5L568.4,223.9L570.2,217.1L572.4,220.0L573.4,232.6L571.5,239.5L574.6,247.0L571.8,249.3L563.6,252.2L556.7,252.4L552.2,250.2L548.8,253.5L544.1,253.5L538.8,249.8L534.4,250.9L523.6,247.1L520.5,245.2L517.1,237.6L508.7,237.5L505.6,234.5L507.1,230.2L510.5,230.4L512.8,226.8L517.2,225.3L515.6,221.0L497.7,220.1L485.4,227.7L479.3,228.4L445.7,252.2L440.2,253.6L437.0,250.4L441.5,235.1L453.6,214.2L454.5,209.0L452.0,200.8L462.7,196.1L473.6,186.6L475.6,182.3L475.2,174.9L469.6,168.2L474.1,164.2L467.6,162.7L501.6,152.8L515.8,143.6L516.1,140.8L530.3,146.1L532.2,151.6L540.1,160.7L551.2,164.0L561.5,171.2Z"},{"id":"klaten","name":"Klaten","d":"M675.3,376.6L699.2,381.8L704.9,388.2L695.7,420.0L697.8,426.0L690.6,436.3L687.4,446.1L677.5,447.2L675.2,444.8L676.1,442.2L673.9,442.0L670.6,446.3L667.5,443.1L663.2,445.4L651.7,445.0L648.8,447.6L646.0,443.0L639.5,439.7L631.2,444.0L622.2,435.8L617.7,434.7L617.7,426.8L604.3,364.0L622.4,378.4L627.2,386.8L631.1,388.8L636.6,384.5L635.5,381.7L644.2,376.0L651.7,377.0L653.1,372.3L664.8,376.5L675.3,376.6Z"},{"id":"banjarnegara","name":"Banjarnegara","d":"M407.2,250.3L413.9,247.4L423.1,249.4L432.7,253.5L432.8,258.2L418.1,264.2L410.4,281.4L397.9,293.3L393.7,302.4L384.8,312.7L396.3,320.1L407.8,322.2L412.1,329.6L406.9,333.1L397.4,333.5L386.8,329.4L381.1,332.7L375.3,342.4L370.9,342.5L365.7,347.4L355.8,350.0L349.1,348.2L347.2,343.2L344.8,343.2L330.9,353.7L321.2,352.7L315.9,356.0L300.4,351.5L293.6,355.9L270.9,360.9L267.1,360.0L264.1,355.1L257.8,353.2L258.1,345.6L261.9,342.6L270.5,341.2L271.2,339.2L275.6,341.9L277.6,336.4L286.4,332.9L288.2,334.0L296.6,331.1L302.2,333.1L302.5,320.6L316.0,317.8L311.0,303.7L307.9,300.2L308.0,294.3L322.3,294.1L323.4,286.8L331.8,281.4L333.3,272.0L329.5,268.4L324.6,269.0L320.0,272.1L316.3,271.0L314.2,267.3L317.3,264.2L329.8,256.7L336.5,257.2L346.4,246.0L357.5,245.4L362.2,251.4L370.9,254.1L396.1,244.7L404.7,247.6L407.2,250.3Z"},{"id":"banyumas","name":"Banyumas","d":"M258.6,349.3L257.8,353.2L264.1,355.1L267.1,360.0L281.0,358.8L277.8,367.3L273.6,371.7L283.4,387.6L280.9,392.1L272.4,397.3L265.6,395.8L263.5,401.7L262.6,399.4L257.6,399.6L255.1,395.2L225.7,387.3L226.7,378.9L200.4,365.7L195.0,366.7L193.8,372.9L186.2,374.8L176.7,375.4L170.9,372.0L161.3,371.7L159.8,367.1L155.3,367.8L143.5,363.1L142.8,357.9L133.4,354.6L128.3,346.2L130.3,345.4L127.0,339.6L115.9,337.7L109.9,340.2L107.1,333.0L110.7,333.5L120.8,323.9L122.4,314.0L125.8,311.3L127.9,306.9L126.6,305.7L133.7,296.4L151.6,293.9L155.1,296.1L155.0,300.5L163.4,296.5L169.2,287.1L177.9,281.1L179.9,275.8L185.8,273.5L189.5,276.1L190.9,274.7L194.4,276.3L203.4,270.2L212.5,267.5L217.4,271.4L224.7,282.1L237.4,310.4L244.7,323.3L247.8,325.5L251.2,334.5L249.8,337.5L245.1,336.9L243.8,344.1L256.5,344.9L258.6,349.3Z"},{"id":"kota-magelang","name":"Kota Magelang","d":"M537.0,338.9L533.5,355.5L527.5,353.0L526.9,351.5L535.1,339.4L537.0,338.9Z"},{"id":"kota-pekalongan","name":"Kota Pekalongan","d":"M377.7,151.3L372.9,164.3L374.7,171.9L372.6,175.3L369.0,175.4L367.5,170.9L355.2,171.6L352.0,168.5L344.7,168.2L344.5,161.1L348.5,156.8L348.5,150.4L352.0,142.0L377.7,151.3Z"},{"id":"kota-semarang","name":"Kota Semarang","d":"M608.4,173.4L620.5,174.4L619.7,179.2L622.1,183.5L615.6,188.6L615.8,194.5L612.1,197.5L611.7,202.4L608.6,200.6L607.5,202.6L610.4,203.8L611.4,208.5L616.8,207.6L619.0,210.6L613.7,218.7L612.2,216.6L604.2,215.7L603.1,219.0L596.6,221.4L596.6,228.5L594.6,228.9L592.5,224.4L578.4,230.0L579.3,227.4L578.0,225.5L573.2,225.4L570.2,217.1L568.4,223.9L558.4,224.5L555.6,211.0L547.5,201.9L548.4,195.5L551.7,196.5L552.5,194.7L546.7,183.3L553.2,179.1L551.9,177.4L553.9,173.5L562.3,171.0L574.0,175.8L582.2,176.0L585.6,173.2L590.5,175.4L590.5,173.3L596.2,171.7L600.0,171.8L602.1,176.3L608.4,173.4Z"},{"id":"kota-tegal","name":"Kota Tegal","d":"M180.5,141.8L190.2,141.8L187.5,156.6L183.8,156.3L178.2,160.2L173.2,158.2L162.6,159.0L168.7,145.6L172.5,147.1L173.5,145.7L173.8,138.9L180.5,141.8Z"},{"id":"kudus","name":"Kudus","d":"M714.2,180.6L705.3,173.2L710.4,161.3L720.2,147.6L717.6,141.1L713.0,139.0L712.4,134.8L705.5,129.2L704.4,122.4L707.4,118.1L716.8,112.3L719.8,113.6L725.0,111.7L728.0,113.4L730.5,110.7L731.6,107.6L727.1,105.1L727.4,100.7L725.5,98.6L731.5,95.1L732.4,86.7L736.4,82.3L737.4,72.3L741.1,68.4L745.7,68.8L747.8,70.4L745.9,74.3L758.2,97.1L756.8,100.1L754.8,98.8L754.9,104.8L760.2,106.2L760.9,112.9L763.4,109.7L771.0,128.0L771.3,135.1L756.8,146.1L741.5,148.4L739.3,160.7L732.2,159.8L728.3,165.2L728.4,169.5L718.5,172.9L718.5,180.9L714.8,183.7L714.2,180.6Z"},{"id":"magelang","name":"Magelang","d":"M601.3,334.2L594.4,347.6L581.8,353.0L592.4,355.7L603.2,363.5L565.4,395.6L558.5,399.1L548.9,412.9L545.7,411.6L544.7,408.7L545.6,397.9L544.0,396.6L535.7,398.1L528.7,396.3L524.4,398.1L521.6,395.8L509.6,396.1L505.3,397.6L501.2,392.6L492.2,372.7L479.2,372.9L479.5,368.2L475.0,360.8L477.7,343.4L481.4,336.1L479.5,328.8L480.5,323.7L484.2,313.4L500.3,312.4L504.6,314.0L517.0,311.9L523.8,312.6L530.2,317.1L532.2,312.4L540.5,308.1L543.0,311.7L550.6,312.1L566.9,305.4L565.5,297.7L568.1,293.3L581.3,296.1L583.1,301.9L588.1,305.3L590.3,310.0L590.2,315.2L594.2,324.5L601.3,334.2Z"},{"id":"pati","name":"Pati","d":"M854.1,90.5L856.9,98.4L854.8,110.7L858.3,115.6L858.1,125.6L864.9,134.5L860.8,137.8L862.4,144.1L856.9,146.8L851.6,142.8L849.4,148.3L843.3,152.0L843.4,156.1L834.0,160.9L828.7,161.3L825.2,158.9L823.4,164.8L817.1,162.2L812.2,163.6L805.1,173.2L806.3,178.7L804.0,180.2L772.9,181.4L770.6,180.0L761.2,182.2L751.1,179.6L747.7,185.6L741.7,185.2L740.7,181.4L735.4,183.1L732.1,190.5L729.6,190.8L727.8,188.0L723.6,188.2L724.1,190.8L722.5,191.3L717.9,190.5L714.8,183.7L718.5,180.9L718.5,172.9L728.4,169.5L728.3,165.2L732.2,159.8L739.3,160.7L741.5,148.4L756.8,146.1L771.3,135.1L771.0,128.0L763.4,109.7L760.9,112.9L760.2,106.2L754.9,104.8L754.8,98.8L756.8,100.1L758.2,97.1L745.9,74.3L749.2,67.6L749.3,48.4L751.9,33.5L769.7,17.9L771.1,10.1L769.8,2.9L772.9,0.0L793.7,7.2L799.3,37.4L812.3,64.2L822.5,78.1L828.6,81.5L837.8,82.5L848.1,89.0L854.1,90.5Z"},{"id":"pekalongan","name":"Pekalongan","d":"M351.1,142.6L348.5,156.8L344.5,161.1L344.7,168.2L352.0,168.5L355.2,171.6L367.5,170.9L371.8,178.6L374.8,198.4L380.2,201.3L386.8,199.7L394.5,211.8L392.9,218.5L398.3,220.5L404.5,231.3L406.3,244.4L404.7,247.6L396.1,244.7L370.9,254.1L362.2,251.4L357.5,245.4L346.4,246.0L336.5,257.2L329.8,256.7L314.2,267.3L307.9,260.8L307.7,253.9L298.3,231.5L299.6,225.1L303.7,223.6L300.2,219.7L295.9,203.5L299.5,191.0L298.2,187.4L299.9,179.3L316.7,166.2L320.0,166.5L322.0,153.7L325.6,151.8L326.2,143.6L330.4,141.2L329.1,139.2L351.1,142.6Z"},{"id":"pemalang","name":"Pemalang","d":"M330.4,141.2L326.2,143.6L327.1,147.7L325.6,151.8L322.0,153.7L320.0,166.5L316.7,166.2L299.9,179.3L298.2,187.4L299.5,191.0L296.2,199.1L297.0,209.4L300.2,219.7L303.7,223.6L299.6,225.1L298.3,231.5L307.7,253.9L306.6,257.8L310.5,263.9L296.3,262.2L288.4,252.9L289.3,249.4L284.7,244.0L272.9,254.3L263.4,251.7L248.7,257.7L221.5,263.1L210.6,267.6L207.0,261.5L205.3,244.3L202.8,240.7L204.5,237.2L203.2,233.1L212.3,230.2L217.9,214.5L230.1,207.2L236.4,191.1L235.3,188.6L242.1,186.5L243.8,181.9L248.6,177.5L246.6,167.0L256.7,152.5L253.9,146.4L264.8,145.7L281.1,139.9L296.3,130.5L303.6,122.1L306.9,123.3L307.6,119.4L318.7,134.1L330.4,141.2Z"},{"id":"purbalingga","name":"Purbalingga","d":"M312.3,264.1L316.3,271.0L320.0,272.1L324.6,269.0L329.5,268.4L333.3,272.0L331.8,281.4L323.4,286.8L322.3,294.1L308.0,294.3L307.9,300.2L311.0,303.7L316.0,317.8L302.5,320.6L302.2,333.1L296.6,331.1L283.4,335.1L282.4,333.9L277.6,336.4L275.6,341.9L271.2,339.2L270.5,341.2L261.9,342.6L258.1,345.6L251.9,343.4L249.1,345.4L243.8,344.1L245.1,336.9L249.8,337.5L251.2,334.5L247.8,325.5L244.7,323.3L237.4,310.4L224.7,282.1L217.4,271.4L210.6,267.6L221.5,263.1L248.7,257.7L263.4,251.7L272.9,254.3L284.7,244.0L289.3,249.4L288.4,252.9L296.3,262.2L312.3,264.1Z"},{"id":"purworejo","name":"Purworejo","d":"M475.9,361.5L479.5,368.2L479.2,372.9L492.2,372.7L501.2,392.6L505.3,397.6L498.5,403.7L498.3,406.2L504.3,410.7L501.2,417.8L503.4,419.5L501.7,422.2L502.6,426.8L495.8,434.2L495.8,437.6L492.1,438.3L486.0,447.6L480.5,449.8L475.0,464.3L474.1,474.7L464.6,472.7L463.3,474.1L432.4,462.8L432.1,460.5L405.3,454.4L409.0,438.4L407.1,421.3L406.1,417.6L398.5,416.2L395.8,410.5L398.4,408.0L399.0,403.6L396.5,395.9L401.3,390.4L401.4,380.9L403.5,378.1L412.0,369.4L416.8,367.8L420.1,363.9L418.9,359.2L421.9,357.5L433.2,355.8L436.6,358.3L441.7,358.4L443.3,352.6L451.3,365.0L455.8,365.1L460.5,377.9L465.6,375.5L467.2,369.7L472.3,366.0L472.0,360.8L475.9,361.5Z"},{"id":"rembang","name":"Rembang","d":"M1000.0,112.1L995.5,118.8L992.9,115.3L989.5,120.6L991.8,127.4L988.8,134.3L985.9,135.8L976.5,135.0L974.4,152.8L971.8,156.3L973.3,159.6L962.9,165.6L960.3,161.4L945.7,158.1L945.7,155.6L937.7,156.5L933.2,152.6L930.6,154.0L924.1,152.1L909.1,156.4L897.9,155.7L889.3,153.6L882.0,148.3L869.8,147.3L862.4,144.1L860.8,137.8L864.9,134.5L858.1,125.6L858.3,115.6L854.8,110.7L856.9,98.4L854.1,90.5L857.5,92.3L872.0,90.8L876.7,93.7L888.3,95.7L900.3,95.3L925.2,83.9L928.0,81.5L927.1,76.1L936.2,69.3L942.0,73.4L945.4,72.4L958.4,75.4L1000.0,112.1Z"},{"id":"salatiga","name":"Salatiga","d":"M626.3,282.7L624.1,292.3L627.9,295.2L630.3,304.4L628.6,307.6L623.3,307.2L621.2,312.7L623.0,315.2L615.8,316.4L618.1,312.5L609.6,302.4L611.8,301.4L609.2,299.9L611.7,288.4L610.3,285.7L614.4,284.3L623.4,286.0L626.3,282.7Z"},{"id":"semarang","name":"Semarang","d":"M616.8,219.0L620.0,222.3L621.3,228.6L627.8,231.7L633.9,231.0L642.7,236.0L642.6,241.0L638.1,244.3L635.7,243.7L633.3,247.9L645.4,252.9L653.3,252.1L656.0,253.7L656.8,260.3L659.0,261.9L663.0,273.9L659.2,277.1L658.4,282.1L652.8,283.2L651.4,290.5L656.0,296.5L663.2,295.2L661.1,299.3L662.5,304.9L661.2,312.4L664.1,319.8L662.9,328.1L658.9,334.2L659.4,336.0L664.2,333.2L666.1,334.5L661.7,337.5L669.7,340.7L670.8,348.5L652.7,346.0L644.8,338.6L646.8,337.8L647.4,332.1L644.1,328.2L640.1,329.8L638.8,332.6L636.0,332.5L632.4,328.5L625.0,328.9L620.0,322.7L613.5,319.8L608.9,320.6L603.0,327.8L601.3,334.2L594.2,324.5L590.2,315.2L590.3,310.0L588.1,305.3L583.1,301.9L581.3,296.1L568.1,293.3L562.2,287.9L567.4,284.8L548.6,269.5L540.6,254.9L540.7,250.7L544.1,253.5L548.8,253.5L552.2,250.2L556.7,252.4L563.6,252.2L574.6,247.0L571.5,239.5L573.2,225.4L578.0,225.5L578.4,230.0L592.5,224.4L594.6,228.9L596.6,228.5L596.6,221.4L603.1,219.0L604.2,215.7L616.8,219.0Z"},{"id":"sragen","name":"Sragen","d":"M825.9,274.6L822.5,285.9L826.6,290.9L823.4,296.7L824.6,307.9L816.3,323.6L820.0,337.7L821.8,338.0L821.2,342.5L827.3,349.6L825.9,357.2L822.9,357.5L818.2,354.0L813.1,359.5L808.8,359.2L803.9,356.6L803.8,349.4L799.1,348.5L791.0,354.8L793.7,359.9L786.5,357.6L784.2,359.3L760.9,348.4L742.9,346.1L726.1,335.6L708.3,332.4L707.3,330.0L709.8,328.4L706.6,324.0L707.7,315.5L716.0,308.1L713.3,305.8L716.9,293.0L714.2,281.1L717.5,275.2L721.5,274.6L724.2,276.6L728.0,273.4L732.5,276.4L745.9,277.5L750.3,279.7L758.3,278.4L765.2,280.5L788.7,272.0L789.3,274.3L800.7,275.2L804.8,271.5L811.7,269.3L825.9,274.6Z"},{"id":"sukoharjo","name":"Sukoharjo","d":"M704.9,364.3L703.5,368.4L706.3,375.7L716.4,376.2L721.1,382.7L728.1,381.2L733.2,378.0L737.2,372.0L739.8,371.9L750.3,376.5L751.0,385.9L762.1,387.5L763.9,389.9L762.0,393.8L764.7,407.9L761.1,426.6L757.5,430.4L756.5,436.5L753.7,436.4L750.4,432.9L735.6,431.3L732.9,436.7L733.4,449.1L731.8,450.8L726.7,444.7L719.6,442.9L716.7,443.5L710.3,451.1L705.1,448.9L701.5,453.4L693.1,444.3L687.9,442.6L697.8,426.0L695.7,420.0L704.9,388.2L699.2,381.8L686.1,378.9L689.1,376.4L688.6,373.4L693.9,362.6L701.9,365.6L704.9,364.3Z"},{"id":"surakarta","name":"Surakarta","d":"M737.2,372.0L733.2,378.0L721.1,382.7L716.4,376.2L706.3,375.7L703.5,368.4L704.9,364.3L708.3,363.3L709.4,355.0L715.7,356.7L721.5,354.5L735.5,358.8L742.3,364.5L739.8,371.9L737.2,372.0Z"},{"id":"tegal","name":"Tegal","d":"M251.2,146.2L256.0,148.0L256.7,152.5L246.6,167.0L248.6,177.5L243.8,181.9L242.1,186.5L235.3,188.6L236.4,191.1L230.1,207.2L217.9,214.5L212.3,230.2L203.2,233.1L204.5,237.2L202.8,240.7L205.3,244.3L207.0,261.5L210.6,267.6L203.4,270.2L199.1,265.2L190.6,267.1L179.2,258.1L162.0,251.3L161.0,246.2L164.0,243.4L163.6,240.9L168.6,239.2L169.7,236.1L166.2,231.3L158.8,229.4L158.7,238.4L156.8,239.4L143.9,232.5L132.1,236.3L128.0,234.7L126.8,229.9L134.9,228.0L136.4,223.6L132.9,223.1L134.6,216.3L132.4,209.1L148.7,204.6L150.7,202.3L148.3,197.7L151.9,190.8L151.0,187.2L153.3,185.5L156.3,186.5L158.4,183.2L163.7,182.6L164.3,188.0L165.9,187.3L166.2,172.4L162.3,166.3L162.6,159.0L173.2,158.2L178.2,160.2L183.8,156.3L187.5,156.6L190.2,141.8L192.2,140.6L202.1,145.8L214.0,146.4L226.1,149.7L242.3,149.1L251.2,146.2Z"},{"id":"temanggung","name":"Temanggung","d":"M540.6,254.9L548.6,269.5L567.4,284.8L562.2,287.9L568.1,293.3L565.5,297.7L567.4,302.9L564.6,306.7L550.6,312.1L543.0,311.7L540.5,308.1L536.0,309.6L532.2,312.4L530.2,317.1L523.8,312.6L517.0,311.9L504.6,314.0L500.3,312.4L484.2,313.4L475.5,303.0L469.0,298.4L459.3,285.2L458.1,273.2L447.6,264.3L445.4,258.2L440.2,253.6L452.3,248.8L479.3,228.4L485.4,227.7L497.7,220.1L515.6,221.0L517.2,225.3L512.8,226.8L510.5,230.4L507.1,230.2L505.6,234.5L508.7,237.5L517.1,237.6L520.5,245.2L523.6,247.1L534.4,250.9L540.7,250.7L540.6,254.9Z"},{"id":"wonogiri","name":"Wonogiri","d":"M839.8,417.2L852.7,428.7L856.0,426.9L869.4,427.8L870.9,431.8L868.1,436.1L868.8,439.9L879.2,461.6L873.2,464.9L873.3,471.3L865.1,487.0L853.6,492.8L849.9,487.5L841.1,488.8L840.9,485.4L838.1,482.7L828.6,485.5L824.5,488.4L825.6,493.8L820.6,497.5L818.8,502.9L821.8,516.4L817.5,522.3L817.2,527.2L810.9,530.3L807.8,529.5L804.0,524.5L789.2,535.4L774.2,533.7L765.2,529.4L750.8,547.7L746.8,563.2L748.7,576.3L727.2,574.9L727.0,564.2L721.5,566.9L720.3,563.0L725.2,554.1L720.9,553.4L715.3,560.4L711.8,558.4L711.8,543.8L701.3,515.4L705.4,504.3L705.4,484.3L709.9,468.6L710.3,451.1L716.7,443.5L719.6,442.9L726.7,444.7L731.8,450.8L733.4,449.1L732.9,436.7L735.6,431.3L750.4,432.9L755.6,437.6L758.4,428.5L763.1,426.0L765.9,435.4L768.9,433.7L788.0,433.0L793.1,439.7L794.5,433.9L798.2,431.2L809.5,429.2L813.2,426.5L814.6,428.7L819.8,422.6L818.2,421.0L825.6,416.5L831.9,419.1L839.8,417.2Z"},{"id":"wonosobo","name":"Wonosobo","d":"M473.1,360.1L472.3,366.0L467.2,369.7L465.6,375.5L460.5,377.9L455.8,365.1L451.3,365.0L443.3,352.6L441.7,358.4L436.6,358.3L433.2,355.8L421.9,357.5L418.9,359.2L420.1,363.9L416.8,367.8L412.0,369.4L396.2,384.8L383.5,380.5L374.8,367.5L377.3,359.0L387.5,353.8L382.2,347.4L383.6,342.9L381.1,332.7L386.8,329.4L397.4,333.5L406.9,333.1L412.1,329.6L407.8,322.2L396.3,320.1L384.8,312.7L393.7,302.4L397.9,293.3L410.4,281.4L418.1,264.2L431.4,259.9L432.7,253.5L436.9,249.4L445.4,258.2L447.6,264.3L458.1,273.2L459.3,285.2L469.0,298.4L475.5,303.0L484.2,313.4L479.5,328.8L481.4,336.1L477.7,343.4L475.0,360.8L473.1,360.1Z"}]};
+
+/* ================= content ================= */
+const THEMES = {
+  urban:{label:"Urban", n:"01",
+    line:"Detailed spatial plans, urban boundaries drawn from satellite settlement grids, and population projections for 8,000 villages in Central Java.",
+    hint:"Hover the card to move a 400 m / 800 m walking catchment.",
+    chips:[["20 yr","RDTR Parakan plan"],["93.75%","delineation match with BPS"],["8,000","villages projected"]],
+    st:"Planning towns from the data up. I work on detailed spatial plans (RDTR), urban delineation, housing need and regional demographics, from field survey to draft regulation.",
+    figs:[["20 yr","planning horizon of the Parakan RDTR, 2024–2044"],["93.75%","agreement of my urban delineation with BPS classification"],["35.13 ha","housing land Parakan needs by 2043, against 243.97 ha available"]],
+    motif:"Street grid · 400 m / 800 m catchment"},
+  climate:{label:"Climate", n:"02",
+    line:"Greenhouse gas inventories under IPCC 2006 for Banjarnegara, Kudus and Salatiga, and spatial analysis of tsunami risk and resilience on Java's south coast.",
+    hint:"Hover the card to deepen a low-pressure system.",
+    chips:[["3","GHG inventories, 2025"],["4","IPCC sectors covered"],["ICIAP","paper accepted, 2026"]],
+    st:"Measuring emissions and planning for climate risk. I build regional GHG inventories, assess climate vulnerability inside KLHS, and analyse coastal hazard and resilience.",
+    figs:[["3","GHG inventories for 2025: Banjarnegara, Kudus and Salatiga"],["4","IPCC sectors covered: Energy, IPPU, AFOLU, Waste"],["3","coastal regencies in my tsunami-risk study, accepted for oral presentation at ICIAP 2026"]],
+    motif:"Isobars · drifting pressure field"},
+  sustain:{label:"Sustainability", n:"03",
+    line:"Sixteen Strategic Environmental Assessments across 8 regencies and cities that write sustainable development into regulation, backed by ESG reporting training in IFRS S1 and S2.",
+    hint:"Hover the card to move the growth rings.",
+    chips:[["16","KLHS documents"],["8","local governments"],["EESG","TOD framework, 2025"]],
+    st:"Writing sustainability into decisions. I prepare Strategic Environmental Assessments (KLHS), study ESG-based development, and communicate environmental campaigns to the public.",
+    figs:[["16","KLHS for 8 local governments: 11 completed, 5 in progress"],["EESG","framework proposed for transit-oriented development"],["2","ESG credentials in 2026: IFRS S1 & S2, ESG Reporting"]],
+    motif:"Growth rings · one ring per cycle"}
+};
+const TH_ORDER=["urban","climate","sustain"];
+const EXT='<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';
+const LINKS={
+  pdki:{href:"https://pdki-indonesia.dgip.go.id/detail/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",label:"PDKI record"},
+  tod:{href:"https://doi.org/10.54518/art.9.1.2025.649",label:"DOI 10.54518/art.9.1.2025.649"},
+  housing:{href:"https://doi.org/10.30659/jpsa.v22i2.40156",label:"DOI 10.30659/jpsa.v22i2.40156"},
+  video:{href:"https://youtu.be/WTAcUfdumfc",label:"Procedure video (YouTube)"},
+  singempon:{href:"https://singempon.github.io/",label:"Live site (singempon.github.io)"},
+  singemponmap:{href:"https://singempon.github.io/exploremap.html",label:"Open the WebGIS"},
+  det:{href:"https://certs.duolingo.com/wnjusobeimsv94rc",label:"Verify DET certificate"},
+  ig:{href:"https://www.instagram.com/bintariorg/",label:"@bintariorg on Instagram"}
+};
+
+const PROJECTS=[
+  {id:"klhs", th:["sustain","climate"], feature:true,
+   title:"Strategic Environmental Assessments for RDTR and RTRW",
+   org:"BINTARI Foundation", period:"Jul 2024 – present", role:"Environmental Technical Assistant",
+   summary:"16 KLHS for 8 local governments in Central Java, 11 completed and 5 in progress: regional profiling, strategic issue screening, impact and climate-vulnerability analysis, and DPSIR-based recommendations written into draft regulations.",
+   vis:{type:"fan", imgs:["klhs-brebes","klhs-sumpiuh","klhs-mlonggo"]},
+   context:"Law No. 32 of 2009, Article 15, requires central and regional governments to carry out a KLHS so that sustainable development principles are built into every policy, plan and programme. For detailed spatial plans (RDTR) and regional spatial plans (RTRW), the KLHS tests the plan against the environment's carrying and assimilative capacity, and against climate change vulnerability, before it becomes regulation.",
+   did:["Drafted inception reports, main reports and executive summaries for each assessment.","Built regional profiles and screened the most strategic sustainable development issues from policy review and public consultation.","Identified plan content with environmental impact and compared planned spatial pattern with existing land cover in QGIS/ArcGIS, including effects on carbon emissions and climate resilience.","Formulated alternatives and recommendations integrated into the body of the draft regional head regulation.","Assisted the project manager on kick-off meetings, public consultations and FGDs, including minutes, attendance and official records (berita acara)."],
+   siteList:[["Brebes Urban Area (RDTR)","Brebes","done"],["Brebes Regency (RTRW)","Brebes","start"],["Slawi–Adiwerna Urban Area","Tegal","done"],["Margasari Urban Area","Tegal","done"],["Purwokerto Urban Area (RDTR revision)","Banyumas","done"],["Sumpiuh Urban Area","Banyumas","done"],["Purbalingga Urban Area","Purbalingga","prog"],["Mlonggo Urban Area","Jepara","done"],["Batealit Urban Area","Jepara","done"],["Undaan Urban Area","Kudus","done"],["Banyubiru Urban Area","Semarang Regency","done"],["Bancak Urban Area","Semarang Regency","prog"],["Bringin Urban Area","Semarang Regency","prog"],["Getasan Urban Area","Semarang Regency","prog"],["BWK VII Banyumanik","Semarang City","done"],["BWK VIII Gunungpati","Semarang City","done"]],
+   outcome:"Policy recommendations formally adopted into spatial planning regulations.",
+   tools:["QGIS","ArcGIS","Excel pivot tables & charts","Word","PowerPoint","Canva","DPSIR"],
+   gallery:[["klhs-brebes","Main report cover, KLHS RDTR Brebes Urban Area 2025–2045"],["klhs-sumpiuh","Main report cover, KLHS RDTR Sumpiuh Urban Area 2024–2044"],["klhs-mlonggo","Executive summary cover, KLHS RDTR Mlonggo Urban Area 2025–2045"],["klhs-dataviz","Issue analysis with charted water quality data"],["klhs-pivot","Pivot tables used to compile and chart assessment data"],["klhs-fgd","FGD on plan content with environmental impact, KLHS Mlonggo"],["klhs-meeting","Meeting documentation, Semarang City Environment Agency"]],
+   proofs:[]},
+  {id:"ghg", th:["climate","sustain"],
+   title:"Multi-sector GHG Emissions Inventories",
+   org:"BINTARI Foundation", period:"Inventory year 2025", role:"Environmental Technical Assistant",
+   summary:"Cross-sector inventories for Banjarnegara Regency, Kudus Regency and Salatiga City (inventory year 2025), built on the IPCC 2006 Guidelines and verified in SIGN SMART.",
+   siteList:[["Banjarnegara Regency","Inventory year 2025","done"],["Kudus Regency","Inventory year 2025","done"],["Salatiga City","Inventory year 2025","done"]],
+   vis:{type:"sectors"},
+   context:"Regional governments report greenhouse gas emissions through SIGN SMART, Indonesia's national inventory system. The inventory feeds regional decarbonisation strategy and official reporting.",
+   did:["Compiled activity data across Energy, IPPU, AFOLU and Waste.","Applied IPCC 2006 methodology and emission factors to each source category.","Entered results into SIGN SMART and carried them through verification.","Coordinated data requests and completeness follow-ups with industries, local government units, schools, universities and hospitals.","Compiled the verified results into inventory documents."],
+   outcome:"Verified inventories that informed regional decarbonisation strategy and official government reporting.",
+   tools:["IPCC 2006 Guidelines","SIGN SMART","Excel","Power Query"],
+   gallery:[], noGallery:"The inventory files belong to the client governments. The method section on this page walks through how each sector is built.", methodLink:true, proofs:[]},
+  {id:"thesis", th:["urban"], feature:true,
+   title:"A Procedure for Delineating Urban Areas: Parakan Subdistrict",
+   org:"Universitas Diponegoro · Undergraduate thesis", period:"2024", role:"Author · supervised by Dr. Ir. Artiningsih, M.Si.",
+   summary:"An urban boundary procedure built from Global Human Settlement Layer grids and the Degree of Urbanisation method, then field-validated. Registered as IP.",
+   vis:{type:"img", img:"thesis-delineation", contain:true},
+   context:"Parakan is planned as an urban area in the Temanggung Regency spatial plan, yet much of its workforce is still in agriculture, so agricultural employment alone no longer separates urban from rural. The thesis offers an alternative guide for classifying urban and rural areas efficiently and on target.",
+   did:["Processed GHS-POP and GHS-BUILT rasters with zonal statistics to classify grid cells by Degree of Urbanisation.","Overlaid the grid with the BPS urban–rural village classification and adjusted it through field validation.","Tested service coverage with breaking-point theory (Teori Titik Henti) and isochrone analysis.","Wrote the procedure as an eight-stage guide that can be applied in other regions."],
+   outcome:"Urban Centre covers 1,342.69 ha and 89.9% of residents; 10 of 16 villages are urban; 93.75% agreement with BPS data. The procedure is registered with DJKI (EC00202470546).",
+   tools:["GHSL","Degree of Urbanisation","ArcGIS","Zonal statistics","Isochrone (ORS Tools)","Field validation"],
+   gallery:[["thesis-poster","Thesis poster: the eight-stage procedure"],["thesis-du-grid","Peta IV.3 · Degree of Urbanisation grid, Parakan Subdistrict"],["thesis-delineation","Peta IV.5 · Final urban delineation, Parakan Subdistrict"],["thesis-density","Peta IV.2 · Population density, Parakan Subdistrict"],["thesis-isochrone","Peta IV.7 · Service coverage by isochrone"],["thesis-flow","Research framework"]],
+   proofs:["pdki","video"]},
+  {id:"parakan", th:["urban"],
+   title:"Detailed Spatial Plan for Parakan Urban Area, 2024–2044",
+   org:"COSPLAY Teaching Industry with Dinas PUPR Temanggung", period:"Jun – Nov 2023", role:"Urban Planner Intern",
+   summary:"Draft regent regulation for a 20-year RDTR, delivered by a six-person team in six months. My parts: infrastructure, economy and housing.",
+   vis:{type:"img", img:"parakan-trade"},
+   context:"The draft regent regulation (Raperbup) on the Parakan RDTR was prepared over six months with the Spatial Planning Division of the Temanggung Public Works and Spatial Planning Agency. Parakan is a strategic growth node on the Magelang–Temanggung corridor.",
+   did:["Infrastructure: recorded the number, condition and location of facilities and utilities, validated in the field, then projected needs for the planning year from population projections, SNI 03-1733-2004 and service-reach analysis.","Economy: profiled agriculture, livestock, industry, trade and services and the informal sector, and identified leading commodities.","Housing: built a demand model from the housing backlog and population projections, assuming one unit per household of four, and quantified units by type against land constraints."],
+   outcome:"A 20-year plan delivered within the six-month schedule. The housing analysis became a co-authored paper in Jurnal Planologi (2025): settlements need about 35.13 ha by 2043, against roughly 243.97 ha of available land.",
+   tools:["ArcGIS","Population projection","SNI 03-1733-2004","Service reach analysis","Land availability mapping","Excel"],
+   gallery:[["parakan-consultation","Public consultation on the Parakan RDTR, Temanggung"],["parakan-trade","Distribution of trade and services, Parakan Urban Area"],["parakan-vendors","Distribution of street vendors, Parakan Urban Area"],["parakan-facilities","Distribution of public service facilities"],["parakan-shops","Service reach of shops and kiosks"],["parakan-housing","Housing needs calculation"]],
+   proofs:["housing"]},
+  {id:"tod", th:["sustain","urban"],
+   title:"ESG-Based Transit-Oriented Development: an EESG Framework",
+   org:"Arthatama: Journal of Business Management and Accounting · 3rd EICOMB 2025", period:"2025", role:"Second author and presenter",
+   summary:"A systematic literature review of TOD under ESG criteria, proposing an Economic, Environmental, Social and Governance (EESG) framework for emerging economies.",
+   vis:{type:"eesg"},
+   context:"Fast-urbanising cities in developing countries are turning to transit-oriented development. The paper asks how TOD can put ESG principles into practice for inclusive and sustainable growth.",
+   did:["Reviewed existing scholarship systematically to weigh the promise and difficulties of TOD under ESG criteria.","Identified benefits in land-use efficiency, lower environmental harm, social inclusion and productivity, and challenges in high investment costs, loss of urban green space and weak cross-sector coordination.","Proposed adding an explicit economic dimension to ESG assessment, giving an EESG framework for planning TOD in emerging economies."],
+   outcome:"Presented at the 3rd EICOMB International Conference (2025), themed Sustainable Economic Growth, and published in Arthatama Vol. 9 No. 1 (2025), pp. 173–186.",
+   tools:["Systematic literature review","ESG","Transit-oriented development","Framework design"],
+   gallery:[["svg:eesg","Illustration of the EESG idea: an explicit economic dimension (solid arc) added to environmental, social and governance criteria around a transit node"],["cert-eicomb-presenter","Presenter certificate, 3rd EICOMB International Conference, 2025"],["cert-eicomb-author","Author certificate, 3rd EICOMB, with Muhammad Fadhil Athallah"]], proofs:["tod"]},
+  {id:"coast", th:["climate","urban"],
+   title:"Regional Resilience and Tsunami Risk on Central Java's South Coast",
+   org:"8th ICIAP 2026 · Universitas Gadjah Mada", period:"2026", role:"Second author of four",
+   summary:"A spatial analysis that integrates regional resilience with tsunami risk assessment for the coastal areas of Purworejo, Kebumen and Cilacap.",
+   vis:{type:"coast"},
+   context:"Purworejo, Kebumen and Cilacap share Central Java's coastline on the Indian Ocean. The paper brings regional resilience and tsunami risk into one spatial assessment of these coastal areas.",
+   did:["Co-authored the spatial analysis of coastal areas across the three regencies.","Combined regional resilience with tsunami risk assessment in a single spatial framework."],
+   outcome:"Accepted for oral presentation at the 8th International Conference on Indonesian Architecture and Planning (ICIAP 2026), Universitas Gadjah Mada, 14–15 July 2026. Publication in the Springer Nature proceedings is decided after presentation; the paper is under review for Lecture Notes in Civil Engineering.",
+   tools:["Spatial analysis","GIS","Risk assessment","Regional resilience"],
+   gallery:[["svg:coast","Study area: coastal Purworejo, Kebumen and Cilacap"],["iciap-loa","Letter of acceptance for oral presentation, 8th ICIAP 2026"]], proofs:[]},
+  {id:"ipei", th:["sustain","urban"],
+   title:"Population Projections and the Inclusive Economic Development Index",
+   org:"BAPPEDA Jawa Tengah", period:"Jul – Aug 2022", role:"Research Assistant Intern",
+   summary:"Urban–rural classification and projections for 8,000 villages and sub-districts, and IPEI sub-pillar indices at province and regency level.",
+   vis:{type:"img", img:"ipei-population", contain:true},
+   context:"The Regional Development Planning Agency needed province-wide demographic classification and an index of inclusive economic development to guide resource allocation.",
+   did:["Classified existing and projected urban and rural population by administrative village under BPS Regulation No. 120 of 2020; the results show Central Java's population is predominantly urban.","Calculated poverty and employment-opportunity sub-pillar indices for the IPEI at province and regency/city level.","Mapped spatial disparities to inform government resource allocation and development priorities."],
+   outcome:"The provincial IPEI average fell in the satisfactory band or above, with disparities mapped by regency.",
+   tools:["ArcGIS","Excel","BPS Regulation 120/2020","Index construction"],
+   gallery:[["ipei-population","Urban and rural population by regency/city, Central Java"],["ipei-index","IPEI poverty and employment sub-pillar index by regency/city"],["ipei-chart","Urban and rural population chart"],["bappeda-team","With the BAPPEDA Jawa Tengah team, 2022"]],
+   proofs:[]},
+  {id:"bob", th:["urban"],
+   title:"Draft RDTR for Loano District and the Borobudur Authority Zone",
+   org:"Universitas Diponegoro · Studio, semesters 5–7", period:"Sep 2022 – Nov 2023", role:"Team lead, spatial analysis stage",
+   summary:"Three studios on Loano District, Purworejo. In semester 7 the plan joined two other districts in a tourism-themed RDTR for the Borobudur Authority (BOB) zone. I led the analysis stage and completed the Loano plan.",
+   vis:{type:"img", img:"bob-socio"},
+   context:"A draft detailed spatial plan for Loano District in Purworejo Regency, built over semesters 5 to 7. In semester 7 the studio combined Loano with two other districts into one RDTR for the Borobudur Authority (BOB) zone, with tourism as its theme, and I still completed the Loano District plan.",
+   did:["Geospatial Processing Studio (Sep–Nov 2022): collected secondary and primary data through document review, field observation and interviews; responsible for the socio-cultural aspect (heritage, traditional skills, tangible and intangible heritage, arts, customs and history).","Spatial Analysis Studio (Feb–Jun 2023): team lead for the analysis, following Ministerial Regulation ATR/BPN No. 11 of 2021; responsible for the socio-cultural analysis.","Planning Studio (Sep–Nov 2023), within the combined BOB zone RDTR: responsible for the indicative spatial utilisation programme, the ITBX matrix in the zoning regulation, and the spatial structure for service centres, telecommunications and solid waste."],
+   outcome:"A complete draft RDTR for Loano District (spatial structure, spatial pattern, utilisation provisions and zoning regulation), feeding the tourism-themed RDTR for the Borobudur Authority zone.",
+   tools:["Permen ATR/BPN 11/2021","ITBX zoning matrix","Interviews","Field observation","ArcGIS"],
+   gallery:[["bob-socio","Demography and socio-cultural analysis, Loano"],["bob-interview","Interview with community figures"],["bob-heritage","Visit to a cultural heritage site"],["bob-service","Service centre development plan"]],
+   proofs:[]},
+  {id:"profiles", th:["urban"],
+   title:"Regional Profiles of Tengaran and Bergas Districts",
+   org:"Universitas Diponegoro · Studio, semesters 3–4", period:"2021 – 2022", role:"Student",
+   summary:"Regional profile studies of two districts in Semarang Regency: Tengaran as the semester 3 study area and Bergas in the semester 4 studio.",
+   vis:{type:"kabsem"},
+   context:"Studio courses in the Spatial Planning and Land Management programme at Universitas Diponegoro, before the Loano planning studios.",
+   did:["Semester 3: regional profile of Tengaran District as the study area.","Semester 4: regional profile of Bergas District in the studio course."],
+   outcome:"Regional profile documents for both districts.",
+   tools:["Regional profiling"],
+   gallery:[["svg:kabsem","Tengaran and Bergas districts in Semarang Regency (positions approximate)"]], proofs:[]},
+  {id:"pkm", th:["urban"],
+   title:"Economic Sector Development of Surakarta City by Klassen Typology",
+   org:"Program Kreativitas Mahasiswa, Scientific Article (PKM-AI) · Universitas Diponegoro", period:"2022 – 2023", role:"Research team member, under faculty supervision",
+   summary:"A scientific article that classifies Surakarta's economic sectors with the Klassen Typology. Selected for Phase 1 of Indonesia's national Student Creativity Program.",
+   vis:{type:"klassen"},
+   context:"Pengembangan Sektor Ekonomi di Kota Surakarta Berdasarkan Tipologi Klassen, written for the 2022 Student Creativity Program in the scientific article category (PKM-AI).",
+   did:["Analysed the development of Surakarta City's economic sectors with the Klassen Typology framework, under faculty supervision.","Placed each sector in one of four quadrants by comparing its growth rate and its share of the economy with the reference region."],
+   outcome:"Selected for Phase 1 of the National Student Creativity Program (PKM), Scientific Article category, February–March 2023.",
+   tools:["Klassen Typology","Regional economic analysis","Scientific writing"],
+   gallery:[["svg:klassen","How the Klassen Typology sorts sectors into four quadrants (illustrative)"]], proofs:[]},
+  {id:"singempon", th:["urban"],
+   title:"SINGEMPON: a Land Information System for Ngempon",
+   org:"Universitas Diponegoro · Land Information Systems coursework", period:"Jun 2023", role:"Coursework project",
+   summary:"A web-based land information system for Kelurahan Ngempon in Bergas District: a public landing page, an admin sign-in flow, and a WebGIS with a map viewer and an editor.",
+   vis:{type:"img", img:"singempon-landing", pos:"left center"},
+   context:"Coursework for the Land Information Systems (Sistem Informasi Pertanahan) course at Universitas Diponegoro. SINGEMPON stands for Sistem Informasi Pertanahan Ngempon. Ngempon is a kelurahan in Bergas District, Semarang Regency, the district I profiled in the semester 4 studio.",
+   did:["Built the site as static pages published on GitHub Pages.","Designed a landing page that introduces Ngempon through six local landmarks, from Candi Ngempon to Curug Tirto Wening.","Linked the Map page to a hosted WebGIS of Ngempon, with a public viewer and a separate editor for administrators.","Added admin sign-up and log-in pages that lead to the map editor."],
+   outcome:"A working public site at singempon.github.io, published in June 2023.",
+   tools:["WebGIS","Land information systems","HTML & CSS","GitHub Pages"],
+   gallery:[["singempon-landing","Landing page of SINGEMPON. A coursework prototype, not an official government site."]],
+   proofs:["singempon","singemponmap"]},
+  {id:"housing", th:["urban"],
+   title:"Housing Needs Assessment in Parakan Urban Area",
+   org:"Jurnal Planologi Vol. 22 No. 2 · Universitas Islam Sultan Agung", period:"2025", role:"Co-author, fourth of five",
+   summary:"Projects Parakan's housing shortfall to 2043 and tests it against the land that can still be built on: 2,237 homes on 35.13 ha, with 243.97 ha available.",
+   vis:{type:"waffle"},
+   context:"Temanggung's 2024–2044 spatial plan names Parakan an urban area and a strategic node on the Magelang–Temanggung corridor, which draws people in and raises housing demand. The paper asks how projected housing needs line up with land supply until 2043. It grew out of the housing analysis I prepared for the Parakan RDTR during my internship.",
+   did:["Projected population to 2043 with the geometric method, from BPS data for 2010–2022.","Counted one home per household of four and compared it with existing houses to get the backlog: 521 homes in 2028, rising to 2,237 in 2043.","Split the backlog 1 : 2 : 3 into large (200 m²), medium (120 m²) and small (70 m²) plots, then added 30% for infrastructure and 15% for facilities.","Mapped developable land in ArcGIS by overlaying built-up land, conservation land and green open space on the urban area boundary."],
+   outcome:"By 2043 Parakan needs 2,237 more homes on 35.13 ha, against 243.97 ha of developable land, so supply covers the need about seven times over. The paper recommends carrying these figures into the Parakan RDTR. Published in Jurnal Planologi Vol. 22 No. 2 (2025), pp. 295–309.",
+   tools:["Geometric population projection","Housing backlog","ArcGIS overlay","Land availability mapping"],
+   gallery:[["svg:waffle","Parakan Urban Area, 1,433.93 ha: land that is built-up or protected, land that can still be developed, and the share housing needs by 2043"],["parakan-housing","Housing needs calculation"]],
+   proofs:["housing"]},
+  {id:"comms", th:["sustain"], feature:true,
+   title:"Environmental Campaign Content for @bintariorg",
+   org:"BINTARI Foundation", period:"2024 – present", role:"Communication Officer",
+   summary:"Feeds, videos and live reports for environmental days and campaigns, plus field documentation.",
+   vis:{type:"fan", imgs:["social-3","social-6","social-5"]},
+   context:"Alongside technical work, I handle the Communications & Documentation division's social media.",
+   did:["Designed feed posts and wrote copy for campaigns and environmental days.","Produced video content and live reports from activities.","Documented fieldwork and stakeholder meetings."],
+   outcome:"Consistent public visibility for the foundation's programmes and stakeholder engagement.",
+   tools:["Canva","Content writing","Video editing","Photography"],
+   gallery:[["social-1","BINTARI Foundation's 39th anniversary"],["social-2","Ramadan campaign: less waste"],["social-3","World Earth Day"],["social-4","#BeatPlasticPollution: choose a tumbler"],["social-5","World Environment Day"],["social-6","Zero Waste Warriors"]],
+   proofs:["ig"]}
+];
+
+/* newest first, by end date; ongoing work leads */
+const P_ORDER=["klhs","ghg","comms","coast","tod","housing","thesis","bob","parakan","singempon","pkm","ipei","profiles"];
+PROJECTS.sort((a,b)=>P_ORDER.indexOf(a.id)-P_ORDER.indexOf(b.id));
+/* folders: where each piece of work was done */
+const FOLDERS=[
+  ["work","Work and internships","BINTARI Foundation, COSPLAY Teaching Industry and BAPPEDA Jawa Tengah · 2022 – present"],
+  ["study","University coursework","Spatial Planning and Land Management, Universitas Diponegoro · 2020 – 2024"],
+  ["research","Research beyond coursework","Journal papers, a conference paper and a national student research programme · 2022 – 2026"],
+  ["org","Organisations","Cakap Kota and student bodies at Universitas Diponegoro · 2020 – present"],
+  ["award","Achievements","Awards and selections · 2021 – 2023"]];
+const CAT={klhs:"work",ghg:"work",comms:"work",parakan:"work",ipei:"work",thesis:"study",bob:"study",singempon:"study",profiles:"study",coast:"research",tod:"research",housing:"research",pkm:"research"};
+const FEAT=new Set(["klhs","thesis","singempon","coast","pkm"]);
+PROJECTS.forEach(p=>{p.cat=CAT[p.id];p.feature=FEAT.has(p.id);});
+const NOTES=[
+  {cat:"org",title:"Cakap Kota",org:"Youth community for sustainable urban planning",period:"2025 – present",lines:["Researcher"]},
+  {cat:"org",title:"HIMAPARTA",org:"Spatial Planning and Land Management student association, Universitas Diponegoro",period:"2020 – 2024",lines:["Unit Head, Organisational Quality Assurance · 2022 – 2023","Staff, Internal Control Unit · 2021 – 2022","Guest speaker, URBAN 2025 research pillars: debate and PILMAPRES · 2024","Guest speaker, Bincang Pencerdasan LKMMD · 2022","Public Relations Officer, Musyawarah Mahasiswa Perintis · 2020"]},
+  {cat:"org",title:"Student bodies and community service",org:"Sekolah Vokasi, Universitas Diponegoro",period:"2021 – 2023",lines:["Expert Staff, Commission II, Student Senate · 2021 – 2022","Deputy Head of Event, LKMMD basic management training, BEM · 2022","Funding and Partnership Staff, Spatial Planning and Land Management Expo · 2022","Moderator and Group Facilitator, Orientasi Diponegoro Muda, BEM · 2021","Public Relations Officer, KKN Sumurboto community service, Semarang City · 2023"]},
+  {cat:"award",th:["urban"],title:"Phase 1, National Student Creativity Program (PKM)",org:"Scientific Article category",period:"Feb – Mar 2023",lines:["Economic sector development of Surakarta City using the Klassen Typology"],open:"pkm"},
+  {cat:"award",title:"Outstanding Student Delegate, Mapping Scheme",org:"Universitas Diponegoro",period:"Apr 2022",lines:["Represented the study programme at faculty level"]},
+  {cat:"award",title:"Best Female Speaker, LKMMD Debate League",org:"Sekolah Vokasi, Universitas Diponegoro",period:"Nov 2021",lines:["First speaker, reached the final stage"]}
+];
+const PUBS=[
+  {t:"Integrating Regional Resilience and Tsunami Risk Assessment: A Spatial Analysis of Coastal Areas in Purworejo, Kebumen, and Cilacap, Central Java, Indonesia", r:"Second author", v:"8th International Conference on Indonesian Architecture and Planning (ICIAP 2026), Universitas Gadjah Mada; Springer Nature proceedings under review (LNCE)", y:"2026", st:"acc", stl:"Accepted for oral presentation", th:["climate","urban"], open:"coast", doc:["coast|1","Letter of acceptance"]},
+  {t:"Optimizing ESG-Based TOD Implementation to Foster Inclusive and Sustainable Economic Growth", r:"Second author · presenter", v:"Arthatama: Journal of Business Management and Accounting Vol. 9 No. 1, pp. 173–186 · 3rd EICOMB", y:"2025", st:"pub", stl:"Published", link:"tod", th:["sustain","urban"], open:"tod", doc:["tod|1","EICOMB certificates"]},
+  {t:"Housing Needs Assessment in Parakan Urban Area of Temanggung Regency", r:"Co-author", v:"Jurnal Planologi Vol. 22 No. 2, pp. 295–309, Universitas Islam Sultan Agung", y:"2025", st:"pub", stl:"Published", link:"housing", th:["urban"], open:"housing"}
+];
+
+const CERTS=[
+  {d:"Oct 2026",t:"BCG Climate & Sustainability Job Simulation",by:"Forage",th:["climate","sustain"],x:"Completed 25 October 2026. Tasks: setting the baseline, context and benchmarking, costs and benefits, adding value, risks and opportunities, and making it stick.",docs:[["cert-bcg","Certificate of completion, BCG Climate & Sustainability Job Simulation"]]},
+  {d:"Sep 2026",t:"IAP Training: Penyusunan RDTR yang Rendah Karbon dan Berketahanan Iklim",by:"Ikatan Ahli Perencanaan Indonesia (IAP)",th:["urban","climate"],x:"8 learning hours, KUM 4: integrating climate resilience into spatial plans, formulating climate-resilient plans, disaster risk mapping and adaptation, and mitigation and decarbonisation strategies.",docs:[["cert-iap-1","Certificate, IAP/CPD/IAPTraining/IX/2026/001.17"],["cert-iap-2","Training modules and credit hours"]]},
+  {d:"Jun 2026",t:"Certificate in ESG Reporting",by:"The ESG Institute (CPD accredited)",th:["sustain"],x:"Programme and examination completed 13 June 2026.",docs:[["cert-esg","Certificate in ESG Reporting, The ESG Institute"]]},
+  {d:"May – Jun 2026",t:"IFRS Sustainability Disclosure Standards (S1 & S2)",by:"IFRS Foundation · 4 e-learning modules, 13 CPE",th:["sustain","climate"],x:"Introduction to the ISSB Standards, IFRS S1 general requirements, IFRS S2 climate-related disclosures, and integrated sustainability disclosures.",docs:[["cert-ifrs-1","Module 01: Introduction to IFRS Sustainability Disclosure Standards"],["cert-ifrs-2","Module 02: IFRS S1 general requirements"],["cert-ifrs-3","Module 03: IFRS S2 climate-related disclosures"],["cert-ifrs-4","Module 04: Integrated sustainability disclosures"]]},
+  {d:"Jul 2025",t:"Environment Officer training series",by:"PT Exagama Merapi Sertifikasi · 24–25 July 2025",th:["sustain"],x:"Five certificates: Environment Officer, PROPER corporate environmental performance rating, UKL-UPL, hazardous waste (Limbah B3) and environmental audit.",docs:[["cert-eo-1","Environment Officer"],["cert-eo-2","PROPER: corporate performance rating programme"],["cert-eo-3","UKL-UPL environmental management and monitoring"],["cert-eo-4","Hazardous waste (Limbah B3)"],["cert-eo-5","Environmental audit"]]},
+  {d:"May 2025 – Oct 2026",t:"Microsoft Excel Basic, Intermediate & Advanced",by:"MySkill E-Learning · 36 courses, 36 hours",th:[],x:"Skill specialisation certificates for Excel Basic (May 2025), Intermediate and Advanced (October 2026).",docs:[["cert-excel-3","Excel Basic, May 2025"],["cert-excel-2","Excel Intermediate, October 2026"],["cert-excel-1","Excel Advanced, October 2026"]]},
+  {d:"Jun 2024",t:"Uji Kompetensi Perencanaan Tata Ruang dan Pertanahan",by:"Ikatan Ahli Perencana, Central Java",th:["urban"],docs:[]}
+];
+const LANGS=[
+  {n:"IELTS Academic",d:"7 Feb 2026",o:"7.0",u:"Overall band · CEFR C1",min:0,max:9,sc:[["Listening",8.0],["Reading",7.0],["Writing",6.5],["Speaking",6.0]],note:"The Test Report Form carries personal identifiers, so it is shared on request."},
+  {n:"Duolingo English Test",d:"18 Feb 2026",o:"135",u:"of 160 · CEFR C1 Advanced",min:10,max:160,sc:[["Speaking",125],["Writing",145],["Reading",130],["Listening",135]],ig:[["Production",135],["Literacy",140],["Comprehension",135],["Conversation",130]],link:"det"}
+];
+const MOMENTS=[
+  ["parakan-consultation","Public consultation on the Parakan RDTR, Temanggung, 2023","urban",750,1000],
+  ["bappeda-team","With the BAPPEDA Jawa Tengah team, 2022","sustain",1000,750],
+  ["bob-interview","Interviewing community figures, Loano studio","urban",320,240],
+  ["bps-team","BPS Semarang City team, ST2023 geospatial update, 2022","urban",1000,750],
+  ["camp-fgd","Focus group discussion on a detailed spatial plan","urban",240,135],
+  ["bob-heritage","Cultural heritage site visit, Loano studio","urban",320,243],
+  ["klhs-meeting","KLHS meeting documentation, Semarang City","sustain",320,480],
+  ["camp-field","On a field survey","urban",240,210],
+  ["camp-intern","Internship team photo","urban",180,240],
+  ["social-1","Campaign post: BINTARI Foundation's 39th anniversary","sustain",300,400],
+  ["camp-org1","Student organisation, Universitas Diponegoro","",180,240],
+  ["social-3","Campaign post: World Earth Day","sustain",327,480],
+  ["camp-speak","Speaking at a student forum","",240,160],
+  ["social-6","Campaign post: Zero Waste Warriors","sustain",298,400],
+  ["camp-org2","Student organisation gathering","",240,180],
+  ["social-4","Campaign post: #BeatPlasticPollution","sustain",297,400],
+  ["social-5","Campaign post: World Environment Day","sustain",297,400],
+  ["social-2","Campaign post: Ramadan, less waste","sustain",298,400]
+];
+const MOMENT_DOC={title:"Moments from the field",meta:"Photos from consultations, surveys, studios and campaigns",th:[],text:["Use the thumbnails or the arrow keys to move through the photos."],gallery:MOMENTS.map(m=>[m[0],m[1]])};
+const DOCS={
+  bps:{title:"Geospatial Framework Update for the 2023 Agricultural Census (ST2023)",meta:"BPS Semarang City · 1–31 March 2022",th:["urban"],
+    text:["Assignment letter B-132/33740/SS.330/03/2022 appointing me as officer for the geospatial framework and Wilkerstat content update in Tembalang District, covering 13 census blocks.","The signature block with officials' identification numbers is cropped out of the scan."],
+    gallery:[["bps-letter","Assignment letter (surat tugas), BPS Semarang City, 1 March 2022"],["bps-team","BPS Semarang City team, 2022"]]}
+};
+
+/* Evidence: add new proof here as it comes in. k = IP, Pub, Vid, Doc, Map, Web; th = theme for colour */
+
+const EVIDENCE=[
+  {k:"Doc", th:"climate", t:"Letter of acceptance, 8th ICIAP 2026", s:"Universitas Gadjah Mada · June 2026", open:"coast|1"},
+  {k:"Web", t:"Duolingo English Test certificate", s:"135 · CEFR C1 · verify online", href:LINKS.det.href},
+  {k:"Pub", th:"urban", t:"Housing Needs Assessment in Parakan Urban Area", s:"Jurnal Planologi · 2025 · DOI", href:LINKS.housing.href},
+  {k:"Pub", th:"sustain", t:"Optimizing ESG-Based TOD Implementation", s:"Arthatama · 2025 · DOI", href:LINKS.tod.href},
+  {k:"Cert", th:"sustain", t:"Presenter and author certificates, 3rd EICOMB", s:"EICOMB · 2025", open:"tod|1"},
+  {k:"Doc", th:"sustain", t:"KLHS report covers and working files", s:"BINTARI · 2024–2026", open:"klhs|0"},
+  {k:"Web", th:"sustain", t:"Campaign content", s:"@bintariorg · Instagram", href:LINKS.ig.href},
+  {k:"IP", th:"urban", t:"Copyright record: urban delineation procedure", s:"DJKI · PDKI · EC00202470546", href:LINKS.pdki.href},
+  {k:"Vid", th:"urban", t:"Video: thesis delineation procedure", s:"YouTube · 2024", href:LINKS.video.href},
+  {k:"Doc", th:"urban", t:"Thesis poster and maps", s:"Universitas Diponegoro · 2024", open:"thesis|0"},
+  {k:"Photo", th:"urban", t:"Public consultation, RDTR Parakan", s:"Temanggung · 2023", open:"parakan|0"},
+  {k:"Photo", th:"sustain", t:"BAPPEDA Jawa Tengah internship team", s:"Semarang · 2022", open:"ipei|3"},
+  {k:"Doc", th:"urban", t:"BPS assignment letter, ST2023 geospatial update", s:"BPS Semarang City · March 2022", doc:"bps"}
+];
+
+const ASOF="10 November 2026";
+const KL=["sustain","climate"], GH=["climate","sustain"];
+const SITES=[
+  {id:"brebes",name:"Brebes",reg:["brebes"],lon:109.045,lat:-6.873,items:[{th:KL,t:"KLHS RDTR Brebes Urban Area",o:"BINTARI",p:"klhs",s:"done"},{th:KL,t:"KLHS RTRW Brebes Regency",o:"BINTARI",p:"klhs",s:"start"}]},
+  {id:"slawi",name:"Slawi–Adiwerna",reg:["tegal"],lon:109.135,lat:-6.958,items:[{th:KL,t:"KLHS RDTR Slawi–Adiwerna Urban Area",o:"BINTARI",p:"klhs",s:"done"}]},
+  {id:"margasari",name:"Margasari",reg:["tegal"],lon:109.035,lat:-7.098,items:[{th:KL,t:"KLHS RDTR Margasari Urban Area",o:"BINTARI",p:"klhs",s:"done"}]},
+  {id:"purwokerto",name:"Purwokerto",reg:["banyumas"],lon:109.234,lat:-7.424,items:[{th:KL,t:"KLHS for the revised RDTR, Purwokerto Urban Area",o:"BINTARI",p:"klhs",s:"done"}]},
+  {id:"sumpiuh",name:"Sumpiuh",reg:["banyumas"],lon:109.358,lat:-7.612,items:[{th:KL,t:"KLHS RDTR Sumpiuh Urban Area",o:"BINTARI",p:"klhs",s:"done"}]},
+  {id:"purbalingga",name:"Purbalingga",reg:["purbalingga"],lon:109.364,lat:-7.388,items:[{th:KL,t:"KLHS RDTR Purbalingga Urban Area",o:"BINTARI",p:"klhs",s:"prog"}]},
+  {id:"banjarnegara",name:"Banjarnegara",reg:["banjarnegara"],lon:109.697,lat:-7.397,items:[{th:GH,t:"GHG inventory, Banjarnegara Regency, inventory year 2025",o:"BINTARI",p:"ghg",s:"done"}]},
+  {id:"mlonggo",name:"Mlonggo",reg:["jepara"],lon:110.700,lat:-6.536,items:[{th:KL,t:"KLHS RDTR Mlonggo Urban Area",o:"BINTARI",p:"klhs",s:"done"}]},
+  {id:"batealit",name:"Batealit",reg:["jepara"],lon:110.726,lat:-6.645,items:[{th:KL,t:"KLHS RDTR Batealit Urban Area",o:"BINTARI",p:"klhs",s:"done"}]},
+  {id:"kudus",name:"Kudus",reg:["kudus"],lon:110.842,lat:-6.806,items:[{th:GH,t:"GHG inventory, Kudus Regency, inventory year 2025",o:"BINTARI",p:"ghg",s:"done"}]},
+  {id:"undaan",name:"Undaan",reg:["kudus"],lon:110.83,lat:-6.94,items:[{th:KL,t:"KLHS RDTR Undaan Urban Area",o:"BINTARI",p:"klhs",s:"done"}]},
+  {id:"banyumanik",name:"Banyumanik (BWK VII)",reg:["kota-semarang"],lon:110.425,lat:-7.068,items:[{th:KL,t:"KLHS RDTR BWK VII, Banyumanik District",o:"BINTARI",p:"klhs",s:"done"}]},
+  {id:"gunungpati",name:"Gunungpati (BWK VIII)",reg:["kota-semarang"],lon:110.370,lat:-7.094,items:[{th:KL,t:"KLHS RDTR BWK VIII, Gunungpati District",o:"BINTARI",p:"klhs",s:"done"}]},
+  {id:"banyubiru",name:"Banyubiru",reg:["semarang"],lon:110.405,lat:-7.297,items:[{th:KL,t:"KLHS RDTR Banyubiru Urban Area",o:"BINTARI",p:"klhs",s:"done"}]},
+  {id:"getasan",name:"Getasan",reg:["semarang"],lon:110.430,lat:-7.385,items:[{th:KL,t:"KLHS RDTR Getasan Urban Area",o:"BINTARI",p:"klhs",s:"prog"}]},
+  {id:"bringin",name:"Bringin",reg:["semarang"],lon:110.553,lat:-7.215,items:[{th:KL,t:"KLHS RDTR Bringin Urban Area",o:"BINTARI",p:"klhs",s:"prog"}]},
+  {id:"bancak",name:"Bancak",reg:["semarang"],lon:110.600,lat:-7.290,items:[{th:KL,t:"KLHS RDTR Bancak Urban Area",o:"BINTARI",p:"klhs",s:"prog"}]},
+  {id:"salatiga",name:"Salatiga",reg:["salatiga"],lon:110.497,lat:-7.331,items:[{th:GH,t:"GHG inventory, Salatiga City, inventory year 2025",o:"BINTARI",p:"ghg",s:"done"}]},
+  {id:"tembalang",name:"Tembalang, Semarang",reg:["kota-semarang"],lon:110.462,lat:-7.042,items:[{th:["urban"],t:"Geospatial framework update for ST2023: 13 census blocks validated",o:"BPS Semarang City · Mar 2022",doc:"bps",s:"done"}]},
+  {id:"bergas",name:"Bergas",reg:["semarang"],lon:110.418,lat:-7.190,items:[{th:["urban"],t:"Regional profile of Bergas District",o:"Undip studio · semester 4",p:"profiles",s:"done"},{th:["urban"],t:"SINGEMPON: land information system and WebGIS for Ngempon",o:"Undip coursework · Jun 2023",p:"singempon",s:"done"}]},
+  {id:"tengaran",name:"Tengaran",reg:["semarang"],lon:110.535,lat:-7.420,items:[{th:["urban"],t:"Regional profile of Tengaran District",o:"Undip study area · semester 3",p:"profiles",s:"done"}]},
+  {id:"parakan",name:"Parakan",reg:["temanggung"],lon:110.090,lat:-7.286,items:[{th:["urban"],t:"RDTR Parakan Urban Area 2024–2044 (draft regent regulation)",o:"COSPLAY internship · 2023",p:"parakan",s:"done"},{th:["urban"],t:"Thesis: urban delineation procedure, registered IP",o:"Universitas Diponegoro · 2024",p:"thesis",s:"done"},{th:["urban"],t:"Paper: Housing Needs Assessment in Parakan Urban Area",o:"Jurnal Planologi · 2025",p:"housing",s:"done"}]},
+  {id:"loano",name:"Loano, Purworejo",reg:["purworejo"],lon:110.030,lat:-7.665,items:[{th:["urban"],t:"Draft RDTR, Loano District; joined the Borobudur Authority zone RDTR in semester 7",o:"Undip studio · semesters 5–7",p:"bob",s:"done"}]},
+  {id:"coast",name:"South coast",reg:["purworejo","kebumen","cilacap"],lon:109.62,lat:-7.765,items:[{th:["climate","urban"],t:"Paper: regional resilience and tsunami risk in Purworejo, Kebumen and Cilacap",o:"ICIAP 2026 · accepted for presentation",p:"coast",s:"done"}]},
+  {id:"surakarta",name:"Surakarta",reg:["surakarta"],lon:110.824,lat:-7.567,items:[{th:["urban"],t:"PKM research: economic sectors of Surakarta by Klassen Typology",o:"PKM Phase 1 · 2023",p:"pkm",s:"done"}]}
+];
+const PROVINCE={th:["sustain","urban"],t:"Population projections for 8,000 villages and the Inclusive Economic Development Index",o:"BAPPEDA Jawa Tengah · 2022",p:"ipei"};
+
+/* ================= helpers ================= */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const img=n=>`img/${n}.webp`;
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const NS="http://www.w3.org/2000/svg";
+function rgba(hex,a){let h=(hex||"#000").replace("#","");if(h.length===3)h=h.split("").map(c=>c+c).join("");const n=parseInt(h,16);return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`;}
+const tp=t=>`<span class="tp t-${t}">${THEMES[t].label}</span>`;
+const tps=arr=>`<span class="tps">${arr.map(tp).join("")}</span>`;
+const marker=(t,s=7,o=false)=>{const c=`m m-${t}${o?" o":""}`;return t==="sustain"?`<circle r="${s*.8}" class="${c}"/>`:t==="urban"?`<rect x="${-s*.72}" y="${-s*.72}" width="${s*1.44}" height="${s*1.44}" class="${c}"/>`:`<path d="M0 ${-s} ${s} 0 0 ${s} ${-s} 0Z" class="${c}"/>`;};
+const stt=s=>`<span class="stt ${s}">${s==="done"?"Completed":s==="prog"?"In progress":"Started"}</span>`;
+const siteDone=site=>site.items.some(i=>(i.s||"done")==="done");
+
+
+/* ================= generated visuals ================= */
+function coastSVG(){
+  const ids=["purworejo","kebumen","cilacap"];
+  const regs=GEO.regions;let bx=[1e9,1e9,-1e9,-1e9];
+  regs.filter(r=>ids.includes(r.id)).forEach(r=>{const n=r.d.match(/-?\d+(\.\d+)?/g).map(Number);for(let i=0;i<n.length;i+=2){bx[0]=Math.min(bx[0],n[i]);bx[2]=Math.max(bx[2],n[i]);bx[1]=Math.min(bx[1],n[i+1]);bx[3]=Math.max(bx[3],n[i+1]);}});
+  const x0=bx[0]-20,y0=bx[1]-40,wv=bx[2]-bx[0]+40,hv=bx[3]-bx[1]+132;
+  let waves="";for(let q=0;q<5;q++){const y=bx[3]+16+q*14;let d=`M${x0} ${y}`;for(let x=x0;x<=x0+wv;x+=14)d+=` Q${x+3.5} ${y-4} ${x+7} ${y} T${x+14} ${y}`;waves+=`<path d="${d}" style="fill:none;stroke:var(--climate)" stroke-width="1" opacity="${.65-q*.11}"/>`;}
+  const labs=ids.map(id=>{const r=regs.find(x=>x.id===id);const n=r.d.match(/-?\d+(\.\d+)?/g).map(Number);let sx=0,sy=0,c=0;for(let i=0;i<n.length;i+=2){sx+=n[i];sy+=n[i+1];c++;}return `<text x="${sx/c}" y="${sy/c}" text-anchor="middle" style="fill:#fff;font:600 11px var(--mono);letter-spacing:.06em">${r.name.toUpperCase()}</text>`;}).join("");
+  return `<svg viewBox="${x0} ${y0} ${wv} ${hv}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Purworejo, Kebumen and Cilacap on Central Java's south coast">
+    ${regs.map(r=>`<path d="${r.d}" style="fill:${ids.includes(r.id)?"var(--climate)":"var(--land)"};stroke:var(--surface)" stroke-width="1"/>`).join("")}
+    ${waves}${labs}<text x="${x0+wv/2}" y="${y0+hv-8}" text-anchor="middle" style="fill:var(--muted);font:italic 13px var(--body);letter-spacing:.18em">INDIAN OCEAN</text></svg>`;
+}
+function kabsemSVG(){
+  const {minx,maxy,s:S}=GEO;const P=(lon,lat)=>[(lon-minx)*S,(maxy-lat)*S];
+  const ids=["semarang","salatiga"];let bx=[1e9,1e9,-1e9,-1e9];
+  GEO.regions.filter(r=>ids.includes(r.id)).forEach(r=>{const n=r.d.match(/-?\d+(\.\d+)?/g).map(Number);for(let i=0;i<n.length;i+=2){bx[0]=Math.min(bx[0],n[i]);bx[2]=Math.max(bx[2],n[i]);bx[1]=Math.min(bx[1],n[i+1]);bx[3]=Math.max(bx[3],n[i+1]);}});
+  const pad=30,x0=bx[0]-pad*2,y0=bx[1]-pad,wv=bx[2]-bx[0]+pad*4,hv=bx[3]-bx[1]+pad*2;
+  const k=wv/420;
+  const pins=[[110.535,-7.42,"TENGARAN"],[110.418,-7.19,"BERGAS"]].map(([lo,la,l])=>{const [x,y]=P(lo,la);const right=x>x0+wv*.55;return `<rect x="${x-5*k}" y="${y-5*k}" width="${10*k}" height="${10*k}" style="fill:var(--urban);stroke:var(--surface)" stroke-width="${1.5*k}"/><text x="${right?x-9*k:x+9*k}" y="${y+4*k}" text-anchor="${right?"end":"start"}" style="fill:var(--ink);font:600 ${12*k}px var(--mono);letter-spacing:.04em">${l}</text>`;}).join("");
+  const [sx,sy]=P(110.497,-7.331);
+  return `<svg viewBox="${x0} ${y0} ${wv} ${hv}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Tengaran and Bergas districts in Semarang Regency">
+    ${GEO.regions.map(r=>`<path d="${r.d}" style="fill:${r.id==="semarang"?"color-mix(in srgb,var(--urban) 16%,var(--surface))":"var(--land)"};stroke:${r.id==="semarang"?"var(--urban)":"var(--surface)"}" stroke-width="${r.id==="semarang"?1.2:1}"/>`).join("")}
+    <text x="${sx}" y="${sy+3*k}" text-anchor="middle" style="fill:var(--muted);font:${10*k}px var(--mono)">SALATIGA</text>${pins}
+    <text x="${x0+8*k}" y="${y0+hv-8*k}" style="fill:var(--muted);font:${11*k}px var(--mono)">SEMARANG REGENCY</text></svg>`;
+}
+function klassenSVG(){
+  const Q=[[220,20,"Quadrant I","Advanced and fast-growing",1],[20,20,"Quadrant II","Advanced but depressed",.55],[220,130,"Quadrant III","Potential and developing",.55],[20,130,"Quadrant IV","Relatively lagging",.25]];
+  return `<svg viewBox="-28 0 448 268" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Klassen Typology: four quadrants by sector growth and share of the economy">
+    ${Q.map(([x,y,a,b,o])=>`<rect x="${x}" y="${y}" width="190" height="100" rx="14" style="fill:var(--urban)" opacity="${o*.9}"/><text x="${x+14}" y="${y+30}" style="fill:${o>.6?"#fff":"var(--ink)"};font:800 14px var(--font)">${a}</text><text x="${x+14}" y="${y+52}" style="fill:${o>.6?"#fff":"var(--ink)"};font:600 12px var(--font)">${b}</text>`).join("")}
+    <line x1="10" y1="240" x2="410" y2="240" style="stroke:var(--muted)" stroke-width="1.5"/><path d="M410 240 l-8 -4 v8z" style="fill:var(--muted)"/>
+    <line x1="10" y1="240" x2="10" y2="10" style="stroke:var(--muted)" stroke-width="1.5"/><path d="M10 10 l-4 8 h8z" style="fill:var(--muted)"/>
+    <text x="210" y="260" text-anchor="middle" style="fill:var(--muted);font:600 11.5px var(--font)">Sector growth rate compared with the reference region →</text>
+    <text x="-6" y="125" text-anchor="middle" transform="rotate(-90 -6 125)" style="fill:var(--muted);font:600 11.5px var(--font)">Share of the economy →</text></svg>`;
+}
+function waffleSVG(){
+  const c=24,g=4,dev0=83,need=2.45,tint="color-mix(in srgb,var(--urban) 28%,var(--surface))";let cells="";
+  for(let i=0;i<100;i++){const x=(i%10)*(c+g),y=Math.floor(i/10)*(c+g),j=99-i;
+    cells+=`<rect x="${x}" y="${y}" width="${c}" height="${c}" rx="5" style="fill:${i<dev0?"var(--land-hover)":tint}"/>`;
+    if(j<need){const w=Math.min(1,need-j)*c;cells+=`<rect x="${x+c-w}" y="${y}" width="${w}" height="${c}" rx="5" style="fill:var(--urban)"/>`;}}
+  const L=[["var(--land-hover)","1,189.97 ha","built-up, protected or green space"],[tint,"243.97 ha","can still be developed"],["var(--urban)","35.13 ha","needed for housing by 2043"]];
+  const leg=L.map(([f,a,b],i)=>`<rect x="304" y="${50+i*66}" width="18" height="18" rx="5" style="fill:${f}"/><text x="332" y="${66+i*66}" style="fill:var(--ink);font:800 21px var(--font)">${a}</text><text x="332" y="${85+i*66}" style="fill:var(--muted);font:500 12px var(--font)">${b}</text>`).join("");
+  return `<svg viewBox="-6 -6 546 288" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Of Parakan Urban Area's 1,433.93 hectares, 243.97 can still be developed and housing needs 35.13 by 2043">${cells}${leg}</svg>`;
+}
+function eesgSVG(){
+  const arc=(a0,a1,r)=>{const p=a=>[200+r*Math.cos(a*Math.PI/180),130+r*Math.sin(a*Math.PI/180)];const [x0,y0]=p(a0),[x1,y1]=p(a1);return `M${x0} ${y0} A${r} ${r} 0 0 1 ${x1} ${y1}`;};
+  let grid="";for(let i=-8;i<=8;i++){grid+=`<line x1="${200+i*30}" y1="0" x2="${200+i*30}" y2="260" style="stroke:var(--rule)" stroke-width=".8"/>`;}for(let j=-4;j<=4;j++){grid+=`<line x1="-40" y1="${130+j*30}" x2="440" y2="${130+j*30}" style="stroke:var(--rule)" stroke-width=".8"/>`;}
+  const L=[["Economic",-90,200,18,"middle"],["Environmental",0,306,134,"start"],["Social",90,200,250,"middle"],["Governance",180,94,134,"end"]];
+  const segs=L.map(([n,a,tx,ty,anc],i)=>`<path d="${arc(a-40,a+40,92)}" style="fill:none;stroke:var(--sustain)" stroke-width="14" opacity="${i===0?1:.5}"/><text x="${tx}" y="${ty}" text-anchor="${anc}" style="fill:var(--ink);font:600 11px var(--mono);letter-spacing:.05em">${n.toUpperCase()}</text>`).join("");
+  return `<svg viewBox="-40 0 480 260" preserveAspectRatio="xMidYMid meet" role="img" aria-label="EESG framework: Economic, Environmental, Social and Governance around a transit node">
+    ${grid}<circle cx="200" cy="130" r="58" style="fill:none;stroke:var(--ink)" stroke-dasharray="4 4"/><circle cx="200" cy="130" r="30" style="fill:var(--surface);stroke:var(--ink)"/>
+    ${segs}<text x="200" y="135" text-anchor="middle" style="fill:var(--ink);font:800 15px var(--display)">TOD</text>
+    <text x="-34" y="252" style="fill:var(--muted);font:10px var(--mono)">ILLUSTRATIVE</text></svg>`;
+}
+
+
+/* ================= 04 projects ================= */
+(function(){
+  const wrap=$("#cards");
+  const vis=p=>{const v=p.vis;
+    if(v.type==="fan")return `<div class="vis fan">${v.imgs.map(n=>`<img src="${img(n)}" alt="">`).join("")}</div>`;
+    if(v.type==="sectors")return `<div class="vis"><div class="sectors"><div><b>Energy</b><span>Fuel combustion</span></div><div><b>IPPU</b><span>Industry &amp; products</span></div><div><b>AFOLU</b><span>Land &amp; livestock</span></div><div><b>Waste</b><span>Solid &amp; wastewater</span></div></div></div>`;
+    if(v.type==="coast")return `<div class="vis">${coastSVG()}<span class="badge">Accepted · ICIAP 2026</span></div>`;
+    if(v.type==="eesg")return `<div class="vis">${eesgSVG()}</div>`;
+    if(v.type==="kabsem")return `<div class="vis">${kabsemSVG()}</div>`;
+    if(v.type==="klassen")return `<div class="vis">${klassenSVG()}</div>`;
+    if(v.type==="waffle")return `<div class="vis pad">${waffleSVG()}</div>`;
+    return `<div class="vis${v.contain?" contain":""}"><img src="${img(v.img)}" alt=""${v.pos?` style="object-position:${v.pos}"`:""}></div>`;};
+  const card=p=>`
+    <article class="card t-${p.th[0]}${p.feature?" feature":""}" data-th="${p.th.join(" ")}" data-cat="${p.cat}" data-id="${p.id}">
+      ${vis(p)}
+      <div class="meta">${tps(p.th)}<span class="d">${esc(p.period)}</span></div>
+      <h3>${esc(p.title)}</h3>
+      <p>${esc(p.summary)}</p>
+      <div class="foot"><span class="mono muted">${esc(p.org.split(" · ")[0].split(" with ")[0].split(":")[0])}</span><button type="button" class="open" data-open="${p.id}" aria-label="Open case: ${esc(p.title)}">Open case</button></div>
+    </article>`;
+  const note=(n,i)=>`
+    <article class="card note${n.th?" t-"+n.th[0]:""}" data-th="${(n.th||[]).join(" ")}" data-cat="${n.cat}" data-id="note${i}">
+      <div class="meta"><span class="where">${esc(n.org)}</span><span class="d">${esc(n.period)}</span></div>
+      <h3>${esc(n.title)}</h3>
+      <ul>${n.lines.map(l=>`<li>${esc(l)}</li>`).join("")}</ul>
+      ${n.open?`<div class="foot"><span></span><button type="button" class="open" data-open="${n.open}" aria-label="Open case: ${esc(n.title)}">Open case</button></div>`:""}
+    </article>`;
+  const FICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h3.6a2 2 0 0 1 1.5.7l1 1.1a1 1 0 0 0 .8.3h6.1A2.5 2.5 0 0 1 21 9.6v7.9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>';
+  const inCat=k=>PROJECTS.filter(p=>p.cat===k).length+NOTES.filter(n=>n.cat===k).length;
+  wrap.innerHTML=FOLDERS.map(([k,l,d])=>`<div class="fold" data-cat="${k}">${FICON}<div><h3>${l}</h3><p>${d}</p></div></div>`
+    +PROJECTS.filter(p=>p.cat===k).map(card).join("")+NOTES.map((n,i)=>n.cat===k?note(n,i):"").join("")).join("")+`<p class="empty" id="projEmpty" hidden>Nothing in this folder for that theme. Try another theme or folder.</p>`;
+  const folders=$("#projFolders");
+  folders.innerHTML=[["all","All"],...FOLDERS].map(([k,l])=>`<button type="button" data-cat="${k}" aria-pressed="${k==="all"}">${l}<span class="n tnum">${k==="all"?PROJECTS.length+NOTES.length:inCat(k)}</span></button>`).join("");
+  let fTheme="all",fCat="all";
+  const chips=$("#projChips");
+  const defs=[["all","All"],...TH_ORDER.map(k=>[k,THEMES[k].label])];
+  chips.innerHTML=defs.map(([k,l])=>{const n=k==="all"?PROJECTS.length:PROJECTS.filter(p=>p.th.includes(k)).length;const th=THEMES[k]?` data-t class="chip t-${k}"`:` class="chip"`;return `<button type="button"${th} data-f="${k}" aria-pressed="${k==="all"}">${l}<span class="n tnum">${n}</span></button>`;}).join("");
+  const count=$("#projCount");
+  function apply(f=fTheme,anim=true){
+    fTheme=f;let n=0;const cards=$$(".card",wrap),items=$$(".card,.fold",wrap),first=new Map(items.filter(c=>!c.hidden).map(c=>[c,c.getBoundingClientRect()]));
+    cards.forEach(c=>{const on=(f==="all"||c.dataset.th.split(" ").includes(f))&&(fCat==="all"||c.dataset.cat===fCat);c.hidden=!on;if(on)n++;
+      const p=PROJECTS.find(x=>x.id===c.dataset.id);if(!p)return;
+      c.classList.toggle("feature",!!(on&&f==="all"&&p.feature));c.classList.remove("t-urban","t-climate","t-sustain");c.classList.add("t-"+(f!=="all"&&p.th.includes(f)?f:p.th[0]));});
+    $$(".fold",wrap).forEach(h=>{h.hidden=!cards.some(c=>!c.hidden&&c.dataset.cat===h.dataset.cat);});
+    $("#projEmpty").hidden=n>0;
+    count.textContent=`Showing ${n} of ${cards.length}`;
+    $$(".chip",chips).forEach(c=>c.setAttribute("aria-pressed",c.dataset.f===f));
+    $$("button",folders).forEach(b=>b.setAttribute("aria-pressed",b.dataset.cat===fCat));
+    if(reduce||!anim)return;
+    items.filter(c=>!c.hidden).forEach((c,i)=>{const l=c.getBoundingClientRect(),f0=first.get(c);
+      if(f0){const dx=f0.left-l.left,dy=f0.top-l.top,sx=f0.width/l.width,sy=f0.height/l.height;if(Math.abs(dx)+Math.abs(dy)<1&&Math.abs(sx-1)<.01&&Math.abs(sy-1)<.01)return;
+        c.animate([{transformOrigin:"0 0",transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})`},{transformOrigin:"0 0",transform:"none"}],{duration:560,easing:"cubic-bezier(.2,.8,.2,1)"});}
+      else c.animate([{opacity:0,transform:"translateY(24px) scale(.95)"},{opacity:1,transform:"none"}],{duration:480,delay:60+Math.min(i,8)*40,easing:"cubic-bezier(.2,.8,.2,1)",fill:"backwards"});});
+  }
+  chips.addEventListener("click",e=>{const b=e.target.closest(".chip");if(b)apply(b.dataset.f);});
+  folders.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;fCat=b.dataset.cat;apply();});
+  window.setProjectFilter=t=>{fCat="all";apply(t);};
+  apply("all",false);
+})();
+
+
+/* ================= case dialog ================= */
+const dlg=$("#case"),dbody=$("#caseBody");
+const SVGS={coast:()=>coastSVG(),eesg:()=>eesgSVG(),kabsem:()=>kabsemSVG(),klassen:()=>klassenSVG(),waffle:()=>waffleSVG()};
+const isSvg=g=>g[0].startsWith("svg:");
+function galleryHTML(gal){
+  return `<div class="viewer" id="viewer"></div><p class="cap" id="vCap"></p>${gal.length>1?`<div class="thumbs" id="vThumbs">${gal.map((g,i)=>`<button type="button" data-i="${i}" aria-label="${esc(g[1])}">${isSvg(g)?SVGS[g[0].slice(4)]():`<img src="${img(g[0])}" alt="" loading="lazy">`}</button>`).join("")}</div>`:""}`;
+}
+function bindGallery(gal,at){
+  const show=i=>{const g=gal[i];$("#viewer").innerHTML=isSvg(g)?SVGS[g[0].slice(4)]():`<img src="${img(g[0])}" alt="${esc(g[1])}">`;$("#vCap").textContent=(gal.length>1?`${i+1} / ${gal.length} · `:"")+g[1];$$("#vThumbs button").forEach(b=>b.setAttribute("aria-current",+b.dataset.i===i));};
+  const th=$("#vThumbs");if(th)th.addEventListener("click",e=>{const b=e.target.closest("button");if(b)show(+b.dataset.i);});
+  dbody.onkeydown=e=>{if(gal.length<2||(e.key!=="ArrowRight"&&e.key!=="ArrowLeft"))return;const cur=$$("#vThumbs button").findIndex(b=>b.getAttribute("aria-current")==="true");show((cur+(e.key==="ArrowRight"?1:-1)+gal.length)%gal.length);};
+  show(Math.max(0,Math.min(at,gal.length-1)));
+}
+let lastSrc=null,closing=false;
+const EZ="cubic-bezier(.2,.8,.2,1)";
+function makeGhost(src,r){
+  const g=src.cloneNode(true);g.removeAttribute("id");g.classList.add("ghost");
+  const holder=src.closest(".card,.shot,.rphoto");if(holder)["t-urban","t-climate","t-sustain"].forEach(c=>holder.classList.contains(c)&&g.classList.add(c));
+  Object.assign(g.style,{position:"fixed",left:r.left+"px",top:r.top+"px",width:r.width+"px",height:r.height+"px",margin:"0",zIndex:"5",pointerEvents:"none",transform:"none"});
+  dlg.appendChild(g);return g;
+}
+const box=r=>({left:r.left+"px",top:r.top+"px",width:r.width+"px",height:r.height+"px"});
+function showDlg(src){
+  $("#caseClose").addEventListener("click",closeDlg);
+  if(!dlg.open){if(typeof dlg.showModal==="function")dlg.showModal();else dlg.setAttribute("open","");}
+  $(".txt",dbody).scrollTop=0;
+  lastSrc=src||null;
+  if(reduce)return;
+  if(!src){dbody.animate([{opacity:0,transform:"translateY(16px) scale(.98)"},{opacity:1,transform:"none"}],{duration:380,easing:EZ});return;}
+  const from=src.getBoundingClientRect(),to=($("#viewer")||dbody).getBoundingClientRect(),g=makeGhost(src,from);
+  g.animate([{...box(from),borderRadius:"14px"},{...box(to),borderRadius:"16px"}],{duration:620,easing:EZ,fill:"forwards"}).onfinish=()=>{g.animate([{opacity:1},{opacity:0}],{duration:220,fill:"forwards"}).onfinish=()=>g.remove();};
+  dbody.animate([{opacity:0,transform:"scale(.96)"},{opacity:1,transform:"none"}],{duration:420,delay:280,easing:EZ,fill:"backwards"});
+}
+function closeDlg(){
+  if(closing||!dlg.open)return;
+  const src=lastSrc,ok=src&&document.contains(src)&&src.getClientRects().length&&!src.closest("[hidden]");
+  if(reduce){dlg.close();return;}
+  closing=true;
+  const done=()=>{dlg.close();dbody.getAnimations().forEach(a=>a.cancel());$$(".ghost",dlg).forEach(x=>x.remove());closing=false;};
+  if(!ok){dbody.animate([{opacity:1,transform:"none"},{opacity:0,transform:"translateY(12px) scale(.98)"}],{duration:200,easing:"ease-in",fill:"forwards"}).onfinish=done;return;}
+  const from=($("#viewer")||dbody).getBoundingClientRect(),to=src.getBoundingClientRect(),g=makeGhost(src,from);
+  dbody.animate([{opacity:1},{opacity:0,transform:"scale(.97)"}],{duration:220,easing:"ease-in",fill:"forwards"});
+  g.animate([{...box(from),borderRadius:"16px",opacity:1},{...box(to),borderRadius:"14px",opacity:1}],{duration:520,easing:EZ,fill:"forwards"}).onfinish=done;
+}
+dlg.addEventListener("cancel",e=>{e.preventDefault();closeDlg();});
+function openCase(id,at=0,src=null){
+  const p=PROJECTS.find(x=>x.id===id);if(!p)return;
+  dbody.className="dlg t-"+p.th[0];
+  const proofs=p.proofs.map(k=>`<a class="proof" href="${LINKS[k].href}" target="_blank" rel="noopener">${LINKS[k].label}${EXT}</a>`).join("");
+  const gal=p.gallery.length?galleryHTML(p.gallery):`<div class="viewer"><p class="none">${esc(p.noGallery||"")}</p></div>`;
+  dbody.innerHTML=`<div class="txt">
+      <button type="button" class="close" id="caseClose" aria-label="Close">×</button>
+      <p class="mono muted">${esc(p.period)}</p>
+      <div style="margin-top:8px">${tps(p.th)}</div>
+      <h3 id="caseTitle">${esc(p.title)}</h3>
+      <p class="who">${esc(p.org)}<br><span class="mono">${esc(p.role)}</span></p>
+      <h4>Context</h4><p>${esc(p.context)}</p>
+      <h4>What I did</h4><ul>${p.did.map(d=>`<li>${esc(d)}</li>`).join("")}</ul>
+      ${p.siteList?`<h4>Sites (${p.siteList.length}) · status as of ${ASOF}</h4><table class="sitetab"><tbody>${p.siteList.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${stt(r[2])}</td></tr>`).join("")}</tbody></table>`:""}
+      <h4>Outcome</h4><p>${esc(p.outcome)}</p>
+      <h4>Methods &amp; tools</h4><div class="tags">${p.tools.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>
+      ${proofs?`<h4>Proof</h4><div class="proofs">${proofs}</div>`:""}
+    </div><div class="gal">${gal}</div>`;
+  if(p.gallery.length)bindGallery(p.gallery,at);else dbody.onkeydown=null;
+  showDlg(src);
+}
+function openDoc(d,at=0,src=null){
+  dbody.className="dlg"+(d.th&&d.th.length?" t-"+d.th[0]:"");
+  dbody.innerHTML=`<div class="txt">
+      <button type="button" class="close" id="caseClose" aria-label="Close">×</button>
+      <p class="mono muted">${esc(d.meta)}</p>
+      ${d.th&&d.th.length?`<div style="margin-top:8px">${tps(d.th)}</div>`:""}
+      <h3 id="caseTitle">${esc(d.title)}</h3>
+      ${(d.text||[]).map(t=>`<p>${esc(t)}</p>`).join("")}
+    </div><div class="gal">${galleryHTML(d.gallery)}</div>`;
+  bindGallery(d.gallery,at);showDlg(src);
+}
+dlg.addEventListener("click",e=>{if(e.target===dlg)closeDlg();});
+document.addEventListener("click",e=>{
+  const mm=e.target.closest("[data-moment]");if(mm){e.preventDefault();openDoc(MOMENT_DOC,+mm.dataset.moment,$("img",mm)||mm);return;}
+  const b=e.target.closest("[data-open]");if(b){e.preventDefault();const [id,at]=b.dataset.open.split("|");const card=b.closest(".card");openCase(id,+(at||0),card?$(".vis",card):null);return;}
+  const d=e.target.closest("[data-doc]");if(d){e.preventDefault();openDoc(DOCS[d.dataset.doc]);return;}
+  const c=e.target.closest("[data-cert]");if(c){e.preventDefault();const x=CERTS[+c.dataset.cert];openDoc({title:x.t,meta:`${x.by} · ${x.d}`,th:x.th,text:x.x?[x.x]:[],gallery:x.docs});}
+});
+
+
+/* ================= moments marquee ================= */
+(function(){
+  const mq=$("#marquee");if(!mq)return;
+  const rowA=MOMENTS.map((m,i)=>i).filter(i=>i<9),rowB=MOMENTS.map((m,i)=>i).filter(i=>i>=9);
+  const tile=(i,dup)=>{const m=MOMENTS[i];return `<button type="button" class="shot${m[2]?" t-"+m[2]:""}" data-moment="${i}"${dup?' tabindex="-1" aria-hidden="true"':""}><img src="img/${m[0]}.webp" alt="${dup?"":esc(m[1])}" width="${m[3]}" height="${m[4]}"${dup?' loading="lazy"':""}><span>${esc(m[1])}</span></button>`;};
+  const row=(ids,cls,dur)=>`<div class="mrow ${cls}" style="--dur:${dur}s"><div class="mtrack">${ids.map(i=>tile(i,false)).join("")}${ids.map(i=>tile(i,true)).join("")}</div></div>`;
+  mq.innerHTML=row(rowA,"",64)+row(rowB,"rev",72);
+})();
+
+
+/* ================= 05 featured research ================= */
+(function(){
+  const DU={area:{unit:"ha",vals:[1342.69,728.94,296.10]},pop:{unit:"residents",vals:[49879,5485,131]}};
+  const names=["Urban Centre","Urban Cluster","Rural Cluster"],sw=["var(--urban)","color-mix(in srgb,var(--urban) 45%,var(--paper))","var(--land-hover)"];
+  const stack=$("#duStack"),key=$("#duKey");
+  function render(m){const d=DU[m],tot=d.vals.reduce((a,b)=>a+b,0);$$("div",stack).forEach((el,i)=>el.style.flexBasis=(d.vals[i]/tot*100)+"%");
+    key.innerHTML=d.vals.map((v,i)=>`<div><span class="mono"><i class="sw" style="background:${sw[i]}"></i>${names[i]}</span><b class="tnum">${(v/tot*100).toFixed(1)}%</b><small class="tnum">${v.toLocaleString("en-US",{maximumFractionDigits:2})} ${d.unit}</small></div>`).join("");}
+  $$("#duToggle button").forEach(b=>b.addEventListener("click",()=>{$$("#duToggle button").forEach(x=>x.setAttribute("aria-pressed",x===b));render(b.dataset.du);}));
+  render("pop");
+  const cmp=$("#compare"),r=$("#cmp");r.addEventListener("input",()=>cmp.style.setProperty("--x",r.value+"%"));
+  /* housing: backlog by projection year */
+  const HS=[[2028,521,"homes short in 2028"],[2033,891,"homes short in 2033"],[2038,1511,"homes short in 2038"],[2043,2237,"homes short in 2043: 373 large, 746 medium and 1,118 small"]];
+  const hsT=$("#hsToggle");hsT.innerHTML=HS.map((h,i)=>`<button type="button" aria-pressed="${i===3}" data-i="${i}">${h[0]}</button>`).join("");
+  const hs=i=>{$$("button",hsT).forEach((b,j)=>b.setAttribute("aria-pressed",j===i));$("#hsFill").style.width=(HS[i][1]/2237*100)+"%";$("#hsN").textContent=HS[i][1].toLocaleString("en-US");$("#hsT").textContent=HS[i][2];};
+  hsT.addEventListener("click",e=>{const b=e.target.closest("button");if(b)hs(+b.dataset.i);});hs(3);
+  $("#hsFig").innerHTML=waffleSVG();$("#todFig").innerHTML=eesgSVG();
+  /* TOD: benefits and obstacles */
+  const TOD={b:["Land is used more efficiently","Less environmental degradation","Social inclusion is supported","Higher economic productivity"],c:["High investment requirements","Loss of urban green space","Limited coordination across sectors"]};
+  const tl=$("#todList"),tt=$("#todToggle");
+  const tod=k=>{$$("button",tt).forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===k));tl.className="todlist "+k;tl.innerHTML=TOD[k].map(x=>`<li><i>${k==="b"?"+":"−"}</i>${x}</li>`).join("");};
+  tt.addEventListener("click",e=>{const b=e.target.closest("button");if(b)tod(b.dataset.k);});tod("b");
+  /* study tabs */
+  const rt=$("#rtabs"),RP=["thesis","housing","tod"];
+  const pickStudy=k=>{$$("button",rt).forEach(x=>{const on=x.dataset.rp===k;x.setAttribute("aria-selected",on);x.tabIndex=on?0:-1;});RP.forEach(x=>$("#rp-"+x).hidden=x!==k);};
+  rt.addEventListener("click",e=>{const b=e.target.closest("button");if(b)pickStudy(b.dataset.rp);});
+  rt.addEventListener("keydown",e=>{if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;e.preventDefault();const cur=RP.indexOf($('[aria-selected="true"]',rt).dataset.rp),k=RP[(cur+(e.key==="ArrowRight"?1:-1)+3)%3];pickStudy(k);$(`[data-rp="${k}"]`,rt).focus();});
+})();
+
+
+/* ================= main tools ================= */
+(function(){
+  const I={
+    layers:'<path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 16 9 5 9-5"/>',
+    globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/>',
+    sheet:'<rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M3.5 9h17M9 3.5v17"/><path d="M12.5 17v-3M15.5 17v-5M18 17v-2"/>',
+    db:'<ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v13c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-13"/><path d="M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/>',
+    doc:'<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 11h6M9 14h6M9 17h4"/>',
+    slides:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8.5 20h7"/><path d="M7.5 12.5l3-3 2 2 4-4"/>',
+    brush:'<path d="M14.5 4.5l5 5-8.5 8.5-5-5z"/><path d="M6 13 4 20l7-2"/><circle cx="17.5" cy="6.5" r=".5"/>'
+  };
+  const TOOLS=[
+    {n:"QGIS",u:"Spatial analysis and maps",ic:"layers",th:"climate",re:/QGIS/},
+    {n:"ArcGIS",u:"Map layouts and raster analysis",ic:"globe",th:"climate",re:/ArcGIS/},
+    {n:"Excel",u:"Pivot tables, Power Query, Power Pivot",ic:"sheet",th:"sustain",re:/Excel|Power Query|pivot/i},
+    {n:"PostgreSQL",u:"Database management",ic:"db",th:"sustain",re:/PostgreSQL|database/i,none:"Used in survey and database coursework."},
+    {n:"Word",u:"Technical reports",ic:"doc",th:"urban",re:/^Word$/},
+    {n:"PowerPoint",u:"Meeting and FGD materials",ic:"slides",th:"urban",re:/PowerPoint/},
+    {n:"Canva",u:"Report design and campaigns",ic:"brush",th:"urban",re:/Canva/}
+  ];
+  const box=$("#tools");if(!box)return;
+  box.innerHTML=TOOLS.map(t=>`<li class="tool t-${t.th}" title="${t.n}: ${t.u}"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true">${I[t.ic]}</svg></span><b>${t.n}</b></li>`).join("");
+})();
+
+
+/* ================= map: a 3D model of Central Java ================= */
+(function(){
+  const stage=$("#stage3d");if(!stage)return;
+  const cv=$("canvas",stage),ctx=cv.getContext("2d"),tip=$("#mTip"),yrEl=$("#mYr"),cntEl=$("#mCnt"),capEl=$("#mCap"),stopsEl=$("#mStops"),panel=$("#mPanel"),pickEl=$("#mPick"),filt=$("#mFilter");
+  const STOPS=[
+    ["2021","2021","First studio at Undip: a regional profile of Tengaran."],
+    ["2022","2022","Studios in Bergas and Loano, PKM research on Surakarta, and internships at BPS and BAPPEDA."],
+    ["2023","2023","Internship on the 20-year spatial plan for Parakan, and a WebGIS for Ngempon."],
+    ["2024","2024","Thesis: a procedure for drawing Parakan's urban boundary."],
+    ["Now","2024–26","BINTARI since July 2024: 16 KLHS, 3 GHG inventories and a south-coast tsunami paper."]];
+  const LAST=STOPS.length-1;
+  const stopOf=(s,it)=>it.p==="thesis"?3:(it.p==="parakan"||it.p==="singempon")?2:(it.p==="bob"||it.p==="pkm"||it.doc)?1:it.p==="profiles"?(s.id==="tengaran"?0:1):LAST;
+  const hex=h=>{h=h.trim().replace("#","");if(h.length===3)h=h.split("").map(c=>c+c).join("");const n=parseInt(h,16);return [n>>16&255,n>>8&255,n&255];};
+  const rgba=(c,a)=>`rgba(${c[0]},${c[1]},${c[2]},${a})`;
+  const mix=(a,b,q)=>a.map((v,i)=>Math.round(v+(b[i]-v)*q));
+  let P={};
+  const readPal=()=>{P={urban:hex(css("--urban")),climate:hex(css("--climate")),sustain:hex(css("--sustain")),ink:hex(css("--ink")),land:hex(css("--map-land")),side:hex(css("--map-side")),edge:hex(css("--map-edge")),label:hex(css("--map-label")),bg:hex(css("--map-bg")),grid:css("--map-grid")};};
+  readPal();
+  const dn=r=>r.id==="semarang"?"Semarang Regency":r.name.startsWith("Kota ")?r.name.slice(5)+" City":r.name;
+  const all=new Path2D();
+  const R=GEO.regions.map(r=>{const n=r.d.match(/-?\d+(\.\d+)?/g).map(Number);let sx=0,sy=0;for(let i=0;i<n.length;i+=2){sx+=n[i];sy+=n[i+1];}
+    const p=new Path2D(r.d);all.addPath(p);return {id:r.id,name:dn(r),path:p,cx:sx/(n.length/2),cy:sy/(n.length/2),h:0,n:0,th:null};});
+  const byId=Object.fromEntries(R.map(r=>[r.id,r]));
+  ctx.setTransform(1,0,0,1,0,0);
+  const S=SITES.map(s=>{const x=(s.lon-GEO.minx)*GEO.s,y=(GEO.maxy-s.lat)*GEO.s,ths=[...new Set(s.items.flatMap(i=>i.th))];
+    return {s,x,y,ths,host:R.find(r=>ctx.isPointInPath(r.path,x,y))||byId[s.reg[0]],th:s.items[0].th[0],st:s.items.map(it=>stopOf(s,it)),open:!s.items.some(it=>it.s==="done"),g:0,X:0,Y:0,T:0,f:1};});
+
+  let t=reduce?LAST:-1,target=LAST,speed=.85,yawC=-.22,yaw=-.22,phase=0,k=.6,idle=9,drag=null,hover=null,vis=false,raf=0,last=0,shown=-1,hl=null,sel=null,started=false;
+  let W=0,H=0,D=1,u=1,Sc=1,ox=0,oy=0,cz=1,M=[1,0,0,1,0,0];
+  const ease=v=>{v=Math.max(0,Math.min(1,v));return v*v*(3-2*v);};
+  const depth=o=>M[1]*(o.cx??o.x)+M[3]*(o.cy??o.y);
+  const PT=z=>ctx.setTransform(D*M[0],D*M[1],D*M[2],D*M[3],D*M[4],D*(M[5]-z*cz));
+  const scr=(x,y,z)=>[M[0]*x+M[2]*y+M[4],M[1]*x+M[3]*y+M[5]-z*cz];
+  const match=o=>!hl||o.ths.includes(hl);
+
+  /* ---- timeline ---- */
+  stopsEl.innerHTML=STOPS.map((s,i)=>`<button type="button" data-i="${i}" aria-pressed="false">${s[0]}</button>`).join("");
+  function hud(i){
+    shown=i;yrEl.textContent=STOPS[i][1];capEl.textContent=STOPS[i][2];
+    const on=S.filter(o=>o.st.some(x=>x<=i)),regs=new Set(on.flatMap(o=>o.s.reg));
+    cntEl.innerHTML=`<b>${on.length}</b> site${on.length>1?"s":""} in <b>${regs.size}</b> regenc${regs.size>1?"ies and cities":"y"}`;
+    $$("button",stopsEl).forEach((b,j)=>b.setAttribute("aria-pressed",j===i));
+  }
+
+  /* ---- side panel ---- */
+  const status=s=>`<span class="stt ${s||"done"}">${(s||"done")==="done"?"Completed":s==="prog"?"In progress":"Started"}</span>`;
+  const itemHTML=it=>`<li class="t-${it.th[0]}"><div class="mi-top">${tps(it.th)}${status(it.s)}</div><p class="mi-t">${esc(it.t)}</p><p class="mi-o">${esc(it.o)}</p>${it.p?`<button type="button" class="linkbtn" data-open="${it.p}">Open case</button>`:it.doc?`<button type="button" class="linkbtn" data-doc="${it.doc}">Open record</button>`:""}</li>`;
+  function overview(){
+    const n=th=>S.filter(o=>o.ths.includes(th)).length;
+    panel.innerHTML=`<p class="mp-k">All sites</p><h3>Select a pin, or pick a place from the list.</h3>
+      <ul class="mp-sum">${TH_ORDER.map(th=>`<li class="t-${th}"><b class="tnum">${n(th)}</b><span>${THEMES[th].label} sites</span></li>`).join("")}</ul>
+      <div class="mp-prov t-${PROVINCE.th[0]}"><p class="mp-k">Province-wide</p><p class="mi-t">${esc(PROVINCE.t)}</p><p class="mi-o">${esc(PROVINCE.o)}</p><button type="button" class="linkbtn" data-open="${PROVINCE.p}">Open case</button></div>`;
+  }
+  function select(id,fromMap){
+    const o=S.find(x=>x.s.id===id)||null;sel=o;pickEl.value=o?o.s.id:"";
+    if(!o){overview();kick();return;}
+    const regs=o.s.reg.map(r=>byId[r]?byId[r].name:r).join(", ");
+    panel.innerHTML=`<button type="button" class="mp-back" id="mBack">All sites</button><p class="mp-k">${esc(regs)}</p><h3>${esc(o.s.name)}</h3><p class="mp-n">${o.s.items.length} project${o.s.items.length>1?"s":""} here</p><ul class="mp-items">${o.s.items.map(itemHTML).join("")}</ul>`;
+    $("#mBack").addEventListener("click",()=>select(null));
+    if(fromMap&&!reduce)panel.animate([{opacity:0,transform:"translateY(10px)"},{opacity:1,transform:"none"}],{duration:320,easing:"cubic-bezier(.2,.8,.2,1)"});
+    kick();
+  }
+  const groups={};SITES.forEach(s=>{const r=byId[s.reg[0]];const g=r?r.name:"Other";(groups[g]=groups[g]||[]).push(s);});
+  pickEl.innerHTML=`<option value="">All sites</option>`+Object.keys(groups).sort().map(g=>`<optgroup label="${esc(g)}">${groups[g].map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join("")}</optgroup>`).join("");
+  pickEl.addEventListener("change",()=>select(pickEl.value||null,true));
+  filt.innerHTML=[["all","All"],...TH_ORDER.map(t=>[t,THEMES[t].label])].map(([k,l])=>`<button type="button" class="chip${k!=="all"?" t-"+k:""}"${k!=="all"?" data-t":""} data-f="${k}" aria-pressed="${k==="all"}">${l}</button>`).join("");
+  filt.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;hl=b.dataset.f==="all"?null:b.dataset.f;$$("button",filt).forEach(x=>x.setAttribute("aria-pressed",x===b));kick();});
+
+  /* ---- model ---- */
+  function update(dt){
+    if(t!==target){const d=target-t,st=speed*dt;t=Math.abs(d)<=st?target:t+Math.sign(d)*st;}
+    S.forEach(o=>{o.g=o.st.reduce((a,sp)=>a+ease(t-sp+1),0);const want=match(o)?1:.18;o.f+=(want-o.f)*Math.min(1,dt*8);});
+    R.forEach(r=>{r.n=0;r.m=0;r.th=null;});
+    S.forEach(o=>o.s.reg.forEach(id=>{const r=byId[id];if(!r||o.g<.01)return;r.n+=o.g;if(match(o)){r.m+=o.g;if(!r.th||(hl&&o.ths.includes(hl)))r.th=hl&&o.ths.includes(hl)?hl:o.th;}}));
+    R.forEach(r=>{const want=u*(Math.min(1,r.m)*7+5.5*r.m)+u*Math.min(1,r.n-r.m)*2.5;r.h+=(want-r.h)*Math.min(1,dt*7);});
+    const i=Math.max(0,Math.min(LAST,Math.ceil(t-1e-3)));if(i!==shown)hud(i);
+  }
+  function draw(now){
+    const c=Math.cos(yaw),s=Math.sin(yaw),a=Sc*c,b=Sc*k*s,cc=-Sc*s,dd=Sc*k*c;
+    M=[a,b,cc,dd,ox-(500*a+288*cc),oy-(500*b+288*dd)];cz=Math.sqrt(1-k*k);
+    ctx.setTransform(D,0,0,D,0,0);ctx.clearRect(0,0,W,H);
+    PT(0);ctx.lineWidth=1/Sc;ctx.strokeStyle=P.grid;ctx.beginPath();
+    for(let x=-500;x<=1500;x+=100){ctx.moveTo(x,-500);ctx.lineTo(x,1100);}
+    for(let y=-500;y<=1100;y+=100){ctx.moveTo(-500,y);ctx.lineTo(1500,y);}
+    ctx.stroke();
+    ctx.fillStyle=rgba(P.label,1);ctx.font="700 24px 'Archivo','Plus Jakarta Sans',system-ui,sans-serif";ctx.textAlign="center";
+    try{ctx.letterSpacing="10px";}catch(e){}
+    ctx.fillText("JAVA SEA",470,24);ctx.fillText("INDIAN OCEAN",640,590);
+    try{ctx.letterSpacing="0px";}catch(e){}
+    ctx.fillStyle=rgba(P.side,1);for(let z=-9*u;z<0;z+=3*u){PT(z);ctx.fill(all);}
+    PT(0);ctx.fillStyle=rgba(P.land,1);ctx.fill(all);
+    if(hover&&hover.reg&&hover.reg.h<1){ctx.fillStyle=rgba(mix(P.land,P.ink,.06),1);ctx.fill(hover.reg.path);}
+    ctx.strokeStyle=rgba(P.edge,1);ctx.lineWidth=1/Sc;ctx.stroke(all);
+    const selR=sel?new Set(sel.s.reg):null;
+    R.filter(r=>r.h>.4).sort((p,q)=>depth(p)-depth(q)).forEach(r=>{
+      const base=r.th?P[r.th]:P.edge,hv=hover&&hover.reg===r,on=selR&&selR.has(r.id);
+      const lo=mix(base,[0,0,0],.38),hi=mix(base,[0,0,0],.18),top=r.th?mix(base,[255,255,255],on?0:hv?.08:.18):mix(P.land,P.ink,.08);
+      for(let z=2;z<r.h;z+=2){PT(z);ctx.fillStyle=rgba(mix(lo,hi,z/r.h),1);ctx.fill(r.path);}
+      PT(r.h);ctx.fillStyle=rgba(top,1);ctx.fill(r.path);ctx.strokeStyle=rgba(mix(base,[255,255,255],.45),on?1:.7);ctx.lineWidth=(on?2.2:1)/Sc;ctx.stroke(r.path);
+    });
+    ctx.setTransform(D,0,0,D,0,0);ctx.lineCap="round";
+    S.filter(o=>o.g>.01).sort((p,q)=>depth(p)-depth(q)).forEach(o=>{
+      const [X,Y]=scr(o.x,o.y,o.host.h),g1=Math.min(1,o.g),isSel=sel===o,hv=hover&&hover.site===o,bh=u*(30+14*Math.max(0,o.g-1)+(isSel?14:0))*g1,T=Y-bh;
+      const col=P[match(o)||!hl?(hl&&o.ths.includes(hl)?hl:o.th):o.th],al=o.f*g1,rr=u*(isSel?6.4:hv?5.2:4.2);
+      o.X=X;o.Y=Y;o.T=T;
+      ctx.fillStyle=rgba(P.ink,.16*al);ctx.beginPath();ctx.ellipse(X,Y,5*u,5*u*k,0,0,7);ctx.fill();
+      ctx.strokeStyle=rgba(P.ink,.55*al);ctx.lineWidth=1.6*u;ctx.beginPath();ctx.moveTo(X,Y);ctx.lineTo(X,T);ctx.stroke();
+      if(isSel&&!reduce){const q=(now*.8)%1;ctx.strokeStyle=rgba(col,(1-q)*.8);ctx.lineWidth=2*u;ctx.beginPath();ctx.arc(X,T,rr+q*14*u,0,7);ctx.stroke();}
+      ctx.beginPath();ctx.arc(X,T,rr+2*u,0,7);ctx.fillStyle=rgba(P.bg,al);ctx.fill();
+      ctx.beginPath();ctx.arc(X,T,rr,0,7);
+      if(o.open){ctx.fillStyle=rgba(P.bg,al);ctx.fill();ctx.strokeStyle=rgba(col,al);ctx.lineWidth=2.2*u;ctx.stroke();}
+      else{ctx.fillStyle=rgba(col,al);ctx.fill();}
+      if(isSel){ctx.font=`800 ${Math.round(13*Math.max(1,u*.8))}px 'Plus Jakarta Sans',system-ui,sans-serif`;ctx.textAlign="center";const tw=ctx.measureText(o.s.name).width+18,th=24*Math.max(1,u*.8);
+        ctx.fillStyle=rgba(P.ink,1);ctx.beginPath();if(ctx.roundRect)ctx.roundRect(X-tw/2,T-rr-th-8,tw,th,th/2);else ctx.rect(X-tw/2,T-rr-th-8,tw,th);ctx.fill();ctx.fillStyle=rgba(P.bg,1);ctx.fillText(o.s.name,X,T-rr-8-th/2+4.5*Math.max(1,u*.8));}
+    });
+  }
+  function frame(now){
+    raf=0;const dt=Math.min(.15,(now-last)/1000||0);last=now;idle+=dt;
+    if(!drag&&idle>2.5&&!reduce)phase+=dt*.3;
+    yaw=yawC+.14*Math.sin(phase);
+    if(reduce)t=target;
+    update(dt);draw(now/1000);
+    if(vis&&!reduce)raf=requestAnimationFrame(frame);
+  }
+  const kick=()=>{if(!raf&&W){last=performance.now();raf=requestAnimationFrame(frame);}};
+  const play=()=>{if(reduce){target=LAST;}else{t=-1;target=LAST;speed=.85;}kick();};
+
+  function pick(px,py){
+    let best=null,bd=14;
+    S.forEach(o=>{if(o.g<.5||o.f<.5)return;const yy=Math.max(o.T,Math.min(o.Y,py)),d=Math.hypot(px-o.X,py-yy);if(d<bd){bd=d;best=o;}});
+    if(best)return {site:best};
+    for(const r of R.filter(r=>r.h>.4).sort((p,q)=>depth(q)-depth(p))){PT(r.h);if(ctx.isPointInPath(r.path,px*D,py*D))return {reg:r};}
+    PT(0);for(const r of R){if(ctx.isPointInPath(r.path,px*D,py*D))return {reg:r};}
+    return null;
+  }
+  const pos=e=>{const r=cv.getBoundingClientRect();return [e.clientX-r.left,e.clientY-r.top];};
+  function showTip(h,px,py){
+    if(!h){tip.hidden=true;cv.style.cursor="";return;}
+    let x=px,y=py-10;
+    if(h.site){const n=h.site.s.items.length;tip.innerHTML=`<b>${esc(h.site.s.name)}</b><span>${n} project${n>1?"s":""}</span>`;x=h.site.X;y=h.site.T-10;}
+    else{const n=Math.round(h.reg.n);tip.innerHTML=`<b>${esc(h.reg.name)}</b>${n?`<span>${n} project${n>1?"s":""} here</span>`:""}`;}
+    tip.hidden=false;const hw=tip.offsetWidth/2+8;
+    tip.style.left=Math.max(hw,Math.min(W-hw,x))+"px";tip.style.top=Math.max(tip.offsetHeight+8,y)+"px";
+    cv.style.cursor=h.site||h.reg.h>.4?"pointer":"";
+  }
+  cv.addEventListener("pointerdown",e=>{const [x,y]=pos(e);drag={x,y,m:0,touch:e.pointerType==="touch"};yawC=yaw;phase=0;idle=0;cv.classList.add("drag");try{cv.setPointerCapture(e.pointerId);}catch(_){ }});
+  cv.addEventListener("pointermove",e=>{
+    const [x,y]=pos(e);
+    if(drag){const dx=x-drag.x,dy=y-drag.y;drag.m+=Math.abs(dx)+Math.abs(dy);drag.x=x;drag.y=y;yawC-=dx*.006;if(!drag.touch)k=Math.max(.36,Math.min(.8,k+dy*.0022));idle=0;hover=null;tip.hidden=true;kick();return;}
+    if(e.pointerType==="touch")return;
+    hover=pick(x,y);showTip(hover,x,y);kick();
+  });
+  const end=e=>{if(!drag)return;const d=drag;drag=null;cv.classList.remove("drag");idle=0;
+    if(e.type==="pointerup"&&d.m<6){const h=pick(d.x,d.y);if(h){const o=h.site||S.find(x=>x.g>.5&&x.f>.5&&x.s.reg.includes(h.reg.id));if(o)select(o.s.id,true);}}};
+  cv.addEventListener("pointerup",end);cv.addEventListener("pointercancel",end);
+  cv.addEventListener("pointerleave",()=>{if(drag)return;hover=null;tip.hidden=true;kick();});
+  stopsEl.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;target=+b.dataset.i;speed=2.6;if(reduce)t=target;kick();});
+  $("#mPlay").addEventListener("click",play);
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{readPal();kick();});
+  new ResizeObserver(()=>{W=cv.clientWidth;H=cv.clientHeight;if(!W)return;D=Math.min(2,window.devicePixelRatio||1);cv.width=Math.round(W*D);cv.height=Math.round(H*D);
+    $(".mside").style.setProperty("--mh",matchMedia("(min-width:981px)").matches?H+"px":"none");u=Math.max(.62,W/640);Sc=W/(W<560?760:900);ox=W*(W<560?.5:.55);oy=H*(W<560?.6:.58);kick();}).observe(stage);
+  new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(vis){if(!started){started=true;play();}kick();}},{threshold:.25}).observe(stage);
+  overview();hud(LAST);
+  window.mapSelect=id=>select(id,true);
+})();
+
+/* ================= hero: the name ================= */
+(function(){
+  const h=$("#name");if(!h)return;
+  const lines=$$(".ln",h);let L=[];
+  lines.forEach(ln=>{const t=ln.textContent;ln.textContent="";[...t].forEach(ch=>{const s=document.createElement("span");s.className=ch===" "?"ch sp":"ch";s.textContent=ch===" "?" ":ch;ln.appendChild(s);L.push(s);});});
+  const BASE=68;
+  if(!reduce)L.forEach((s,i)=>s.animate([{fontStretch:"125%",opacity:0,transform:"translateY(.18em)"},{fontStretch:BASE+"%",opacity:1,transform:"none"}],{duration:1100,delay:120+i*45,easing:"cubic-bezier(.2,.8,.2,1)",fill:"backwards"}));
+  if(reduce||!matchMedia("(hover:hover)").matches)return;
+  let C=[],raf=0,px=0,py=0,on=false;
+  const measure=()=>{L.forEach(s=>s.style.fontStretch="");C=L.map(s=>{const r=s.getBoundingClientRect();return [r.left+r.width/2,r.top+r.height/2];});};
+  const paint=()=>{raf=0;L.forEach((s,i)=>{if(!on){s.style.fontStretch="";return;}const d=Math.hypot(px-C[i][0],(py-C[i][1])*1.4),w=Math.max(0,1-d/300);s.style.fontStretch=(BASE+w*w*44).toFixed(1)+"%";});};
+  h.addEventListener("pointerenter",e=>{measure();on=true;});
+  h.addEventListener("pointermove",e=>{px=e.clientX;py=e.clientY;if(!raf)raf=requestAnimationFrame(paint);});
+  h.addEventListener("pointerleave",()=>{on=false;L.forEach(s=>{s.animate([{fontStretch:s.style.fontStretch||BASE+"%"},{fontStretch:BASE+"%"}],{duration:500,easing:"cubic-bezier(.2,.8,.2,1)"});s.style.fontStretch="";});});
+})();
+
+/* ================= hero: theme plates ================= */
+(function(){
+  const box=$("#plates");if(!box)return;
+  const P=$$(".plate",box),ORDER=P.map(p=>p.dataset.th);
+  const count=th=>PROJECTS.filter(p=>p.th.includes(th)).length;
+  P.forEach(p=>{const n=count(p.dataset.th);$(".pc",p).textContent=`${n} projects`;const b=$(".pbtn",p);b.textContent=`See ${n} ${THEMES[p.dataset.th].label.toLowerCase()} projects`;});
+  $$("[data-svg]",box).forEach(el=>{const f={coast:coastSVG,eesg:eesgSVG}[el.dataset.svg];if(f)el.innerHTML=f();});
+  let cur=0,timer=0,t0=0,auto=!reduce,paused=false,inView=false;
+  const mobile=()=>matchMedia("(max-width:820px)").matches;
+  const fit=()=>{if(mobile()){box.style.removeProperty("--pw");return;}const gap=parseFloat(getComputedStyle(box).columnGap)||10;const w=(box.clientWidth-2*gap)*7/9;box.style.setProperty("--pw",Math.round(w)+"px");};
+  function open(i,user){
+    if(user)auto=false;
+    const prev=cur;cur=i;
+    P.forEach((p,j)=>{const on=j===i;p.classList.toggle("is-open",on);const tab=$(".plate-tab",p);tab.setAttribute("aria-expanded",on);tab.tabIndex=on?-1:0;$(".plate-in",p).toggleAttribute("inert",!on);});
+    if(mobile()&&!reduce&&prev!==i){const inn=$(".plate-in",P[i]);inn.animate([{opacity:0,transform:"translateY(-8px)"},{opacity:1,transform:"none"}],{duration:420,easing:"cubic-bezier(.2,.8,.2,1)"});}
+    t0=performance.now();
+  }
+  P.forEach((p,i)=>$(".plate-tab",p).addEventListener("click",()=>{open(i,true);if(mobile())P[i].scrollIntoView({behavior:reduce?"auto":"smooth",block:"nearest"});}));
+  $$(".pbtn",box).forEach(b=>b.addEventListener("click",()=>{auto=false;if(window.setProjectFilter)window.setProjectFilter(b.dataset.filter);$("#work").scrollIntoView({behavior:reduce?"auto":"smooth"});}));
+  box.addEventListener("pointerenter",()=>paused=true);box.addEventListener("pointerleave",()=>{paused=false;t0=performance.now();});
+  box.addEventListener("focusin",()=>paused=true);box.addEventListener("focusout",()=>paused=false);
+  const DUR=7000;
+  function tick(now){
+    timer=requestAnimationFrame(tick);
+    const bar=$(".is-open .ptimer i",box);
+    if(!auto||mobile()){if(bar)bar.style.transform="scaleX(0)";return;}
+    if(paused||!inView||document.hidden){t0=now-(parseFloat(bar&&bar.dataset.p)||0)*DUR;return;}
+    const p=Math.min(1,(now-t0)/DUR);if(bar){bar.style.transform=`scaleX(${p})`;bar.dataset.p=p;}
+    if(p>=1){if(bar){bar.style.transform="scaleX(0)";bar.dataset.p=0;}open((cur+1)%P.length,false);}
+  }
+  new IntersectionObserver(es=>{inView=es[0].isIntersecting;},{threshold:.4}).observe(box);
+  new ResizeObserver(fit).observe(box);fit();open(0,false);
+  if(!reduce)timer=requestAnimationFrame(tick);
+  window.openPlate=th=>open(Math.max(0,ORDER.indexOf(th)),true);
+})();
+
+/* ================= experience rows ================= */
+(function(){
+  $$(".xrow").forEach(r=>{const b=$(".xhead",r);b.addEventListener("click",()=>{const on=b.getAttribute("aria-expanded")!=="true";b.setAttribute("aria-expanded",on);r.classList.toggle("is-open",on);$(".xbody",r).toggleAttribute("inert",!on);});});
+})();
+
+/* ================= proof ================= */
+(function(){
+  const pubs=$("#pubs");
+  if(pubs)pubs.innerHTML=PUBS.map(p=>`<li class="t-${p.th[0]}"><span class="py tnum">${p.y}</span><div><p class="pt">${esc(p.t)}</p><p class="ps">${esc(p.r)} · ${esc(p.v)}</p><div class="pa"><span class="status ${p.st}">${p.stl}</span>${p.link?`<a class="proof" href="${LINKS[p.link].href}" target="_blank" rel="noopener">${LINKS[p.link].label}${EXT}</a>`:""}${p.doc?`<button type="button" class="linkbtn" data-open="${p.doc[0]}">${p.doc[1]}</button>`:""}<button type="button" class="linkbtn" data-open="${p.open}">Open case</button></div></div></li>`).join("");
+  const certs=$("#certs");
+  if(certs)certs.innerHTML=CERTS.map((c,i)=>`<li><span class="cd">${c.d}</span><div><p class="ct">${esc(c.t)}</p><p class="cb">${esc(c.by)}</p></div><span class="cdots">${c.th.map(t=>`<i class="t-${t}" title="${THEMES[t].label}"></i>`).join("")}</span>${c.docs.length?`<button type="button" class="cview" data-cert="${i}">View${c.docs.length>1?` (${c.docs.length})`:""}</button>`:`<span class="cview none">On request</span>`}</li>`).join("");
+  const bar=(l,v,mn,mx)=>`<div><span>${l}</span><i><em style="--w:${((v-mn)/(mx-mn)*100).toFixed(1)}%"></em></i><b>${mx===9?v.toFixed(1):v}</b></div>`;
+  const langs=$("#langs");
+  if(langs)langs.innerHTML=LANGS.map(t=>`<div class="test"><p class="tn">${t.n}<span>${t.d}</span></p><p class="tbig"><b class="tnum">${t.o}</b><span>${t.u}</span></p><div class="bars">${t.sc.map(x=>bar(x[0],x[1],t.min,t.max)).join("")}</div>${t.link?`<a class="proof" href="${LINKS[t.link].href}" target="_blank" rel="noopener">${LINKS[t.link].label}${EXT}</a>`:t.note?`<p class="tnote">${t.note}</p>`:""}</div>`).join("");
+})();
+
+/* ================= nav, progress, contact ================= */
+(function(){
+  const links=$$(".nav a"),secs=links.map(a=>$(a.getAttribute("href"))).filter(Boolean),bar=$("#progress");
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id="#"+e.target.id;links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")===id));}}),{rootMargin:"-45% 0px -50% 0px"});
+  secs.forEach(s=>io.observe(s));
+  let r=0;addEventListener("scroll",()=>{if(r)return;r=requestAnimationFrame(()=>{r=0;const h=document.documentElement;bar.style.transform=`scaleX(${h.scrollTop/(h.scrollHeight-h.clientHeight||1)})`;$(".top").classList.toggle("scrolled",h.scrollTop>10);});},{passive:true});
+  const btn=$("#copyEmail");
+  if(btn)btn.addEventListener("click",async()=>{try{await navigator.clipboard.writeText("nefianurfitri@gmail.com");btn.textContent="Copied";}catch(err){btn.textContent="nefianurfitri@gmail.com";}setTimeout(()=>btn.textContent="Copy email",2200);});
+})();
+
+</script>
+</body>
+</html>
