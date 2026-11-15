@@ -18,7 +18,9 @@
   --climate:#2364C9;--climate-ink:#1A4E9F;--climate-soft:#E1EAF9;--climate-plate:#2364C9;
   --sustain:#17865A;--sustain-ink:#0F6744;--sustain-soft:#DDF1E6;--sustain-plate:#14805A;
   --land:#E6EBEE;--land-hover:#D3DBE1;--paper:var(--surface);
-  --map-bg:#FFFFFF;--map-land:#E4E9ED;--map-side:#B9C4CD;--map-edge:#A9B6C0;--map-label:#A4AFB9;--map-grid:rgba(20,32,43,.06);
+  --map-bg:#FFFFFF;--map-land:#F3F5F4;--map-side:#AAB6BF;--map-edge:#98A7B3;--map-label:#A4AFB9;--map-grid:rgba(255,255,255,.2);
+  --sea-n:#D3E9F3;--sea-m:#5F9DC7;--sea-s:#163E6A;--sea-iso:rgba(22,62,106,.2);
+  --sb-paper:color-mix(in srgb,#F2F4F6 80%,transparent);--sb-white:color-mix(in srgb,#FFFFFF 88%,transparent);--contour:20,32,43;
   --shadow:0 1px 2px rgba(20,32,43,.05),0 10px 30px rgba(20,32,43,.07);
   --shadow-lg:0 2px 4px rgba(20,32,43,.06),0 24px 60px rgba(20,32,43,.14);
   --photo:0 2px 4px rgba(0,0,0,.08),0 18px 40px rgba(0,0,0,.22);
@@ -37,7 +39,7 @@
     --climate:#4A8BE6;--climate-ink:#8EB9F5;--climate-soft:rgba(74,139,230,.18);
     --sustain:#25A672;--sustain-ink:#63D3A1;--sustain-soft:rgba(37,166,114,.18);
     --land:#1F2A34;--land-hover:#2B3742;
-    --map-bg:#172029;--map-land:#22303B;--map-side:#0A1015;--map-edge:#3A4856;--map-label:#51606C;--map-grid:rgba(238,242,245,.05);
+    --map-bg:#172029;--map-land:#2C3944;--map-side:#081017;--map-edge:#46586B;--map-label:#51606C;--map-grid:rgba(255,255,255,.06);--sea-n:#22546E;--sea-m:#133856;--sea-s:#06172A;--sea-iso:rgba(160,205,235,.16);--sb-paper:color-mix(in srgb,#0E1419 82%,transparent);--sb-white:color-mix(in srgb,#172029 90%,transparent);--contour:238,242,245;
     --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.25);
     --shadow-lg:0 2px 4px rgba(0,0,0,.3),0 24px 60px rgba(0,0,0,.45);
     color-scheme:dark;
@@ -49,7 +51,7 @@
   --climate:#4A8BE6;--climate-ink:#8EB9F5;--climate-soft:rgba(74,139,230,.18);
   --sustain:#25A672;--sustain-ink:#63D3A1;--sustain-soft:rgba(37,166,114,.18);
   --land:#1F2A34;--land-hover:#2B3742;
-  --map-bg:#172029;--map-land:#22303B;--map-side:#0A1015;--map-edge:#3A4856;--map-label:#51606C;--map-grid:rgba(238,242,245,.05);
+  --map-bg:#172029;--map-land:#2C3944;--map-side:#081017;--map-edge:#46586B;--map-label:#51606C;--map-grid:rgba(255,255,255,.06);--sea-n:#22546E;--sea-m:#133856;--sea-s:#06172A;--sea-iso:rgba(160,205,235,.16);--sb-paper:color-mix(in srgb,#0E1419 82%,transparent);--sb-white:color-mix(in srgb,#172029 90%,transparent);--contour:238,242,245;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.25);
   --shadow-lg:0 2px 4px rgba(0,0,0,.3),0 24px 60px rgba(0,0,0,.45);
   color-scheme:dark;
@@ -116,7 +118,68 @@ p{margin:0}
 @media (max-width:640px){.nav{display:none}.top .btn{margin-left:auto}}
 
 /* ---------- section frame ---------- */
-.sec{padding:clamp(72px,9vw,128px) 0 0;scroll-margin-top:66px}
+.sec{padding:clamp(84px,9vw,136px) 0 clamp(80px,8vw,128px);scroll-margin-top:66px}
+/* sheets: each section slides over the one before it */
+main > section{position:relative;transform-origin:50% 100%}
+main{--rr:clamp(28px,3.6vw,52px)}
+main > section::after{content:"";position:absolute;inset:0 0 var(--rr) 0;border-radius:inherit;background:#05090C;opacity:var(--dim,0);pointer-events:none;z-index:8}
+.sec,.contact{background:var(--sb,var(--bg));border-radius:var(--rr) var(--rr) 0 0;margin-top:calc(var(--rr)*-1);box-shadow:0 -1px 0 color-mix(in srgb,var(--ink) 6%,transparent),0 -34px 60px -44px rgba(20,32,43,.45)}
+.sec::before,.contact::before{content:"";position:absolute;top:16px;left:50%;width:60px;height:6px;border-radius:3px;transform:translateX(-50%);background:linear-gradient(90deg,var(--urban) 0 33.3%,var(--climate) 33.3% 66.6%,var(--sustain) 66.6%)}
+.s-paper{--sb:var(--sb-paper)}
+.s-white{--sb:var(--sb-white)}
+.s-ink{--sb:var(--ink);color:var(--bg)}
+.s-ink .sec-head .lede{color:color-mix(in srgb,var(--bg) 70%,var(--ink))}
+.s-white .card,.s-white .card.note{background:var(--bg)}
+.s-white .card.feature{background:var(--cp)}
+.s-white .folders button{background:var(--bg)}
+.s-white .folders button[aria-pressed="true"]{background:var(--ink)}
+.s-white .rphoto{border-color:var(--bg)}
+.hero{position:relative;padding-bottom:clamp(70px,7vw,108px)}
+footer{background:var(--sb-white)}
+/* living background: a topographic map that drifts behind the sheets */
+.bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bgfx canvas{position:absolute;left:0;top:0;width:100%;height:150%;will-change:transform}
+.bgfx .blob{position:absolute;display:block;border-radius:50%;will-change:transform}
+.bgfx .b1,.bgfx .b2,.bgfx .b3{width:46vmax;height:46vmax;filter:blur(90px);opacity:.26}
+.bgfx .b1{background:var(--urban);left:-16vmax;top:-14vmax;animation:drift1 42s ease-in-out infinite alternate}
+.bgfx .b2{background:var(--climate);right:-18vmax;top:30vh;animation:drift2 50s ease-in-out infinite alternate}
+.bgfx .b3{background:var(--sustain);left:20vw;bottom:-24vmax;animation:drift3 56s ease-in-out infinite alternate}
+.bgfx .glow{left:0;top:0;width:34vmax;height:34vmax;background:radial-gradient(circle,var(--gc,var(--urban)) 0,transparent 66%);opacity:.3;transform:translate3d(50vw,40vh,0) translate(-50%,-50%)}
+.bgfx::after{content:"";position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes drift1{to{transform:translate(22vw,26vh) scale(1.18)}}
+@keyframes drift2{to{transform:translate(-26vw,-18vh) scale(.88)}}
+@keyframes drift3{to{transform:translate(24vw,-30vh) scale(1.12)}}
+@media (prefers-reduced-motion:reduce){.bgfx .blob{animation:none}.bgfx .glow{display:none}}
+/* headings rise word by word */
+.rv .sec-head h2 .w,.rv .cplate h2 .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .03em .16em;margin:0 -.03em -.16em}
+.rv .sec-head h2 .wi,.rv .cplate h2 .wi{display:inline-block;transform:translateY(112%) rotate(4deg);transform-origin:0 100%;transition:transform 1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i)*75ms)}
+.rv .in h2 .wi{transform:none}
+.rv .sec-head .lede{opacity:0;transform:translateY(18px);transition:opacity .9s .35s,transform .9s .35s cubic-bezier(.2,.8,.2,1)}
+.rv .sec-head.in .lede{opacity:1;transform:none}
+/* experience: a photo follows the cursor over a row */
+.xpeek{position:fixed;left:0;top:0;z-index:30;width:250px;aspect-ratio:4/3;border-radius:18px;border:6px solid #fff;background:#fff;box-shadow:var(--photo);pointer-events:none;overflow:hidden;opacity:0;transform:translate3d(-999px,-999px,0);transition:opacity .25s}
+.xpeek img{width:100%;height:100%;object-fit:cover}
+.xpeek.on{opacity:1}
+/* in the field: a pinned horizontal reel */
+.reel{position:relative}
+.reel-pin{position:sticky;top:66px;height:calc(100svh - 66px);display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.reel-track{display:flex;align-items:flex-start;gap:clamp(18px,2vw,28px);padding:0 var(--gutter);width:max-content;will-change:transform}
+.rshot{flex:none;border:0;padding:0;background:none;color:inherit;cursor:zoom-in;text-align:left;display:flex;flex-direction:column;gap:12px}
+.rshot .ph{height:min(46vh,430px);border-radius:18px;overflow:hidden;border:6px solid var(--bg);box-shadow:0 20px 50px rgba(0,0,0,.35);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.rshot:nth-child(odd) .ph{rotate:-1.6deg}
+.rshot:nth-child(even){margin-top:44px}
+.rshot:nth-child(even) .ph{rotate:1.3deg}
+.rshot:hover .ph{transform:scale(1.04) rotate(1.4deg)}
+.rshot img{height:100%;width:auto;display:block}
+.rshot span{font-size:14px;line-height:1.4;max-width:30ch;opacity:.78}
+.reel-meta{display:flex;align-items:center;gap:16px;padding:26px var(--gutter) 0;font-size:14px;font-weight:700;opacity:.85}
+.reel-bar{flex:1;max-width:420px;height:4px;border-radius:2px;background:color-mix(in srgb,var(--bg) 18%,transparent);overflow:hidden}
+.reel-bar i{display:block;height:100%;background:var(--bg);transform-origin:left;transform:scaleX(0)}
+.s-ink .shot{border-color:var(--bg)}
+#moments.has-reel .sec-head{margin-bottom:0}
+#moments.has-reel{padding-bottom:clamp(40px,4vw,64px)}
+#moments{overflow:visible;overflow-x:clip}
+
 .sec-head{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:28px 48px;align-items:end;margin-bottom:clamp(28px,4vw,48px)}
 .sec-head h2{font-family:var(--display);font-weight:900;font-stretch:70%;font-size:clamp(52px,7.6vw,116px);line-height:.86;letter-spacing:-.01em}
 .sec-head .lede{color:var(--muted);font-size:18px;line-height:1.55;max-width:44ch;padding-bottom:6px}
@@ -438,7 +501,7 @@ dialog::backdrop{background:rgba(16,22,30,.55);backdrop-filter:blur(3px)}
 
 
 /* ---------- moments marquee ---------- */
-#moments{overflow:hidden}
+
 #moments .eyebrow{background:var(--bg)}
 .marquee{display:grid;gap:14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
 .mtrack{display:flex;gap:14px;width:max-content;animation:mscroll var(--dur,70s) linear infinite;padding:6px 0}
@@ -702,7 +765,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="sec" id="experience">
+<section class="sec s-white" id="experience">
   <div class="wrap">
     <div class="sec-head">
       <h2>Where I've worked</h2>
@@ -775,7 +838,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="sec" id="map">
+<section class="sec s-paper" id="map">
   <div class="wrap">
     <div class="sec-head">
       <h2>25 sites, one province</h2>
@@ -800,7 +863,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="sec" id="work">
+<section class="sec s-white" id="work">
   <div class="wrap">
     <div class="sec-head">
       <h2>Work, filed by where I did it</h2>
@@ -815,7 +878,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="sec" id="research">
+<section class="sec s-paper" id="research">
   <div class="wrap">
     <div class="sec-head">
       <h2>Three studies, explained</h2>
@@ -879,7 +942,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <div class="findings">
           <div><b class="tnum">10/16</b><span>villages classified as urban after field validation; the remaining 6 are rural.</span></div>
           <div><b class="tnum">93.75%</b><span>agreement between the delineation and Statistics Indonesia (BPS) classification.</span></div>
-          <div><b class="mono" style="font-size:14px;font-family:var(--mono);font-weight:500;color:var(--ink)">EC00202470546</b><span>Procedure registered as a copyright work with the Directorate General of Intellectual Property (DJKI). <a class="proof" href="https://pdki-indonesia.dgip.go.id/detail/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" target="_blank" rel="noopener">PDKI record<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></span></div>
+          <div><b class="mono" style="font-size:14px;font-family:var(--mono);font-weight:500;color:var(--ink)">EC00202470546</b><span>Procedure registered as a copyright work with the Directorate General of Intellectual Property (DJKI).</span></div>
         </div>
       </div>
       <div>
@@ -897,7 +960,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="sec" id="moments">
+<section class="sec s-ink" id="moments">
   <div class="wrap">
     <div class="sec-head">
       <h2>In the field</h2>
@@ -907,7 +970,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <div class="marquee" id="marquee"></div>
 </section>
 
-<section class="sec" id="proof">
+<section class="sec s-paper" id="proof">
   <div class="wrap">
     <div class="sec-head">
       <h2>Proof</h2>
@@ -941,7 +1004,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="contact" id="contact">
+<section class="contact s-white" id="contact">
   <div class="wrap"><div class="cplate">
     <div class="cdots3" aria-hidden="true"><i></i><i></i><i></i></div>
     <h2>Let's talk.</h2>
@@ -1039,7 +1102,7 @@ const PROJECTS=[
    outcome:"Urban Centre covers 1,342.69 ha and 89.9% of residents; 10 of 16 villages are urban; 93.75% agreement with BPS data. The procedure is registered with DJKI (EC00202470546).",
    tools:["GHSL","Degree of Urbanisation","ArcGIS","Zonal statistics","Isochrone (ORS Tools)","Field validation"],
    gallery:[["thesis-poster","Thesis poster: the eight-stage procedure"],["thesis-du-grid","Peta IV.3 · Degree of Urbanisation grid, Parakan Subdistrict"],["thesis-delineation","Peta IV.5 · Final urban delineation, Parakan Subdistrict"],["thesis-density","Peta IV.2 · Population density, Parakan Subdistrict"],["thesis-isochrone","Peta IV.7 · Service coverage by isochrone"],["thesis-flow","Research framework"]],
-   proofs:["pdki","video"]},
+   proofs:["video"]},
   {id:"parakan", th:["urban"],
    title:"Detailed Spatial Plan for Parakan Urban Area, 2024–2044",
    org:"COSPLAY Teaching Industry with Dinas PUPR Temanggung", period:"Jun – Nov 2023", role:"Urban Planner Intern",
@@ -1195,7 +1258,7 @@ const MOMENTS=[
   ["bps-team","BPS Semarang City team, ST2023 geospatial update, 2022","urban",1000,750],
   ["camp-fgd","Focus group discussion on a detailed spatial plan","urban",240,135],
   ["bob-heritage","Cultural heritage site visit, Loano studio","urban",320,243],
-  ["klhs-meeting","KLHS meeting documentation, Semarang City","sustain",320,480],
+  ["klhs-meeting","KLHS meeting, Semarang City","sustain",280,156],
   ["camp-field","On a field survey","urban",240,210],
   ["camp-intern","Internship team photo","urban",180,240],
   ["social-1","Campaign post: BINTARI Foundation's 39th anniversary","sustain",300,400],
@@ -1482,16 +1545,6 @@ document.addEventListener("click",e=>{
 });
 
 
-/* ================= moments marquee ================= */
-(function(){
-  const mq=$("#marquee");if(!mq)return;
-  const rowA=MOMENTS.map((m,i)=>i).filter(i=>i<9),rowB=MOMENTS.map((m,i)=>i).filter(i=>i>=9);
-  const tile=(i,dup)=>{const m=MOMENTS[i];return `<button type="button" class="shot${m[2]?" t-"+m[2]:""}" data-moment="${i}"${dup?' tabindex="-1" aria-hidden="true"':""}><img src="img/${m[0]}.webp" alt="${dup?"":esc(m[1])}" width="${m[3]}" height="${m[4]}"${dup?' loading="lazy"':""}><span>${esc(m[1])}</span></button>`;};
-  const row=(ids,cls,dur)=>`<div class="mrow ${cls}" style="--dur:${dur}s"><div class="mtrack">${ids.map(i=>tile(i,false)).join("")}${ids.map(i=>tile(i,true)).join("")}</div></div>`;
-  mq.innerHTML=row(rowA,"",64)+row(rowB,"rev",72);
-})();
-
-
 /* ================= 05 featured research ================= */
 (function(){
   const DU={area:{unit:"ha",vals:[1342.69,728.94,296.10]},pop:{unit:"residents",vals:[49879,5485,131]}};
@@ -1562,7 +1615,7 @@ document.addEventListener("click",e=>{
   const rgba=(c,a)=>`rgba(${c[0]},${c[1]},${c[2]},${a})`;
   const mix=(a,b,q)=>a.map((v,i)=>Math.round(v+(b[i]-v)*q));
   let P={};
-  const readPal=()=>{P={urban:hex(css("--urban")),climate:hex(css("--climate")),sustain:hex(css("--sustain")),ink:hex(css("--ink")),land:hex(css("--map-land")),side:hex(css("--map-side")),edge:hex(css("--map-edge")),label:hex(css("--map-label")),bg:hex(css("--map-bg")),grid:css("--map-grid")};};
+  const readPal=()=>{P={urban:hex(css("--urban")),climate:hex(css("--climate")),sustain:hex(css("--sustain")),ink:hex(css("--ink")),land:hex(css("--map-land")),side:hex(css("--map-side")),edge:hex(css("--map-edge")),label:hex(css("--map-label")),bg:hex(css("--map-bg")),grid:css("--map-grid"),seaN:hex(css("--sea-n")),seaM:hex(css("--sea-m")),seaS:hex(css("--sea-s")),iso:css("--sea-iso")};};
   readPal();
   const dn=r=>r.id==="semarang"?"Semarang Regency":r.name.startsWith("Kota ")?r.name.slice(5)+" City":r.name;
   const all=new Path2D();
@@ -1627,13 +1680,23 @@ document.addEventListener("click",e=>{
     const c=Math.cos(yaw),s=Math.sin(yaw),a=Sc*c,b=Sc*k*s,cc=-Sc*s,dd=Sc*k*c;
     M=[a,b,cc,dd,ox-(500*a+288*cc),oy-(500*b+288*dd)];cz=Math.sqrt(1-k*k);
     ctx.setTransform(D,0,0,D,0,0);ctx.clearRect(0,0,W,H);
-    PT(0);ctx.lineWidth=1/Sc;ctx.strokeStyle=P.grid;ctx.beginPath();
+    /* sea: bathymetry, shallow Java Sea in the north, the Indian Ocean deepening to the south */
+    PT(0);
+    const sea=ctx.createLinearGradient(0,-260,0,860);
+    sea.addColorStop(0,rgba(P.seaN,1));sea.addColorStop(.42,rgba(mix(P.seaN,P.seaM,.55),1));sea.addColorStop(.66,rgba(P.seaM,1));sea.addColorStop(1,rgba(P.seaS,1));
+    ctx.fillStyle=sea;ctx.fillRect(-1000,-800,3000,2200);
+    ctx.lineJoin="round";ctx.lineCap="round";
+    [170,125,88,58,34,16].forEach(w=>{ctx.lineWidth=2*w+2.2/Sc;ctx.strokeStyle=P.iso;ctx.stroke(all);ctx.lineWidth=2*w;ctx.strokeStyle="rgba(255,255,255,.075)";ctx.stroke(all);});
+    ctx.lineWidth=1/Sc;ctx.strokeStyle=P.grid;ctx.beginPath();
     for(let x=-500;x<=1500;x+=100){ctx.moveTo(x,-500);ctx.lineTo(x,1100);}
     for(let y=-500;y<=1100;y+=100){ctx.moveTo(-500,y);ctx.lineTo(1500,y);}
     ctx.stroke();
-    ctx.fillStyle=rgba(P.label,1);ctx.font="700 24px 'Archivo','Plus Jakarta Sans',system-ui,sans-serif";ctx.textAlign="center";
+    ctx.font="700 24px 'Archivo','Plus Jakarta Sans',system-ui,sans-serif";ctx.textAlign="center";
     try{ctx.letterSpacing="10px";}catch(e){}
-    ctx.fillText("JAVA SEA",470,24);ctx.fillText("INDIAN OCEAN",640,590);
+    ctx.fillStyle=rgba(P.seaS,.5);ctx.fillText("JAVA SEA",470,-34);
+    ctx.fillStyle="rgba(255,255,255,.72)";ctx.fillText("INDIAN OCEAN",640,660);
+    ctx.font="600 13px 'Plus Jakarta Sans',system-ui,sans-serif";try{ctx.letterSpacing="2px";}catch(e){}
+    ctx.fillStyle="rgba(255,255,255,.5)";ctx.fillText("deeper offshore",640,684);
     try{ctx.letterSpacing="0px";}catch(e){}
     ctx.fillStyle=rgba(P.side,1);for(let z=-9*u;z<0;z+=3*u){PT(z);ctx.fill(all);}
     PT(0);ctx.fillStyle=rgba(P.land,1);ctx.fill(all);
@@ -1788,6 +1851,135 @@ document.addEventListener("click",e=>{
   let r=0;addEventListener("scroll",()=>{if(r)return;r=requestAnimationFrame(()=>{r=0;const h=document.documentElement;bar.style.transform=`scaleX(${h.scrollTop/(h.scrollHeight-h.clientHeight||1)})`;$(".top").classList.toggle("scrolled",h.scrollTop>10);});},{passive:true});
   const btn=$("#copyEmail");
   if(btn)btn.addEventListener("click",async()=>{try{await navigator.clipboard.writeText("nefianurfitri@gmail.com");btn.textContent="Copied";}catch(err){btn.textContent="nefianurfitri@gmail.com";}setTimeout(()=>btn.textContent="Copy email",2200);});
+})();
+
+/* ================= living background ================= */
+(function(){
+  const fx=document.createElement("div");fx.className="bgfx";fx.setAttribute("aria-hidden","true");
+  fx.innerHTML='<canvas></canvas><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="blob glow"></i>';
+  document.body.prepend(fx);window.bgfx=fx;
+  const cv=$("canvas",fx),g=cv.getContext("2d");
+  const P=new Uint8Array(512);let sd=97;const rn=()=>(sd=(sd*16807)%2147483647)/2147483647;const bs=[...Array(256).keys()];
+  for(let i=255;i>0;i--){const j=Math.floor(rn()*(i+1));[bs[i],bs[j]]=[bs[j],bs[i]];}for(let i=0;i<512;i++)P[i]=bs[i&255];
+  const hh=(i,j)=>P[(P[i&255]+j)&255]/255;
+  const vn=(x,y)=>{const xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi,u=xf*xf*(3-2*xf),v=yf*yf*(3-2*yf),a=hh(xi,yi),b=hh(xi+1,yi),c=hh(xi,yi+1),d=hh(xi+1,yi+1);return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v;};
+  function render(){
+    const W=innerWidth,H=Math.round(innerHeight*1.5),dp=Math.min(1.5,devicePixelRatio||1),cs=W<700?16:13,cols=Math.ceil(W/cs)+1,rows=Math.ceil(H/cs)+1,f=1/300,st=cols+1;
+    cv.width=Math.round(W*dp);cv.height=Math.round(H*dp);g.setTransform(dp,0,0,dp,0,0);g.clearRect(0,0,W,H);
+    const F=new Float32Array((cols+1)*(rows+1));let k=0;
+    for(let j=0;j<=rows;j++)for(let i=0;i<=cols;i++){const x=i*cs,y=j*cs;F[k++]=.6*vn(x*f+3,y*f+7)+.3*vn(x*f*2.1+11,y*f*2.1+2)+.1*vn(x*f*4.4,y*f*4.4+5);}
+    const rgb=css("--contour");let li=0;
+    for(let L=.12;L<.95;L+=.03,li++){
+      const major=li%5===0;g.beginPath();
+      for(let j=0;j<rows;j++){const y0=j*cs;for(let i=0;i<cols;i++){const x0=i*cs,o=j*st+i,a=F[o],b=F[o+1],c=F[o+st+1],d=F[o+st];
+        const n=(a>L?8:0)|(b>L?4:0)|(c>L?2:0)|(d>L?1:0);if(n===0||n===15)continue;
+        const T=()=>[x0+cs*(L-a)/(b-a),y0],Rr=()=>[x0+cs,y0+cs*(L-b)/(c-b)],B=()=>[x0+cs*(L-d)/(c-d),y0+cs],Le=()=>[x0,y0+cs*(L-a)/(d-a)];
+        const sg=(p,q)=>{g.moveTo(p[0],p[1]);g.lineTo(q[0],q[1]);};
+        switch(n){case 1:case 14:sg(Le(),B());break;case 2:case 13:sg(B(),Rr());break;case 3:case 12:sg(Le(),Rr());break;case 4:case 11:sg(T(),Rr());break;case 6:case 9:sg(T(),B());break;case 7:case 8:sg(Le(),T());break;case 5:sg(T(),Rr());sg(Le(),B());break;case 10:sg(Le(),T());sg(B(),Rr());break;}
+      }}
+      g.strokeStyle=`rgba(${rgb},${major?.26:.13})`;g.lineWidth=major?1.2:.8;g.stroke();
+    }
+  }
+  render();
+  let rt=0;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(render,250);});
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change",render);
+  window.bgParallax=y=>{if(reduce)return;const h=document.documentElement,max=h.scrollHeight-h.clientHeight,p=max>0?y/max:0;cv.style.transform=`translate3d(0,${(-p*innerHeight*.5).toFixed(1)}px,0)`;};
+  if(!reduce&&matchMedia("(pointer:fine)").matches){
+    const gl=$(".glow",fx);let tx=innerWidth/2,ty=innerHeight*.4,x=tx,y=ty,run=false;
+    const loop=()=>{x+=(tx-x)*.07;y+=(ty-y)*.07;gl.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) translate(-50%,-50%)`;if(Math.abs(tx-x)+Math.abs(ty-y)>.5)requestAnimationFrame(loop);else run=false;};
+    addEventListener("pointermove",e=>{tx=e.clientX;ty=e.clientY;if(!run){run=true;requestAnimationFrame(loop);}},{passive:true});
+  }
+})();
+
+/* ================= count-up numbers ================= */
+function countUp(el){
+  if(reduce)return;
+  const small=el.querySelector("small"),keep=small?small.outerHTML:"";
+  const final=el.dataset.final||(el.dataset.final=small?el.firstChild.textContent:el.textContent);
+  const m=final.match(/^([^\d]*)([\d,]*\.?\d+)(.*)$/s);if(!m){return;}
+  const [,pre,num,post]=m,dec=(num.split(".")[1]||"").length,comma=num.includes(","),to=parseFloat(num.replace(/,/g,""));
+  const fmt=v=>{let t=v.toFixed(dec);if(comma)t=Number(t).toLocaleString("en-US",{minimumFractionDigits:dec,maximumFractionDigits:dec});return pre+t+post;};
+  const t0=performance.now(),D=1100;cancelAnimationFrame(el._cu);
+  const step=now=>{const p=Math.min(1,(now-t0)/D),e=1-Math.pow(1-p,3);if(small)el.innerHTML=fmt(to*e)+keep;else el.textContent=fmt(to*e);if(p<1)el._cu=requestAnimationFrame(step);};
+  el._cu=requestAnimationFrame(step);
+}
+(function(){
+  const box=$("#plates");if(!box)return;
+  const run=()=>{const p=$(".plate.is-open",box);if(!p)return;$$(".pfigs dt",p).forEach(countUp);if(window.bgfx)window.bgfx.style.setProperty("--gc",`var(--${p.dataset.th})`);};
+  new MutationObserver(run).observe(box,{subtree:true,attributes:true,attributeFilter:["class"]});
+  run();
+  const big=$$(".pf-edu .gpa,.tbig b");
+  const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){countUp(e.target);ob.unobserve(e.target);}}),{threshold:.6});
+  setTimeout(()=>$$(".pf-edu .gpa,.tbig b").forEach(b=>ob.observe(b)),300);
+})();
+
+/* ================= headings rise word by word ================= */
+(function(){
+  if(reduce)return;
+  document.documentElement.classList.add("rv");
+  const heads=$$(".sec-head,.cplate");
+  heads.forEach(h=>{const h2=$("h2",h);if(!h2)return;const words=h2.textContent.trim().split(/\s+/);h2.setAttribute("aria-label",h2.textContent.trim());
+    h2.innerHTML=words.map((w,i)=>`<span class="w" aria-hidden="true"><span class="wi" style="--i:${i}">${esc(w)}</span></span>`).join(" ");});
+  const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");ob.unobserve(e.target);}}),{threshold:.25,rootMargin:"0px 0px -8% 0px"});
+  heads.forEach(h=>ob.observe(h));
+})();
+
+/* ================= experience: a photo follows the cursor ================= */
+(function(){
+  if(reduce||!matchMedia("(hover:hover) and (pointer:fine)").matches)return;
+  const pk=document.createElement("div");pk.className="xpeek";pk.setAttribute("aria-hidden","true");pk.innerHTML="<img alt=''>";document.body.appendChild(pk);
+  const im=$("img",pk);let tx=0,ty=0,x=0,y=0,vx=0,on=false,raf=0;
+  const loop=()=>{const nx=x+(tx-x)*.16,ny=y+(ty-y)*.16;vx=nx-x;x=nx;y=ny;const r=Math.max(-12,Math.min(12,vx*.6));pk.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) rotate(${r.toFixed(2)}deg) scale(${on?1:.6})`;raf=on||Math.abs(tx-x)>.5?requestAnimationFrame(loop):0;};
+  $$(".xrow").forEach(r=>{const ph=$(".rphoto img",r),h=$(".xhead",r);if(!ph)return;
+    h.addEventListener("pointerenter",e=>{if(r.classList.contains("is-open"))return;im.src=ph.src;tx=e.clientX+28;ty=e.clientY-110;if(!on){x=tx;y=ty;}on=true;pk.classList.add("on");if(!raf)raf=requestAnimationFrame(loop);});
+    h.addEventListener("pointermove",e=>{if(r.classList.contains("is-open")){on=false;pk.classList.remove("on");return;}tx=e.clientX+28;ty=e.clientY-110;if(!on){on=true;pk.classList.add("on");}if(!raf)raf=requestAnimationFrame(loop);});
+    h.addEventListener("pointerleave",()=>{on=false;pk.classList.remove("on");});
+    h.addEventListener("click",()=>{on=false;pk.classList.remove("on");});});
+})();
+
+/* ================= in the field: reel on desktop, marquee on phones ================= */
+(function(){
+  const sec=$("#moments"),mq=$("#marquee");if(!sec||!mq)return;
+  const PICK=["parakan-consultation","bappeda-team","klhs-meeting","social-3","bps-team","bob-interview","social-1","bob-heritage","social-6","camp-field","social-5","social-4"];
+  const ids=PICK.map(n=>MOMENTS.findIndex(m=>m[0]===n)).filter(i=>i>=0);
+  const wide=matchMedia("(min-width:821px)");
+  function marquee(){
+    sec.classList.remove("has-reel");
+    const rowA=MOMENTS.map((m,i)=>i).filter(i=>i<9),rowB=MOMENTS.map((m,i)=>i).filter(i=>i>=9);
+    const tile=(i,dup)=>{const m=MOMENTS[i];return `<button type="button" class="shot${m[2]?" t-"+m[2]:""}" data-moment="${i}"${dup?' tabindex="-1" aria-hidden="true"':""}><img src="img/${m[0]}.webp" alt="${dup?"":esc(m[1])}" width="${m[3]}" height="${m[4]}"${dup?' loading="lazy"':""}></button>`;};
+    const row=(ids,cls,dur)=>`<div class="mrow ${cls}" style="--dur:${dur}s"><div class="mtrack">${ids.map(i=>tile(i,false)).join("")}${ids.map(i=>tile(i,true)).join("")}</div></div>`;
+    mq.className="marquee";mq.innerHTML=row(rowA,"",64)+row(rowB,"rev",72);mq.style.height="";window.reelUpdate=null;
+  }
+  function reel(){
+    sec.classList.add("has-reel");
+    mq.className="reel";
+    mq.innerHTML=`<div class="reel-pin"><div class="reel-track">${ids.map(i=>{const m=MOMENTS[i];return `<button type="button" class="rshot" data-moment="${i}"><div class="ph"><img src="img/${m[0]}.webp" alt="${esc(m[1])}" width="${m[3]}" height="${m[4]}"></div><span>${esc(m[1])}</span></button>`;}).join("")}</div><div class="reel-meta"><span class="tnum" id="reelN">1 / ${ids.length}</span><div class="reel-bar"><i></i></div><span>Keep scrolling</span></div></div>`;
+    const pin=$(".reel-pin",mq),tr=$(".reel-track",mq),bar=$(".reel-bar i",mq),nEl=$("#reelN",mq);
+    let span=0;
+    const size=()=>{span=Math.max(0,tr.scrollWidth-innerWidth);mq.style.height=(pin.offsetHeight+span/1.35)+"px";};
+    $$("img",tr).forEach(i=>i.complete||i.addEventListener("load",size,{once:true}));size();addEventListener("resize",size);
+    window.reelUpdate=()=>{const r=mq.getBoundingClientRect(),run=mq.offsetHeight-pin.offsetHeight,p=run>0?Math.max(0,Math.min(1,(66-r.top)/run)):0;tr.style.transform=`translate3d(${(-p*span).toFixed(1)}px,0,0)`;bar.style.transform=`scaleX(${p})`;nEl.textContent=`${Math.min(ids.length,1+Math.floor(p*ids.length))} / ${ids.length}`;};
+    window.reelUpdate();
+  }
+  marquee();
+})();
+
+/* ================= sheets: depth as the next section slides over ================= */
+(function(){
+  const S=$$("main > section");
+  const big=matchMedia("(min-width:821px)");
+  function tick(){
+    const vh=innerHeight;
+    for(let i=1;i<S.length;i++){
+      const top=S[i].getBoundingClientRect().top,p=Math.max(0,Math.min(1,(vh-top)/vh)),prev=S[i-1];
+      if(reduce){prev.style.removeProperty("--dim");continue;}
+      if(p>0&&p<1){prev.style.transform=big.matches?`scale(${(1-.05*p).toFixed(4)})`:"";prev.style.setProperty("--dim",(p*.3).toFixed(3));}
+      else{if(prev.style.transform)prev.style.transform="";prev.style.setProperty("--dim",p>=1?".3":"0");}
+    }
+  }
+  let r=0;
+  const onScroll=()=>{if(r)return;r=requestAnimationFrame(()=>{r=0;tick();if(window.reelUpdate)window.reelUpdate();if(window.bgParallax)window.bgParallax(document.documentElement.scrollTop);});};
+  addEventListener("scroll",onScroll,{passive:true});addEventListener("resize",onScroll);onScroll();
 })();
 
 </script>
