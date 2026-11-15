@@ -439,7 +439,10 @@ dialog::backdrop{background:rgba(16,22,30,.55);backdrop-filter:blur(3px)}
 .dlg li{margin-top:6px}
 .dlg li::marker{color:var(--c)}
 .dlg .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.dlg .proofs{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px}
+.dlg .proofs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.dlg .proofs.prooftop{margin-top:16px}
+.dlg .proofs .proof{text-decoration:none;background:var(--cs);color:var(--ci);padding:8px 14px;border-radius:999px;font-size:13.5px}
+.dlg .proofs .proof:hover{background:var(--cp);color:#fff}
 .dlg .close{position:sticky;top:0;float:right;margin:-12px -14px 0 12px;width:40px;height:40px;border:0;border-radius:50%;background:var(--bg);cursor:pointer;font-size:22px;line-height:1;z-index:2}
 .dlg .close:hover{background:var(--rule)}
 .viewer{flex:1;min-height:280px;display:grid;place-items:center;background:var(--surface);border-radius:16px;padding:12px}
@@ -1507,13 +1510,13 @@ function openCase(id,at=0,src=null){
       <p class="mono muted">${esc(p.period)}</p>
       <div style="margin-top:8px">${tps(p.th)}</div>
       <h3 id="caseTitle">${esc(p.title)}</h3>
-      <p class="who">${esc(p.org)}<br><span class="mono">${esc(p.role)}</span></p>
+      <p class="who">${esc(p.org)}<br><span class="mono">${esc(p.role)}</span></p>${proofs?`<div class="proofs prooftop">${proofs}</div>`:""}
       <h4>Context</h4><p>${esc(p.context)}</p>
       <h4>What I did</h4><ul>${p.did.map(d=>`<li>${esc(d)}</li>`).join("")}</ul>
       ${p.siteList?`<h4>Sites (${p.siteList.length}) · status as of ${ASOF}</h4><table class="sitetab"><tbody>${p.siteList.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${stt(r[2])}</td></tr>`).join("")}</tbody></table>`:""}
       <h4>Outcome</h4><p>${esc(p.outcome)}</p>
       <h4>Methods &amp; tools</h4><div class="tags">${p.tools.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>
-      ${proofs?`<h4>Proof</h4><div class="proofs">${proofs}</div>`:""}
+      
     </div><div class="gal">${gal}</div>`;
   if(p.gallery.length)bindGallery(p.gallery,at);else dbody.onkeydown=null;
   showDlg(src);
